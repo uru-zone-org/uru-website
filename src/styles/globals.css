@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+
+:root {
+  /* Brand Palette (Shared) */
+  --color-dumbell: #080A0C;
+  --color-electrical: #FFF700;
+  --color-steel: #EAE8FF;
+
+  --color-dumbell-70: #080A0C;
+  --color-dumbell-60: #191924;
+  --color-dumbell-50: #2A2A3C;
+  --color-dumbell-40: #3B3B54;
+  --color-dumbell-30: #B7B7CD;
+  --color-dumbell-20: #CECEE4;
+  --color-dumbell-10: #EAE8FF;
+
+  /* Light Mode Theming */
+  --color-ui-bg: var(--color-steel);     /* Light background */
+  --color-ui-text: var(--color-dumbell-60);   /* Light text */
+
+  /* Fonts */
+  --font-archivo: 'Archivo', sans-serif;
+}
+  /* Fonts */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Theming */
+    --color-ui-bg: var(--color-dumbell-50);    /* Dark background */
+    --color-ui-text: var(--color-dumbell-10);  /* Dark text */
+  }
+}
+
+body {
+  background: var(--color-ui-bg);
+  color: var(--color-ui-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
