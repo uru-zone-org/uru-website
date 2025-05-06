@@ -7,7 +7,17 @@ export default {
       "./pages/**/*.{ts,tsx}",
     ],
     theme: {
-      extend: {},
+      extend: {
+        animation: {
+          'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
+        },
+        keyframes: {
+          'pulse-slow': {
+            '0%, 100%': { transform: 'scale(1)' },
+            '50%': { transform: 'scale(1.05)' },
+          },
+        },
+      },
     },
     plugins: [],
   };
