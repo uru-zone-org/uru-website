@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Header() {
 
     return (
-<header className="w-100% h-100% flex items-center justify-center box-border border-b border-[color:var(--color-border)]">
+<header className="w-100% h-100% flex items-center justify-center">
     <Link href="/" className="flex items-center justify-center"></Link>
     <div
     className="
@@ -26,4 +26,3 @@ export default function Header() {
       
     );
   }
-  

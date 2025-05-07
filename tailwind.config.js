@@ -1,7 +1,6 @@
-// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-export default {
-     darkMode: 'class',
+module.exports = {
+    darkMode: 'class',
     content: [
       "./app/**/*.{ts,tsx}",
       "./components/**/*.{ts,tsx}",
@@ -9,15 +8,20 @@ export default {
     ],
     theme: {
       extend: {
+        animation: {
+          'soft-breathe': 'soft-breathe 4s ease-in-out infinite',
+          blink: 'blink 6s ease-in-out infinite',
+        },
         keyframes: {
-            'eye-pulse': {
-              '0%, 100%': { transform: 'scale(1)' },
-              '50%': { transform: 'scale(1.20)' },
-            },
+          'soft-breathe': {
+            '0%, 100%': { transform: 'scale(1) translateY(-6px)' },
+            '50%': { transform: 'scale(1.02) translateY(-8px)' },
           },
-          animation: {
-            'eye-pulse': 'eye-pulse 3s ease-in-out infinite',
-          }
+          blink: {
+            '0%, 100%': { opacity: 1 },
+            '50%': { opacity: 0.3 },
+          },
+        },
       },
     },
     plugins: [],

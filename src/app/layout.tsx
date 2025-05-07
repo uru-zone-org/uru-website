@@ -4,8 +4,7 @@ import Nav from "@/components/Nav"
 import ThemeToggle from '@/components/ThemeToggle'
 import Header from "@/components/Header"
 import Uru from "./uru/uru";
-
-
+import TestPulsePage from "./test-pulse/page";
 
 
 export const metadata: Metadata = {
