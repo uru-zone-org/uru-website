@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export default function HomePage() {
+export default function ContactPage() {
   const divRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null); 
   useEffect(() => {

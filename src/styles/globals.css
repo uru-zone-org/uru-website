@@ -21,10 +21,18 @@
 
   /* Light Mode */
   --color-ui-bg: var(--color-steel);
-  --color-ui-text: var(--color-dumbell);
+  --color-ui-text: var(--color-dumbell-60);
+  --color-border: var(--color-dumbell-30);
 
   /* Fonts */
   --font-archivo: 'Archivo', sans-serif;
+}
+
+
+.dark {
+  --color-ui-bg: var(--color-dumbell-40);
+  --color-border: var(--color-dumbell-30);
+  --color-text: var(--color-steel); 
 }
 
 @media (prefers-color-scheme: dark) {
