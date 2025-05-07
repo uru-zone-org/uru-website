@@ -41,8 +41,8 @@ export default function ContactPage() {
   
 
   return (
-    <section className="flex items-center justify-center bg-gradient-to-br from-[var(--color-steel)] to-[var(--color-dumbell-10)]">
-      <div ref={wrapperRef} className="w-100 h-140 flex items-center justify-center border border-black bg-transparent">
+    <section className="flex items-center justify-center">
+      <div ref={wrapperRef} className="w-100 h-140 flex items-center justify-center">
         <div
           ref={divRef}
           className="
@@ -51,6 +51,8 @@ export default function ContactPage() {
             drop-shadow-[0_0_20px_var(--color-electrical)]
             animate-pulse-slow
           "
+
+          
           style={{
             backgroundImage:
                 "radial-gradient(circle, var(--color-electrical) 2%, var(--color-steel) 40%, var(--color-blue) 100%)",

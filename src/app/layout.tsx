@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import '@/styles/globals.css';
 import Nav from "@/components/Nav"
+import ThemeToggle from '@/components/ThemeToggle'
+import Header from "@/components/Header"
+import Uru from "./uru/uru";
+
+
 
 
 export const metadata: Metadata = {
@@ -15,11 +20,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <header className="flex justify-center">
-          <Nav/>
-        </header>
-        <main>{children}</main>
+      <body className="bg-[var(--color-background)] text-[var(--color-text)]">
+      <div className="flex flex-col min-h-screen">
+        <header>
+          <Header />
+          <Nav />
+          <Uru/>
+          </header>
+  <main>{children}</main>
+
+<div>
+  <ThemeToggle/>
+</div>
+
+</div>
+
       </body>
     </html>
   );

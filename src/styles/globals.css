@@ -20,8 +20,8 @@
   --color-dumbell-10: #EAE8FF;
 
   /* Light Mode */
-  --color-ui-bg: var(--color-steel);
-  --color-ui-text: var(--color-dumbell-60);
+  --color-background: var(--color-steel);
+  --color-text: var(--color-dumbell-60);
   --color-border: var(--color-dumbell-30);
 
   /* Fonts */
@@ -30,7 +30,7 @@
 
 
 .dark {
-  --color-ui-bg: var(--color-dumbell-40);
+  --color-background: var(--color-dumbell-60);
   --color-border: var(--color-dumbell-30);
   --color-text: var(--color-steel); 
 }
@@ -42,9 +42,13 @@
   }
 }
 
+html, body {
+  height: 100%;
+}
+
+
 body {
-  background: var(--color-ui-bg);
-  color: var(--color-ui-text);
+  color: var(--color-text);
   font-family: var(--font-archivo);
   line-height: 1.6;
   font-size: 1rem;
@@ -58,15 +62,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: var(--color-ui-text);
+  color: var(--color-text);
   font-weight: 500;
 }
 
 button {
   font-family: var(--font-archivo);
   font-weight: 500;
-  background-color: var(--color-dumbell-20);
-  color: var(--color-dumbell-60);
+  background-color: var(--color-background);
+  color: var(--color-text);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
