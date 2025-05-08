@@ -6,6 +6,22 @@
 
 @tailwind utilities;
 
+@font-face {
+  font-family: 'TransducerTest Hairline';
+  src: url('/fonts/TransducerTest-ExtendedHairline.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TransducerTest Hairline 2';
+  src: url('/fonts/TransducerTest-Hairline2.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 :root {
   /* Brand Palette */
@@ -29,6 +45,8 @@
 
   /* Fonts */
   --font-archivo: 'Archivo', sans-serif;
+  --font-transducer-hairline: 'TransducerTest Hairline', sans-serif;
+  --font-transducer-hairline-2: 'TransducerTest Hairline 2', sans-serif;
 }
 
 
@@ -57,9 +75,20 @@ body {
   font-size: 1rem;
 }
 
+nav a {
+  font-family: var(--font-transducer-hairline-2);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   font-family: var(--font-archivo);
+  color: var(--color-ui-text);
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-family: var(--font-transducer-hairline);
+  font-weight: 100;       /* matches the “Hairline” weight */
   color: var(--color-ui-text);
   margin-bottom: 0.5em;
 }

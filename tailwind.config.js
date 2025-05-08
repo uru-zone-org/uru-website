@@ -8,6 +8,10 @@ module.exports = {
     ],
     theme: {
       extend: {
+        fontFamily: {
+          'transducer-hairline': ['“TransducerTest Hairline”', 'sans-serif'],
+          'transducer-hairline-2': ['“TransducerTest Hairline 2”', 'sans-serif'],
+        },
         animation: {
           'soft-breathe': 'soft-breathe 4s ease-in-out infinite',
           blink: 'blink 6s ease-in-out infinite',
