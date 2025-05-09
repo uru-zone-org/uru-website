@@ -1,68 +1,26 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
 export default function AboutPage() {
-  const divRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null); 
-  useEffect(() => {
-    const updateBackground = (x: number, y: number) => {
-      if (!wrapperRef.current || !divRef.current) return;
-  
-      const rect = wrapperRef.current.getBoundingClientRect();
-      const px = ((x - rect.left) / rect.width) * 100;
-      const py = ((y - rect.top) / rect.height) * 100;
-      console.log("Mouse/touch position (%):", px.toFixed(2), py.toFixed(2));
-
-      divRef.current.style.backgroundPosition = `${px}% ${py}%`;
-
-    };
-  
-    const handleMouseMove = (e: MouseEvent) => {
-      updateBackground(e.clientX, e.clientY);
-    };
-  
-    const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 0) {
-        const touch = e.touches[0];
-        updateBackground(touch.clientX, touch.clientY);
-      }
-    };
-  
-    const wrapperEl = wrapperRef.current;
-    wrapperEl?.addEventListener("mousemove", handleMouseMove);
-    wrapperEl?.addEventListener("touchmove", handleTouchMove, { passive: true });
-  
-    return () => {
-      wrapperEl?.removeEventListener("mousemove", handleMouseMove);
-      wrapperEl?.removeEventListener("touchmove", handleTouchMove);
-    };
-  }, []);
-  
-
   return (
     <section className="flex items-center justify-center">
-      <div ref={wrapperRef} className="w-100 h-140 flex items-center justify-center">
-        <div
-          ref={divRef}
-          className="
-            w-full h-full
-            mask-[url('/URU_FaceFill.svg')] mask-no-repeat mask-center mask-size-contain
-            drop-shadow-[0_0_20px_var(--color-electrical)]
-            animate-pulse-slow
-          "
+      <h2>
+  What is URU_space
+  <br />
+  URU_space is a wearable strength training system that includes a sensor URU_tag and a companion URU_app.
+  <br />
+  The device attaches to specially designed wearables and uses precision motion tracking to detect your lifts in real-time.
+  <br />
+  It counts your reps, analyses your form, and provides adaptive training feedback.
+  <br />
+  The URU app learns from your movement and creates personalised lifting programs.
+  <br />
+  Whether you're aiming to build strength, improve endurance, or perfect your form, URU adjusts with you, rep by rep.
+  <br />
+  Touch is how you communicate.
+  <br />
+  Light and vibration are how URU speaks back.
+</h2>
 
-          
-          style={{
-            backgroundImage:
-                "radial-gradient(circle, var(--color-electrical) 2%, var(--color-steel) 40%, var(--color-blue) 100%)",
-            backgroundSize: "300% 300%",
-            backgroundPosition: "50% 50%",
-            transition: "background-position 0.1s ease-out",
-          }}
-          aria-hidden
-        />
-      </div>
     </section>
   );
 }

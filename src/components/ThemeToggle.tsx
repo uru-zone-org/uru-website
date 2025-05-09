@@ -27,10 +27,10 @@ export default function ThemeToggle() {
 
   return (
     <button
-      onClick={toggleTheme}
-      className="fixed bottom-4 right-4 z-50 bg-[var(--color-border)] text-[var(--color-background)] px-4 py-2 rounded-full shadow-md hover:opacity-80 transition"
+    onClick={toggleTheme}
+    className="btn fixed bottom-4 right-4 z-50"
     >
-      {isDark ? '☀️ Light' : '🌙 Dark'}
+      {isDark ? "Light" : "Dark"}
     </button>
   );
 }

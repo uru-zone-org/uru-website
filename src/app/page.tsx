@@ -7,7 +7,6 @@ export default function HomePage() {
   <nav className="flex gap-6 font-medium text-[var(--color-text)]">
   </nav>
     </header>
-    <p>hey</p>
     </>
   );
 }

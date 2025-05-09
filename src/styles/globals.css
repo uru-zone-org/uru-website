@@ -63,6 +63,58 @@
   }
 }
 
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "nav"
+    "uru"
+    "a"
+    "b"
+    "c"
+    "d"
+    "f";
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .layout-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "uru uru"
+      "a b"
+      "c d"
+      "f f";
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "header header header"
+      "nav uru b"
+      "a c d";
+  }
+}
+
+/* Area classes */
+.area-header { grid-area: header; }
+.area-nav { grid-area: nav; }
+.area-uru { grid-area: uru; }
+.area-a { grid-area: a; }
+.area-b { grid-area: b; }
+.area-c { grid-area: c; }
+.area-d { grid-area: d; }
+
+.layout-grid > * {
+  border: 1px solid var(--color-border);
+}
+
+
 html, body {
   height: 100%;
 }
@@ -79,16 +131,17 @@ nav a {
   font-family: var(--font-transducer-hairline-2);
 }
 
-h1, h2, h3, h4, h5, h6 {
+ h3, h4, h5, h6 {
   font-weight: 500;
   font-family: var(--font-archivo);
   color: var(--color-ui-text);
   margin-bottom: 0.5em;
 }
 
-h1 {
+h1, h2 {
   font-family: var(--font-transducer-hairline);
-  font-weight: 100;       /* matches the “Hairline” weight */
+  font-weight: 100;  
+  font-size: 2rem;     /* matches the “Hairline” weight */
   color: var(--color-ui-text);
   margin-bottom: 0.5em;
 }
@@ -98,17 +151,3 @@ a {
   font-weight: 500;
 }
 
-button {
-  font-family: var(--font-archivo);
-  font-weight: 500;
-  background-color: var(--color-background);
-  color: var(--color-text);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--color-dumbell-30);
-}
