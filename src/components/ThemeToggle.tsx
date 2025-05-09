@@ -30,7 +30,6 @@ export default function ThemeToggle() {
     onClick={toggleTheme}
     className="btn fixed bottom-4 right-4 z-50"
     >
-      {isDark ? "Light" : "Dark"}
-    </button>
+      {isDark ? "Dark" : "Light"}</button>
   );
 }

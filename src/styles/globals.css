@@ -38,10 +38,10 @@
   --color-dumbell-20: #CECEE4;
   --color-dumbell-10: #EAE8FF;
 
-  /* Light Mode */
-  --color-background: var(--color-steel);
-  --color-text: var(--color-dumbell-60);
+  /* Dark Mode */
+  --color-background: var(--color-dumbell-60);
   --color-border: var(--color-dumbell-30);
+  --color-text: var(--color-steel); 
 
   /* Fonts */
   --font-archivo: 'Archivo', sans-serif;
@@ -51,17 +51,12 @@
 
 
 .dark {
-  --color-background: var(--color-dumbell-60);
+  --color-background: var(--color-steel);
+  --color-text: var(--color-dumbell-60);
   --color-border: var(--color-dumbell-30);
-  --color-text: var(--color-steel); 
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-ui-bg: var(--color-dumbell-40);
-    --color-ui-text: var(--color-steel);
-  }
-}
+
 
 .layout-grid {
   display: grid;
@@ -110,10 +105,10 @@
 .area-c { grid-area: c; }
 .area-d { grid-area: d; }
 
-.layout-grid > * {
+/* .layout-grid > * {
   border: 1px solid var(--color-border);
 }
-
+ */
 
 html, body {
   height: 100%;
