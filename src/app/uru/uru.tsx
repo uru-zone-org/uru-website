@@ -69,7 +69,7 @@ export default function UruPage() {
           "
           style={{
             backgroundImage:
-              "linear-gradient(200deg, var(--color-electrical) 0%, var(--color-steel) 30%, var(--color-blue) 70%)",
+              "radial-gradient(circle, var(--color-electrical) 0%, var(--color-steel) 30%, var(--color-blue) 70%)",
             backgroundSize: "200% 200%",
             backgroundPosition: "50% 50%",
             transition: "background-position 0.1s ease-out",

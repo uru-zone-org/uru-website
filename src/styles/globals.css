@@ -58,58 +58,6 @@
 
 
 
-.layout-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "header"
-    "nav"
-    "uru"
-    "a"
-    "b"
-    "c"
-    "d"
-    "f";
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .layout-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "header header"
-      "nav nav"
-      "uru uru"
-      "a b"
-      "c d"
-      "f f";
-  }
-}
-
-@media (min-width: 1024px) {
-  .layout-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-      "header header header"
-      "nav uru b"
-      "a c d";
-  }
-}
-
-/* Area classes */
-.area-header { grid-area: header; }
-.area-nav { grid-area: nav; }
-.area-uru { grid-area: uru; }
-.area-a { grid-area: a; }
-.area-b { grid-area: b; }
-.area-c { grid-area: c; }
-.area-d { grid-area: d; }
-
-/* .layout-grid > * {
-  border: 1px solid var(--color-border);
-}
- */
-
 html, body {
   height: 100%;
 }
@@ -126,19 +74,64 @@ nav a {
   font-family: var(--font-transducer-hairline-2);
 }
 
- h3, h4, h5, h6 {
-  font-weight: 500;
-  font-family: var(--font-archivo);
-  color: var(--color-ui-text);
-  margin-bottom: 0.5em;
+.typography-h1 {
+  font-family: var(--font-transducer-hairline);
+  font-weight: 100;
+  font-size: 3rem;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
 }
 
-h1, h2 {
+/* Headline Medium (h2) */
+.typography-h2 {
   font-family: var(--font-transducer-hairline);
-  font-weight: 100;  
-  font-size: 2rem;     /* matches the “Hairline” weight */
-  color: var(--color-ui-text);
-  margin-bottom: 0.5em;
+  font-weight: 100;
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+/* Subheading (h3) */
+.typography-h3 {
+  font-family: var(--font-archivo);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* Emphasis (like “THE PCB”) */
+.typography-sub {
+  font-family: var(--font-transducer-hairline-2);
+  font-size: 2rem;
+  font-weight: 200;
+  color: var(--color-dumbell-40);
+}
+
+/* Body Large */
+.typography-body {
+  font-family: var(--font-archivo);
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+/* Block Quote */
+.typography-quote {
+  font-family: var(--font-archivo);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* Caption / Byline */
+.typography-caption {
+  font-family: var(--font-archivo);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-dumbell-30);
 }
 
 a {
