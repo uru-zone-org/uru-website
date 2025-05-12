@@ -2,7 +2,7 @@
 
 export default function AboutPage() {
   return (
-    <section className="flex items-center justify-center px-4 py-12">
+    <section className="flex items-center justify-center px-2 py-12">
       <div className="max-w-2xl space-y-6">
         <h2 className="typography-h2">What is URU_space</h2>
 

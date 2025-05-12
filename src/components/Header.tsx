@@ -2,17 +2,12 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="w-full flex justify-center items-center">
+    <nav className="flex items-center justify-between w-full px-4 uppercase text-[0.8125rem] tracking-widest font-medium font-transducer-hairline-2">
       <Link href="/">
         <div
           className="
-            w-32 h-32
-            sm:w-40 sm:h-40
-            md:w-48 md:h-48    
+            w-20 h-20
             mask-[url('/URU_logo.svg')] mask-no-repeat mask-center mask-contain
-            flex items-center justify-center
-            scale-[3]
-
           "
           style={{
             backgroundColor: 'var(--color-text)',
@@ -22,6 +17,10 @@ export default function Header() {
           aria-hidden
         />
       </Link>
-    </div>
+      <div className="flex-1 flex justify-center gap-10">
+        <Link href="/about" className="hover:underline">About</Link>
+      </div>
+      <Link href="/contact" className="hover:underline">Contact</Link>
+    </nav>
   );
 }
