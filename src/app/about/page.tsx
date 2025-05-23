@@ -4,7 +4,7 @@ import React from "react";
 
 const content = [
   {
-    title: "URU_Zone bkabka",
+    title: "URU_Zone",
     subtitle: "Strength training meets intelligent motion.",
     body: "Welcome to URU_Space — a new ecosystem of performance tools that combine data precision with gestural communication. We build tech that listens to your body in motion — and responds.",
     highlights: ["URU_Space"],
