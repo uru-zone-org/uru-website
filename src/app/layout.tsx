@@ -26,26 +26,22 @@ export default function RootLayout({
               <Header />
             </nav>
           </header>
-          <main className="flex-1 px-6 py-10">
-            <div className="flex flex-col md:flex-row gap-6">
+          <main className="flex-1 px-4 sm:px-6 pt-4 sm:pt-6 lg:pt-10 pb-6 sm:pb-10 xl:pt-2">
+            <div className="flex flex-col xl:flex-row gap-6">
             <div className="w-full md:flex-1 md:h-screen">
             <div className="w-full md:flex-1 md:h-screen md:flex md:items-center md:justify-center">
-  <Uru />
-</div>
-</div>
-
-            <div className="p- w-full md:flex-[2] space-y-4">
-              <About />
-              <UruMessage />
-              <TheApp />
-            </div>
+              <Uru />
+              </div>
+              </div>
+              <div className="flex-1 px-4 sm:px-6 pt-4 sm:pt-6 lg:pt-10 pb-6 sm:pb-10 xl:pt-2 flex items-center justify-center">
+                <div className="w-full">
+                  <About />
+                  </div>
+                  </div>
             </div>
           </main>
           <footer className="w-full px-4 py-2 text-xs text-center border-t border-[var(--color-border)]">
             All rights reserved.
-            <div className="mt-2">
-              <ThemeToggle />
-            </div>
           </footer>
         </div>
       </body>

@@ -33,12 +33,12 @@ export default function UruPage() {
   }, []);
 
   return (
-    <section className="flex justify-center items-center w-full px-4">
+    <section className="flex justify-center items-center w-full">
       <div className="
-      w-[500px] h-[500px] 
-      sm:w-[650px] sm:h-[650px] 
-      md:w-[800px] md:h-[800px] 
-      lg:w-[800px] lg:h-[800px] 
+      w-[80vw] h-[80vh]
+      md:w-[80vw] md:h-[80vh]
+      lg:w-[80vw] lg:h-[80vh]
+      xl:w-[40vw] xl:h-[80vh]    
       flex items-center justify-center 
       drop-shadow-[0_0_10px_var(--color-border)]
 

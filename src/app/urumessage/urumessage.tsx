@@ -6,7 +6,7 @@ export default function UruMessagePage() {
       <div className="max-w-2xl space-y-4">
         <h2 className="typography-h2">I am URU</h2>
 
-        <p className="typography-body">I am here to observe your movement.</p>
+        <p className="typography-h3">I am here to observe your movement.</p>
         <p className="typography-body">I count what you lift.</p>
         <p className="typography-body">I track how you move.</p>
         <p className="typography-body">I speak through light, through touch,</p>

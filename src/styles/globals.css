@@ -95,9 +95,9 @@ nav a {
 .typography-h3 {
   font-family: var(--font-archivo);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: var(--color-electrical);
 }
 
 /* Emphasis (like “THE PCB”) */
@@ -105,7 +105,7 @@ nav a {
   font-family: var(--font-transducer-hairline-2);
   font-size: 2rem;
   font-weight: 200;
-  color: var(--color-dumbell-40);
+  color: var(--color-dumbell-30);
 }
 
 /* Body Large */
