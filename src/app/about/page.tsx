@@ -92,56 +92,61 @@ const content = [
 ];
 
 export default function AboutPage() {
-  // track which section is visible
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSection = () => {
-    if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
+    if (currentIndex > 0) setCurrentIndex(i => i - 1);
   };
 
   const nextSection = () => {
-    if (currentIndex < content.length - 1) setCurrentIndex(currentIndex + 1);
+    if (currentIndex < content.length - 1) setCurrentIndex(i => i + 1);
   };
 
-  const section = content[currentIndex];
-  const { title, subtitle, quote, body, closing } = section;
+  const { title, subtitle, quote, body, closing } = content[currentIndex];
 
   return (
-    <section className="flex flex-col justify-start w-full">
-      <div className="w-full pl-8 pr-8">
-        <div className="py-8">
-          {currentIndex === 0
-            ? <h1 className="typography-h1">{title}</h1>
-            : <h2 className="typography-h2">{title}</h2>
-          }
-          {subtitle && <h3 className="typography-h3">{subtitle}</h3>}
-          {quote && <blockquote className="typography-body">{quote}</blockquote>}
-          {Array.isArray(body)
-            ? body.map((line, i) => (
-                <p key={i} className="typography-body">{line}</p>
-              ))
-            : <p className="typography-body">{body}</p>
-          }
-          {closing && <p className="typography-body">{closing}</p>}
-        </div>
+    <section className="flex flex-col h-screen">
+      {/* Fixed header */}
+      <header className="flex-none px-8 py-6">
+        {currentIndex === 0
+          ? <h1 className="typography-h1">{title}</h1>
+          : <h2 className="typography-h2">{title}</h2>
+        }
+        {subtitle && <h3 className="typography-h3">{subtitle}</h3>}
+      </header>
 
-        <div className="flex justify-between mt-4">
-          <button
-            onClick={prevSection}
-            disabled={currentIndex === 0}
-            className="px-4 py-2 rounded shadow disabled:opacity-50"
-          >
-            ← Prev
-          </button>
-          <button
-            onClick={nextSection}
-            disabled={currentIndex === content.length - 1}
-            className="px-4 py-2 rounded shadow disabled:opacity-50"
-          >
-            Next →
-          </button>
-        </div>
-      </div>
+      {/* Scrollable content */}
+      <main className="flex-grow overflow-y-auto px-8 py-6">
+        {quote && <blockquote className="typography-body mb-4">{quote}</blockquote>}
+        {Array.isArray(body)
+          ? body.map((line, i) => (
+              <p key={i} className="typography-body mb-2">{line}</p>
+            ))
+          : <p className="typography-body mb-2">{body}</p>
+        }
+        {closing && <p className="typography-body mt-4">{closing}</p>}
+      </main>
+
+      {/* Fixed footer */}
+      <footer className="flex-none flex justify-between items-center px-8 py-4">
+        <button
+          onClick={prevSection}
+          disabled={currentIndex === 0}
+          className="px-4 py-2 rounded shadow disabled:opacity-50"
+        >
+          ← Prev
+        </button>
+        <span className="text-sm text-gray-500">
+          {currentIndex + 1} / {content.length}
+        </span>
+        <button
+          onClick={nextSection}
+          disabled={currentIndex === content.length - 1}
+          className="px-4 py-2 rounded shadow disabled:opacity-50"
+        >
+          Next →
+        </button>
+      </footer>
     </section>
   );
 }
