@@ -87,7 +87,7 @@ nav a {
 .typography-h2 {
   font-family: var(--font-transducer-hairline);
   font-weight: 100;
-  font-size: 2.25rem;
+  font-size: 1.4rem;
   letter-spacing: -0.02em;
   color: var(--color-text);
 }
