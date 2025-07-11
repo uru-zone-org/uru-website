@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <nav className="flex items-center justify-between w-full px-4 uppercase text-sm sm:text-base lg:text-lg tracking-widest font-medium font-transducer-hairline-2">
+    <nav className="flex items-center justify-center w-full px-4 uppercase text-sm sm:text-base lg:text-lg tracking-widest font-medium font-transducer-hairline-2">
       <Link href="/">
         <div
           className="
@@ -18,9 +18,14 @@ export default function Header() {
         />
       </Link>
       <div className="flex-1 flex justify-center gap-10">
-        <Link href="/about" className="hover:underline">About</Link>
+        {/* change to hash-link */}
+        <Link href="#about">
+          About
+        </Link>
       </div>
-      <Link href="/contact" className="hover:underline">Contact</Link>
+      <Link href="/contact" className="hover:underline">
+        Contact
+      </Link>
     </nav>
   );
 }

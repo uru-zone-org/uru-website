@@ -60,6 +60,7 @@
 
 html, body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 
@@ -94,10 +95,9 @@ nav a {
 /* Subheading (h3) */
 .typography-h3 {
   font-family: var(--font-archivo);
-  font-weight: 700;
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: var(--color-electrical);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--color-dumbell-10);
 }
 
 /* Emphasis (like “THE PCB”) */

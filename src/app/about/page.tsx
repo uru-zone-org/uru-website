@@ -4,113 +4,118 @@ import React from "react";
 
 const content = [
   {
-    title: "URU_Zone",
-    subtitle: "Strength training meets intelligent motion.",
-    body: "Welcome to URU_Space, a new ecosystem of performance tools that combine data precision with gestural communication. We build tech that listens to your body in motion and responds.",
+    title: "URU.zone",
+    subtitle: "Strength Training, Reinvented.",
+    body: [
+      "URU.zone is a next-gen fitness platform combining wearables, software, and real-time coaching.",
+      "Our URU.Wear system turns every rep into meaningful data - tracking form, weight, tempo, and performance with precision"
+    ],
+    closing: "Workout! - feedback, flow, and results,"
   },
   {
-    title: "What is URU_Wear?",
+    title: "Why URU?",
     body: [
-      "URU_Wear is our first product line, designed to make strength training smarter, sharper, and more intuitive. It combines:",
-      "URU_Tag : A 400Hz motion sensor that reads movement arcs, resistance, and form.",
-      "URU_Glove : Ergonomic, breathable gloves with a seamless design.",
-      "URU_App : A digital interface that speaks through gesture.",
-      "This is performance tech that feels as good as it performs.",
-    ],
+      "Built for Strength",
+      "Tracks over 200 strength exercises with high-resolution motion sensing—designed specifically for resistance training.",
+      "Real-Time Intelligence",
+      "Adaptive coaching. Haptic feedback. LED form cues.",
+      "Train smarter, not harder.",
+      "A Training App That Trains You",
+      "Your digital coach evolves with you, delivering data-driven recommendations and personalised progress plans.",
+      "Scalable by Design",
+      "From wearables to subscription-based X-Packs, URU.zone is a full-stack ecosystem built to grow."
+    ]
   },
   {
-    title: "Speak with Motion",
-    body: [
-      "Data is only half the story. URU adds motion language.",
-      "Our system communicates through visual gradients, haptic pulses, and LED signals, so you can adjust your form mid-set without looking at a screen.",
-    ],
-    list: [
-      { label: "Data Mode", description: "Metrics, charts, progression logs" },
-      { label: "Gestural Mode", description: "Colours, pulses, and flow-based feedback" },
-    ],
-    closing: "URU lets you feel how you’re moving — and move better.",
+    title: "The Opportunity",
+    quote: "“Exercise is the most potent longevity drug in our arsenal.” — Dr. Peter Attia, M.D.",
+    body: "Strength training is underserved by fitness tech, URU.zone fills this gap, delivering real-time, precision insights where others offer estimates"
   },
   {
-    title: "The URU_App",
+    title: "The URU.system",
+    subtitle: "A Multi-Level, Science-Driven Model for Strength & Group Training",
     body: [
-      "Your body. Your coach. Your feedback loop.",
-      "The URU_App captures every rep and responds with real-time coaching:",
-    ],
-    list: [
-      "Tracks reps, sets, range of motion, resistance",
-      "Detects fatigue and adjusts intensity",
-      "Offers adaptive training plans powered by X-Packs, goal-based subscriptions for strength, mobility, or endurance",
-    ],
+      "The URU.system is a performance-based methodology developed over 13 years of applied coaching and grounded in modern exercise science",
+      "It blends structure, physiology, and progression, training clients with the precision and intent of athletic programming, tailored to all fitness levels"
+    ]
   },
   {
-    title: "The URU_Tag",
+    title: "What Makes the URU.system Different?",
     body: [
-      "A new sensor for a new kind of training.",
-      "URU_Tag reads movement at 400Hz, syncing seamlessly with your glove and app.",
-    ],
-    list: [
-      "Tracks form quality",
-      "Time under tension",
-      "Movement efficiency",
-    ],
-    closing: "Then gives instant feedback — visually and physically. No distractions. Just full-body awareness.",
+      "Every session is built for progress, not just effort",
+      "Core structure includes Daily Undulating Periodisation (DUP), 3 Levels from Beginner to Advanced, 4 Rotating Session Types per Week, 200+ Scientifically Structured Workouts",
+      "Backed by physiology: mTOR activation for hypertrophy & strength, AMPK activation for fat oxidation & endurance, neuromuscular potentiation for power & speed, self-efficacy development for consistency & retention"
+    ]
   },
   {
-    title: "Launching Soon",
+    title: "Built for URU.Wear",
     body: [
-      "Beta drops in Iceland. Join the waitlist and help shape the future of strength training.",
-    ],
-    cta: "Get Early Access",
+      "The URU.system was designed to be tracked, and URU.Wear does exactly that",
+      "Core sensor is the URU.Tag, a high-frequency motion sensor that attaches to the back of the hand via the URU.Glove, designed for comfort, precision, and seamless tracking during strength training",
+      "It tracks time-under-tension, rest periods, and tempo, analyses each rep with eccentric and concentric timing, provides real-time feedback via LED, haptics, and app",
+      "Adaptive coaching and fatigue monitoring, URU.score gamifies progress rewarding consistency, effort, and form, and sessions can be re-tested, refined, and compared over time"
+    ]
+  },
+  {
+    title: "Who It’s For",
+    body: [
+      "Individuals looking for structured, measurable strength training",
+      "Personal trainers delivering 1-on-1 or small group coaching",
+      "Gyms and studios seeking plug-and-play programming",
+      "Performance centres aiming for science-backed, trackable progress",
+      "Digital fitness platforms needing scalable, intelligent training systems"
+    ]
+  },
+  {
+    title: "The Team",
+    body: [
+      "From deep tech and design to health science and business, URU.zone is built by experts",
+      "Haukur Hafsteinsson - Embedded software specialist", 
+      "Sveinn Hrinrik Guðmundsson – Founder/CEO and deep-tech inventor",
+      "Garðar Eyjólfsson – Creative Director and storyteller",
+      "Sigríður B. Matthíasdóttir – Software Developer, UI/UX and designer",
+      "Helgi Jónas Guðfinnson – Health scientist, S&C coach, osteopath",
+      "Kolbeinn Björnsson - Buisness development",
+      "Guðmundur Kárason – Legal & business advisor, plus a growing network of specialists across sport, tech, and design"
+    ]
+  },
+  {
+    title: "Ready to Move Into the Future?",
+    body: [
+      "We’re building the next generation of strength training and expanding the URU.zone ecosystem into a complete suite of intelligent fitness tools",
+      "URU.zone is not just a concept, it’s real, it’s built, and it’s launching",
+      "The technology is ready, the system is alive, and the future of strength training is in motion",
+      "Soft launch of URU.Wear begins in early 2026, app development, product optimisation, beta testing, go-to-market",
+      "Join us, invest, collaborate, grow with us, join the Zone"
+    ]
   },
 ];
 
 export default function AboutPage() {
   return (
-    <section className="flex flex-col items-center px-4 py-20 space-y-20 max-w-4xl mx-auto">
-      {content.map((section, idx) => (
-        <article key={idx} className="space-y-2 w-full">
-          {section.title && (
-            idx === 0 ? (
-              <h1 className="typography-h1">{section.title}</h1>
-            ) : (
-              <h2 className="typography-h2">{section.title}</h2>
-            )
-          )}
-
-          {section.subtitle && (
-            <h2 className="typography-h2">{section.subtitle}</h2>
-          )}
-
-          {typeof section.body === "string" && (
-            <p className="typography-body">{section.body}</p>
-          )}
-          {Array.isArray(section.body) &&
-            section.body.map((para, i) => (
-              <p key={i} className="typography-body">{para}</p>
-            ))}
-
-          {section.list &&
-            section.list.map((item, i) =>
-              typeof item === "string" ? (
-                <p key={i} className="typography-body">{item}</p>
-              ) : (
-                <p key={i} className="typography-body">
-                  {item.label} — {item.description}
-                </p>
-              )
-            )}
-
-          {section.closing && (
-            <p className="typography-body">{section.closing}</p>
-          )}
-
-          {section.cta && (
-            <a href="#" className="typography-body block mt-4 hover:underline">
-              {section.cta}
-            </a>
-          )}
-        </article>
-      ))}
+    <section className="flex justify-start w-full">
+      <div className="w-full pl-8">
+        {content.map((section, idx) => {
+          const { title, subtitle, quote, body, closing } = section;
+          return (
+            <div key={idx} className="py-8">
+              {idx === 0
+                ? <h1 className="typography-h1">{title}</h1>
+                : <h2 className="typography-h2">{title}</h2>
+              }
+              {subtitle && <h3 className="typography-h3">{subtitle}</h3>}
+              {quote && <blockquote className="typography-body">{quote}</blockquote>}
+              {Array.isArray(body)
+                ? body.map((line, i) => (
+                    <p key={i} className="typography-body">{line}</p>
+                  ))
+                : <p className="typography-body">{body}</p>
+              }
+              {closing && <p className="typography-body">{closing}</p>}
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }

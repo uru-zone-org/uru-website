@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import ThemeToggle from "@/components/ThemeToggle";
 import Header from "@/components/Header";
 import Uru from "./uru/uru";
+import HomePage from "./page";
 import About from "./about/page";
 import UruMessage from "./urumessage/urumessage";
 import TheApp from "./theapp/page";
@@ -35,11 +36,14 @@ export default function RootLayout({
               </div>
               <div className="flex-1 px-4 sm:px-6 pt-4 sm:pt-6 lg:pt-10 pb-6 sm:pb-10 xl:pt-2 flex items-center justify-center">
                 <div className="w-full">
-                  <About />
+                  <HomePage />
                   </div>
                   </div>
             </div>
           </main>
+          <section id="about">
+            <About />
+          </section>
           <footer className="w-full px-4 py-2 text-xs text-center border-t border-[var(--color-border)]">
             All rights reserved.
           </footer>
