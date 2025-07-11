@@ -18,8 +18,7 @@ export default function Header() {
         />
       </Link>
       <div className="flex-1 flex justify-center gap-10">
-        {/* change to hash-link */}
-        <Link href="#about">
+        <Link href="/about" className="hover:underline">
           About
         </Link>
       </div>

@@ -27,23 +27,20 @@ export default function RootLayout({
               <Header />
             </nav>
           </header>
-          <main className="flex-1 px-4 sm:px-6 pt-4 sm:pt-6 lg:pt-10 pb-6 sm:pb-10 xl:pt-2">
-            <div className="flex flex-col xl:flex-row gap-6">
-            <div className="w-full md:flex-1 md:h-screen">
-            <div className="w-full md:flex-1 md:h-screen md:flex md:items-center md:justify-center">
+
+          {/* Hero + content wrapper */}
+          <div className="flex flex-1 xl:flex-row flex-col">
+            {/* Left: Uru always visible */}
+            <div className="flex-1 h-screen flex items-center justify-center">
               <Uru />
-              </div>
-              </div>
-              <div className="flex-1 px-4 sm:px-6 pt-4 sm:pt-6 lg:pt-10 pb-6 sm:pb-10 xl:pt-2 flex items-center justify-center">
-                <div className="w-full">
-                  <HomePage />
-                  </div>
-                  </div>
             </div>
-          </main>
-          <section id="about">
-            <About />
-          </section>
+
+            {/* Right: dynamic page content */}
+            <div className="flex-1 px-6 sm:px-8 lg:px-10 py-8 sm:py-10 lg:py-12 overflow-auto">
+              {children}
+            </div>
+          </div>
+
           <footer className="w-full px-4 py-2 text-xs text-center border-t border-[var(--color-border)]">
             All rights reserved.
           </footer>
@@ -52,3 +49,4 @@ export default function RootLayout({
     </html>
   );
 }
+
