@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 const content = [
   {
@@ -75,7 +75,7 @@ const content = [
       "Garðar Eyjólfsson – Creative Director and storyteller",
       "Sigríður B. Matthíasdóttir – Software Developer, UI/UX and designer",
       "Helgi Jónas Guðfinnson – Health scientist, S&C coach, osteopath",
-      "Kolbeinn Björnsson - Buisness development",
+      "Kolbeinn Björnsson - Business development",
       "Guðmundur Kárason – Legal & business advisor, plus a growing network of specialists across sport, tech, and design"
     ]
   },
@@ -92,29 +92,55 @@ const content = [
 ];
 
 export default function AboutPage() {
+  // track which section is visible
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSection = () => {
+    if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
+  };
+
+  const nextSection = () => {
+    if (currentIndex < content.length - 1) setCurrentIndex(currentIndex + 1);
+  };
+
+  const section = content[currentIndex];
+  const { title, subtitle, quote, body, closing } = section;
+
   return (
-    <section className="flex justify-start w-full">
-      <div className="w-full pl-8">
-        {content.map((section, idx) => {
-          const { title, subtitle, quote, body, closing } = section;
-          return (
-            <div key={idx} className="py-8">
-              {idx === 0
-                ? <h1 className="typography-h1">{title}</h1>
-                : <h2 className="typography-h2">{title}</h2>
-              }
-              {subtitle && <h3 className="typography-h3">{subtitle}</h3>}
-              {quote && <blockquote className="typography-body">{quote}</blockquote>}
-              {Array.isArray(body)
-                ? body.map((line, i) => (
-                    <p key={i} className="typography-body">{line}</p>
-                  ))
-                : <p className="typography-body">{body}</p>
-              }
-              {closing && <p className="typography-body">{closing}</p>}
-            </div>
-          );
-        })}
+    <section className="flex flex-col justify-start w-full">
+      <div className="w-full pl-8 pr-8">
+        <div className="py-8">
+          {currentIndex === 0
+            ? <h1 className="typography-h1">{title}</h1>
+            : <h2 className="typography-h2">{title}</h2>
+          }
+          {subtitle && <h3 className="typography-h3">{subtitle}</h3>}
+          {quote && <blockquote className="typography-body">{quote}</blockquote>}
+          {Array.isArray(body)
+            ? body.map((line, i) => (
+                <p key={i} className="typography-body">{line}</p>
+              ))
+            : <p className="typography-body">{body}</p>
+          }
+          {closing && <p className="typography-body">{closing}</p>}
+        </div>
+
+        <div className="flex justify-between mt-4">
+          <button
+            onClick={prevSection}
+            disabled={currentIndex === 0}
+            className="px-4 py-2 rounded shadow disabled:opacity-50"
+          >
+            ← Prev
+          </button>
+          <button
+            onClick={nextSection}
+            disabled={currentIndex === content.length - 1}
+            className="px-4 py-2 rounded shadow disabled:opacity-50"
+          >
+            Next →
+          </button>
+        </div>
       </div>
     </section>
   );
