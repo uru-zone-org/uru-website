@@ -1,33 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    darkMode: 'class',
-    content: [
-      "./app/**/*.{ts,tsx}",
-      "./components/**/*.{ts,tsx}",
-      "./pages/**/*.{ts,tsx}",
-    ],
-    theme: {
-      extend: {
-        fontFamily: {
-          'transducer-hairline': ['TransducerTest Hairline', 'sans-serif'],
-          'transducer-hairline-2': ['TransducerTest Hairline 2', 'sans-serif'],
-        },
-        animation: {
-          'soft-breathe': 'soft-breathe 1s ease-in-out infinite',
-          blink: 'blink 2s ease-in-out infinite',
-        },
-        keyframes: {
-          'soft-breathe': {
-            '0%, 100%': { transform: 'scale(1) translateY(-6px)' },
-            '50%': { transform: 'scale(1.02) translateY(-8px)' },
-          },
-          blink: {
-            '0%, 100%': { opacity: 1 },
-            '50%': { opacity: 0.3 },
-          },
-        },
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },
-    plugins: [],
-  };
-  
+  },
+  plugins: [],
+}
