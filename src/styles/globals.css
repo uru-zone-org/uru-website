@@ -47,6 +47,36 @@
     color: var(--primary-color);
     background-color: var(--background-color);
   }
+
+
+  section {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Full-screen product sections */
+  .product-hero-section {
+    height: 50vh;
+    min-height: 50vh;
+    max-height: 50vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Content sections */
+  .content-section {
+    min-height: 50vh;
+    padding: 4rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .content-section {
+      min-height: auto;
+      padding: 3rem 0;
+    }
+  }
+
   
   /* Headers use Transducer (thicker/bolder variant), uppercase */
     /* Headers - Three variations */
@@ -75,11 +105,11 @@
     }
 
     /* h4-h6 fallback to h3 styles */
-    h4, h5, h6 {
+    h4, h5, h6, a {
       font-family: 'Transducer', sans-serif;
       text-transform: uppercase;
-      font-size: 1.5rem;
-      font-weight: 300;
+      font-size: 1rem;
+      font-weight: 500;
       line-height: 1.3;
     }
 }

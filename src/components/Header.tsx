@@ -1,30 +1,16 @@
-import Link from "next/link";
+// components/Header.tsx
+interface HeaderProps {
+  children?: React.ReactNode;
+}
 
-export default function Header() {
+export function Header({ children }: HeaderProps) {
   return (
-    <nav className="flex items-center justify-center w-full px-4 uppercase text-sm sm:text-base lg:text-lg tracking-widest font-medium font-transducer-hairline-2">
-      <Link href="/">
-        <div
-          className="
-            w-20 h-20
-            mask-[url('/URU_logo.svg')] mask-no-repeat mask-center mask-contain
-          "
-          style={{
-            backgroundColor: 'var(--color-text)',
-            backgroundSize: '100% 100%',
-            backgroundPosition: '50% 50%',
-          }}
-          aria-hidden
-        />
-      </Link>
-      <div className="flex-1 flex justify-center gap-10">
-        <Link href="/about" className="hover:underline">
-          About
-        </Link>
+    <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: 'var(--background-color)', borderColor: 'var(--greyscale-5)' }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16">
+          {children}
+        </div>
       </div>
-      <Link href="/contact" className="hover:underline">
-        Contact
-      </Link>
-    </nav>
-  );
+    </header>
+  )
 }
