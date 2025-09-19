@@ -27,7 +27,7 @@ export default function ProductSlideshow({
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 4000) // Changed to 4 seconds for better visibility
+    }, 4000)
 
     return () => clearInterval(interval)
   }, [images.length])
@@ -41,11 +41,8 @@ export default function ProductSlideshow({
   }
 
   return (
-    <div className="relative w-full h-full overflow-hidden" style={{ backgroundColor: 'var(--background-color)' }}>
-      {/* Background gradient as fallback */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, var(--greyscale-5), var(--greyscale-6))' }} />
-      
-      {/* Images */}
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {/* Images as full background - no borders */}
       <div className="absolute inset-0">
         {images.map((src, index) => (
           <div
@@ -59,44 +56,41 @@ export default function ProductSlideshow({
                 src={src}
                 alt={`${title} ${index + 1}`}
                 fill
-                className="object-contain" // Changed from object-cover to object-contain to show full image
+                className="object-cover"
                 priority={index === 0}
                 onError={() => handleImageError(index)}
                 sizes="100vw"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(to bottom right, var(--greyscale-4), var(--greyscale-5))' }}>
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-lg flex items-center justify-center mb-4 mx-auto" style={{ backgroundColor: 'var(--greyscale-5)' }}>
-                    <span className="text-2xl">📱</span>
-                  </div>
-                  <p className="text-sm" style={{ color: 'var(--greyscale-3)' }}>Product Image</p>
-                </div>
-              </div>
+              <div className="w-full h-full" style={{ background: 'linear-gradient(to bottom right, var(--greyscale-4), var(--greyscale-5))' }} />
             )}
           </div>
         ))}
       </div>
 
-      {/* Overlay Content */}
-      <div className="absolute left-[5%] bottom-[10%] max-w-lg z-10" style={{ color: 'var(--primary-color)' }}>
-        <h2 className="section-headline text-4xl md:text-6xl lg:text-7xl mb-4">
-          {title}
-        </h2>
-        <p className="text-lg md:text-xl mb-6" style={{ color: 'var(--greyscale-2)' }}>
-          {description}
-        </p>
-        <a 
-          href={ctaHref}
-          className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full transition-colors"
-        >
-          {ctaText}
-          <ChevronRight className="w-4 h-4" />
-        </a>
+      {/* Text overlay on top of image */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+          <div className="max-w-2xl">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl mb-6" style={{ color: 'var(--primary-color)' }}>
+              {title}
+            </h2>
+            <p className="text-xl md:text-2xl mb-8" style={{ color: 'var(--greyscale-2)' }}>
+              {description}
+            </p>
+            <a 
+              href={ctaHref}
+              className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full transition-colors"
+            >
+              {ctaText}
+              <ChevronRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
       </div>
 
-      {/* Gradient Overlay for Better Text Readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+      {/* Optional: Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30 pointer-events-none" />
       
       {/* Slide Indicators */}
       {images.length > 1 && (

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap');
-/* Note: You'll need to add Transducer Extended font files to your project */
 
 @font-face {
   font-family: 'Transducer';
@@ -13,22 +12,17 @@
 @layer base {
   /* Color Variables */
   :root {
-    /* Grayscale Palette */
     --greyscale-1: #FFFFFF;
     --greyscale-2: #CECEE4;
     --greyscale-3: #B7B7CD;
     --greyscale-4: #3B3B54;
     --greyscale-5: #2A2A3C;
     --greyscale-6: #191924;
-    
-    /* Accent Colors */
     --blue: #1BE7FF;
     --red: #F4442E;
     --green: #7CF702;
     --yellow: #FFF700;
     --danger-tint: #ffebee;
-    
-    /* Semantic Colors */
     --primary-color: #EAE8FF;
     --secondary-color: #B7B7CD;
     --primary-inverted: #080A0C;
@@ -36,18 +30,16 @@
     --background-color: #080A0C;
     --background-inverted: #EAE8FF;
     --accent-color: #FFF700;
-    
-    /* Layout Tokens */
     --border-radius: 4px;
     --padding: 16px;
   }
   
-  /* Base Styles */
   html {
     scroll-behavior: smooth;
     background-color: var(--background-color);
   }
   
+  /* All text is Archivo by default */
   body {
     font-family: 'Archivo', sans-serif;
     font-weight: 500;
@@ -55,44 +47,45 @@
     color: var(--primary-color);
     background-color: var(--background-color);
   }
+  
+  /* Headers use Transducer (thicker/bolder variant), uppercase */
+    /* Headers - Three variations */
+    h1 {
+      font-family: 'Transducer', sans-serif;
+      text-transform: uppercase;
+      font-size: 4rem; /* Biggest */
+      font-weight: 700; /* Thickest */
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-family: 'Transducer', sans-serif;
+      text-transform: uppercase;
+      font-size: 2.5rem; /* Medium big */
+      font-weight: 500; /* Medium thick */
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-family: 'Transducer', sans-serif;
+      text-transform: uppercase;
+      font-size: 1.5rem; /* Smallest */
+      font-weight: 300; /* Thinnest */
+      line-height: 1.3;
+    }
+
+    /* h4-h6 fallback to h3 styles */
+    h4, h5, h6 {
+      font-family: 'Transducer', sans-serif;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.3;
+    }
 }
 
 @layer components {
-  /* Typography Classes */
-  .text-global {
-    @apply text-[20px];
-    color: var(--primary-color);
-    font-family: 'Archivo', sans-serif;
-    font-weight: 500;
-  }
-  
-  .text-eyebrow {
-    font-family: 'Transducer Extended', sans-serif;
-    font-weight: 500;
-    font-style: italic;
-  }
-  
-  .text-headline {
-    font-family: 'Transducer Extended', sans-serif;
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  .headline {
-    @apply text-sm uppercase mb-2.5 pb-1.5 border-b;
-    font-family: 'Transducer Extended', sans-serif;
-    font-weight: 700;
-    font-style: italic;
-    letter-spacing: 0.14px;
-    color: var(--greyscale-3);
-    border-bottom-color: var(--greyscale-5);
-  }
-  
-  /* Layout Classes */
-  .container {
-    padding: var(--padding);
-  }
-  
+  /* Layout */
   .panel {
     @apply rounded border;
     background-color: rgba(42, 42, 60, 0.5);
@@ -101,50 +94,48 @@
     padding: var(--padding);
   }
   
-  .blur-panel {
-    @apply p-2 rounded border;
-    background-color: rgba(234, 232, 255, 0.41);
-    border-color: rgba(8, 10, 12, 0.05);
-    backdrop-filter: blur(10px);
+  /* Buttons - Transducer, uppercase, thinner */
+  .btn-primary {
+    font-family: 'Transducer', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transition: background-color 0.2s;
   }
   
-  /* Form Elements */
+  .btn-primary:hover {
+    background-color: var(--greyscale-2);
+  }
+  
+  .btn-secondary {
+    font-family: 'Transducer', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-color: var(--greyscale-4);
+    transition: all 0.2s;
+  }
+  
+  .btn-secondary:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+  }
+  
+  /* Input fields */
   .input-field {
     @apply rounded border text-[20px];
     background-color: var(--greyscale-6);
     border-color: var(--greyscale-4);
     color: var(--primary-color);
     padding: 16px 20px;
-    font-family: 'Archivo', sans-serif;
-    font-weight: 500;
   }
   
   .input-field::placeholder {
     color: var(--greyscale-3);
   }
-  
-  /* Button Styles */
-  .button {
-    @apply rounded flex items-center justify-between my-1.5 cursor-pointer transition-opacity;
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    padding: 20px;
-  }
-  
-  .button:hover {
-    opacity: 0.9;
-  }
-  
-  .button-text {
-    @apply text-sm uppercase text-center;
-    font-family: 'Transducer Extended', sans-serif;
-    font-weight: 700;
-    font-style: italic;
-    color: var(--background-color);
-  }
 }
 
-/* Scrollbar Styles */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
