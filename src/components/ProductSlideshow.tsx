@@ -60,7 +60,7 @@ export default function ProductSlideshow({
       
       {/* Text overlay */}
       <div className="absolute inset-0 flex items-center">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 w-full">
           <div className="max-w-2xl">
             <h2 className="text-5xl md:text-7xl lg:text-8xl mb-6" style={{ color: 'var(--primary-color)' }}>
               {title}

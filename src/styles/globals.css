@@ -47,15 +47,7 @@
     color: var(--primary-color);
     background-color: var(--background-color);
   }
-
-
-  section {
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-  }
   
-  /* Full-screen product sections */
   .product-hero-section {
     height: 50vh;
     min-height: 50vh;
@@ -66,8 +58,11 @@
   
   /* Content sections */
   .content-section {
+        height: 50vh;
     min-height: 50vh;
-    padding: 4rem 0;
+    max-height: 50vh;
+    position: relative;
+    overflow: hidden;
   }
   
   @media (max-width: 768px) {
@@ -108,7 +103,7 @@
     h4, h5, h6, a {
       font-family: 'Transducer', sans-serif;
       text-transform: uppercase;
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-weight: 500;
       line-height: 1.3;
     }

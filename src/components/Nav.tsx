@@ -13,10 +13,10 @@ export function Nav() {
       {/* Desktop Nav */}
       <nav className="hidden md:flex items-center gap-6">
         <a href="#wear" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'var(--greyscale-3)' }}>
-          wear
+          .wear
         </a>
         <a href="#app" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'var(--greyscale-3)' }}>
-          app
+          .app
         </a>
         <a href="#compare" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'var(--greyscale-3)' }}>
           compare
@@ -26,7 +26,7 @@ export function Nav() {
 
       {/* Mobile Menu Button */}
       <button 
-        className="md:hidden p-2"
+        className="md:hidden p-2 ml-auto"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
       >
@@ -35,15 +35,15 @@ export function Nav() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="absolute top-16 left-0 right-0 border-b md:hidden z-40 shadow-lg" style={{ borderColor: 'var(--greyscale-5)', backgroundColor: 'var(--greyscale-5)' }}>
-          <nav className="flex flex-col p-4 gap-4">
+        <div className="fixed top-16 left-0 right-0 border-b md:hidden z-40 shadow-lg" style={{ borderColor: 'var(--greyscale-5)', backgroundColor: 'var(--background-color)' }}>
+          <nav className="flex flex-col p-6 gap-4">
             <a 
               href="#wear" 
               className="text-sm hover:opacity-80 transition-opacity py-2" 
               style={{ color: 'var(--greyscale-3)' }}
               onClick={() => setIsOpen(false)}
             >
-              wear
+              .wear
             </a>
             <a 
               href="#app" 
@@ -51,7 +51,7 @@ export function Nav() {
               style={{ color: 'var(--greyscale-3)' }}
               onClick={() => setIsOpen(false)}
             >
-              app
+              .app
             </a>
             <a 
               href="#compare" 
