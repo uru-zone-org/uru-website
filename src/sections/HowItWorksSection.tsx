@@ -5,7 +5,7 @@ import { Card } from '@/components/Card'
 
 export function HowItWorksSection() {
   return (
-    <Section fullHeight>
+    <Section>
       <SectionHeader 
         title="how it works" 
         subtitle="plug in. lift. adapt in real time."
