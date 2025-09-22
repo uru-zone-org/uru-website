@@ -1,11 +1,11 @@
 // src/sections/HeroSection.tsx
 import { ChevronRight } from 'lucide-react'
 import { Button } from '@/components/Button'
+import { Section } from '@/components/Section'
 
 export function HeroSection() {
   return (
-    <section className="py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <Section>
         <div className="grid md:grid-cols-2 gap-12 items-end">
           <div>
             <p className="text-xs uppercase tracking-wider mb-4" style={{ color: 'var(--greyscale-3)' }}>
@@ -33,7 +33,6 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   )
 }

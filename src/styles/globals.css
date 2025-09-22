@@ -61,20 +61,26 @@
   }
   
   .product-hero-section {
-    height: 50vh;
-    min-height: 50vh;
-    max-height: 50vh;
+    /* Let content decide height, keep it roomy */
+    min-height: 100vh;
+    height: auto;
     position: relative;
+    overflow: visible;
   }
-  
+
   /* Content sections */
   .content-section {
-        height: 50vh;
+    /* Keep a nice minimum, but never clip */
     min-height: 50vh;
-    max-height: 50vh;
+    height: auto;
     position: relative;
+    overflow: visible;
   }
-  
+
+  section {
+  outline: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
   @media (max-width: 768px) {
     .content-section {
       min-height: auto;
@@ -82,10 +88,7 @@
     }
   }
 
-  
-  /* Headers use Transducer (thicker/bolder variant), uppercase */
-    /* Headers - Three variations */
-/* Headers use Transducer (thicker/bolder variant), uppercase */
+
   /* Headers - Three variations with responsive sizing */
   h1 {
     font-family: 'Transducer', sans-serif;
@@ -93,7 +96,6 @@
     font-size: clamp(2rem, 8vw, 4rem); /* Responsive: 32px min, 64px max */
     font-weight: 700; /* Thickest */
     line-height: 1.1;
-    word-break: break-word; /* Prevent overflow */
   }
 
   h2 {
@@ -102,7 +104,6 @@
     font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive: 24px min, 40px max */
     font-weight: 500; /* Medium thick */
     line-height: 1.2;
-    word-break: break-word;
   }
 
   h3 {
@@ -111,7 +112,6 @@
     font-size: clamp(1.2rem, 3vw, 1.5rem); /* Responsive: 19px min, 24px max */
     font-weight: 300; /* Thinnest */
     line-height: 1.3;
-    word-break: break-word;
   }
 
   /* h4-h6 fallback to h3 styles */
@@ -121,7 +121,6 @@
     font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive: 16px min, 24px max */
     font-weight: 500;
     line-height: 1.3;
-    word-break: break-word;
   }
 
 }

@@ -1,9 +1,10 @@
 // src/sections/WearProductSection.tsx
 import ProductSlideshow from '@/components/ProductSlideshow'
+import { Section } from '@/components/Section'
 
 export function WearProductSection() {
   return (
-    <section id="wear" className="relative h-screen min-h-screen max-h-screen overflow-hidden">
+    <Section>
       <ProductSlideshow
         images={['/images/URU_Wear.png', '/images/URU_Wear_Wrist.png']}
         title="uru.wear"
@@ -11,6 +12,6 @@ export function WearProductSection() {
         ctaText="get uru.wear"
         ctaHref="#buy"
       />
-    </section>
+    </Section>
   )
 }

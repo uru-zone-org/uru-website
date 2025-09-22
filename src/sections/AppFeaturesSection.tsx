@@ -5,7 +5,7 @@ import { Card } from '@/components/Card'
 export function AppFeaturesSection() {
   return (
     <Section>
-      <div className="grid md:grid-cols-3 gap-8">
+      <div>
         <Card 
           title="live coaching"
           description="real-time cues, green / yellow / red guidance, adaptive sets."
