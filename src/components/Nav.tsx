@@ -13,10 +13,10 @@ export function Nav() {
       {/* Desktop Nav */}
       <nav className="hidden md:flex items-center gap-6">
         <a href="#wear" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'var(--greyscale-3)' }}>
-          .wear
+          wear
         </a>
         <a href="#app" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'var(--greyscale-3)' }}>
-          .app
+          app
         </a>
         <a href="#compare" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'var(--greyscale-3)' }}>
           compare

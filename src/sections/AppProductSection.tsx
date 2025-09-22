@@ -6,7 +6,7 @@ export function AppProductSection() {
   return (
     <Section>
         <ProductSlideshow
-            images={['/images/URU_Wear.png', '/images/URU_Wear_Wrist.png']}
+            images={['/images/App 1.png', '/images/App 2.png','/images/App 3.png','/images/App 4.png']}
             title="uru.app"
             description="plan, lift, recover — ai coaching and progress in one place."
             ctaText="see uru.app"

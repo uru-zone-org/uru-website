@@ -12,7 +12,7 @@ export function Section({
   children,
   className = "",
   fullHeight = false,
-  noBorder = false,
+  noBorder = true, // changed default to true
 }: SectionProps) {
   // Always at least half a screen tall, but can grow with content.
   // If you ever want a true full-screen hero, pass fullHeight and it will be min-h-screen.
