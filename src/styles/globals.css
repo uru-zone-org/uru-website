@@ -37,6 +37,17 @@
   html {
     scroll-behavior: smooth;
     background-color: var(--background-color);
+  width: 100%;
+  }
+
+    /* Prevent any element from overflowing */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Ensure no horizontal overflow */
+  html, body {
+    overflow-x: hidden;
   }
   
   /* All text is Archivo by default */
@@ -46,6 +57,7 @@
     font-size: 20px;
     color: var(--primary-color);
     background-color: var(--background-color);
+  width: 100%;
   }
   
   .product-hero-section {
@@ -53,7 +65,6 @@
     min-height: 50vh;
     max-height: 50vh;
     position: relative;
-    overflow: hidden;
   }
   
   /* Content sections */
@@ -62,7 +73,6 @@
     min-height: 50vh;
     max-height: 50vh;
     position: relative;
-    overflow: hidden;
   }
   
   @media (max-width: 768px) {
@@ -75,38 +85,45 @@
   
   /* Headers use Transducer (thicker/bolder variant), uppercase */
     /* Headers - Three variations */
-    h1 {
-      font-family: 'Transducer', sans-serif;
-      text-transform: uppercase;
-      font-size: 4rem; /* Biggest */
-      font-weight: 700; /* Thickest */
-      line-height: 1.1;
-    }
+/* Headers use Transducer (thicker/bolder variant), uppercase */
+  /* Headers - Three variations with responsive sizing */
+  h1 {
+    font-family: 'Transducer', sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(2rem, 8vw, 4rem); /* Responsive: 32px min, 64px max */
+    font-weight: 700; /* Thickest */
+    line-height: 1.1;
+    word-break: break-word; /* Prevent overflow */
+  }
 
-    h2 {
-      font-family: 'Transducer', sans-serif;
-      text-transform: uppercase;
-      font-size: 2.5rem; /* Medium big */
-      font-weight: 500; /* Medium thick */
-      line-height: 1.2;
-    }
+  h2 {
+    font-family: 'Transducer', sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive: 24px min, 40px max */
+    font-weight: 500; /* Medium thick */
+    line-height: 1.2;
+    word-break: break-word;
+  }
 
-    h3 {
-      font-family: 'Transducer', sans-serif;
-      text-transform: uppercase;
-      font-size: 1.5rem; /* Smallest */
-      font-weight: 300; /* Thinnest */
-      line-height: 1.3;
-    }
+  h3 {
+    font-family: 'Transducer', sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(1.2rem, 3vw, 1.5rem); /* Responsive: 19px min, 24px max */
+    font-weight: 300; /* Thinnest */
+    line-height: 1.3;
+    word-break: break-word;
+  }
 
-    /* h4-h6 fallback to h3 styles */
-    h4, h5, h6, a {
-      font-family: 'Transducer', sans-serif;
-      text-transform: uppercase;
-      font-size: 1.5rem;
-      font-weight: 500;
-      line-height: 1.3;
-    }
+  /* h4-h6 fallback to h3 styles */
+  h4, h5, h6, a {
+    font-family: 'Transducer', sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive: 16px min, 24px max */
+    font-weight: 500;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+
 }
 
 @layer components {

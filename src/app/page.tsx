@@ -17,13 +17,21 @@ import { FinalCTASection } from '@/sections/FinalCTASection'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--background-color)', color: 'var(--primary-color)' }}>
+    <div 
+      className="min-h-screen w-full" 
+      style={{ 
+        backgroundColor: 'var(--background-color)', 
+        color: 'var(--primary-color)',
+        width: '100%',
+        minWidth: '100%'
+      }}
+    >
       <Header>
         <Logo />
         <Nav />
       </Header>
 
-      <main>
+      <main className="w-full" style={{ width: '100%' }}>
         <HeroSection />
         <WearProductSection />
         <HowItWorksSection />

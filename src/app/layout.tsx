@@ -1,11 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
-import '../styles/globals.css'  // Updated path to styles folder
-
-const inter = Inter({ 
-  subsets: ['latin'],
-  display: 'swap',
-})
+import '../styles/globals.css'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -38,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} antialiased`}>
+      <body className="antialiased">
         {children}
       </body>
     </html>
