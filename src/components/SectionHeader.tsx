@@ -6,8 +6,8 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, subtitle }: SectionHeaderProps) {
   return (
-    <div className="flex items-end justify-between mb-12">
-      <h2 className="text-3xl md:text-5xl">{title}</h2>
+    <div className="mb-12">
+      <h2 className="w-full md:w-2/3 lg:w-1/2">{title}</h2>
       {subtitle && (
         <p style={{ color: 'var(--greyscale-3)' }}>{subtitle}</p>
       )}

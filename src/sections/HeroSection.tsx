@@ -13,7 +13,7 @@ export function HeroSection() {
     />
       <div className="grid md:grid-cols-2 gap-12 items-end">
         <div>
-          <p className="text-xl max-w-lg mb-8" style={{ color: 'var(--greyscale-3)' }}>
+          <p className="max-w-lg mb-8" style={{ color: 'var(--greyscale-3)' }}>
             every rep measured. every set optimised. velocity-based training inside. 
             built for progress, not burnout.
           </p>

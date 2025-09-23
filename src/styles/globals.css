@@ -78,7 +78,9 @@
   }
 
   section {
-  outline: 1px dashed rgba(255, 255, 255, 0.08);
+    background-color: var(--greyscale-6);
+    padding: 6rem 0;
+    margin: 2rem 0;
 }
 
   @media (max-width: 768px) {
@@ -88,40 +90,38 @@
     }
   }
 
+/* Headers - Three variations with responsive sizing (75% scale) */
+h1 {
+  font-family: 'Transducer', sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 6vw, 3rem); /* 75% of original */
+  font-weight: 700;
+  line-height: 1.1;
+}
 
-  /* Headers - Three variations with responsive sizing */
-  h1 {
-    font-family: 'Transducer', sans-serif;
-    text-transform: uppercase;
-    font-size: clamp(2rem, 8vw, 4rem); /* Responsive: 32px min, 64px max */
-    font-weight: 700; /* Thickest */
-    line-height: 1.1;
-  }
+h2 {
+  font-family: 'Transducer', sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(0.9rem, 3.75vw, 1.875rem); /* 75% of original */
+  font-weight: 500;
+  line-height: 1.2;
+}
 
-  h2 {
-    font-family: 'Transducer', sans-serif;
-    text-transform: uppercase;
-    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive: 24px min, 40px max */
-    font-weight: 500; /* Medium thick */
-    line-height: 1.2;
-  }
+h3 {
+  font-family: 'Transducer', sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(0.rem, 2.25vw, 1.125rem); /* 75% of original */
+  font-weight: 700;
+  line-height: 1.3;
+}
 
-  h3 {
-    font-family: 'Transducer', sans-serif;
-    text-transform: uppercase;
-    font-size: clamp(1.2rem, 3vw, 1.5rem); /* Responsive: 19px min, 24px max */
-    font-weight: 700; /* Thinnest */
-    line-height: 1.3;
-  }
-
-  /* h4-h6 fallback to h3 styles */
-  h4, h5, h6, a {
-    font-family: 'Transducer', sans-serif;
-    text-transform: uppercase;
-    font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive: 16px min, 24px max */
-    font-weight: 700;
-    line-height: 1.3;
-  }
+h4, h5, h6, a {
+  font-family: 'Transducer', sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(0.75rem, 1.875vw, 1.125rem); /* 75% of original */
+  font-weight: 400;
+  line-height: 1.3;
+}
 
 }
 
