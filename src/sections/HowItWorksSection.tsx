@@ -13,15 +13,16 @@ export function HowItWorksSection() {
       <div className="grid md:grid-cols-3 gap-8">
         <Card 
           title="track every rep"
-          description="form & posture, tempo & motion, load / reps / sets — all live."
+          description="form, tempo, range of motion, load, reps, and sets live."
         />
         <Card 
           title="ai-powered coaching"
-          description="technique cues, set-by-set adjustments, plateaus smashed."
+          description="real-time technique cues with set-by-set adjustments to break plateaus."
+          featured={true}
         />
         <Card 
           title="adaptable systems"
-          description="choose programs that fit your goal. evolve as you progress."
+          description="choose programs that fit your goals and evolve as you progress."
         />
       </div>
     </Section>

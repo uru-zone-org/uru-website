@@ -22,6 +22,7 @@ export function EffortLossSection() {
         <Card 
           title="smart stop"
           description="thresholds end sets at the right time — progress without overtraining."
+          featured={true}
         />
       </div>
     </Section>

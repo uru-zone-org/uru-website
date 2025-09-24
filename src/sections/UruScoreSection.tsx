@@ -14,27 +14,25 @@ export function UruScoreSection() {
         <Card title="what it shows">
           <div className="space-y-3">
             <div className="flex gap-3">
-              <span>•</span>
               <span>how much you lifted</span>
             </div>
             <div className="flex gap-3">
-              <span>•</span>
               <span>how well you moved</span>
             </div>
             <div className="flex gap-3">
-              <span>•</span>
               <span>how it compares to your past</span>
             </div>
           </div>
         </Card>
         <Card title="quick glance">
-          <div className="h-40 border border-dashed rounded-xl flex items-center justify-center" style={{ borderColor: 'var(--greyscale-4)', color: 'var(--greyscale-3)' }}>
+          <div>
             mini chart / gauge
           </div>
         </Card>
         <Card 
           title="auto logging"
           description="every rep, set, and session saved. no taps needed."
+          featured={true}
         />
       </div>
     </Section>

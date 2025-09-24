@@ -14,6 +14,7 @@ export function AppFeaturesSection() {
         <Card 
           title="live coaching"
           description="real-time cues, green / yellow / red guidance, adaptive sets."
+        featured={true}
         />
         <Card 
           title="tracking & insights"
