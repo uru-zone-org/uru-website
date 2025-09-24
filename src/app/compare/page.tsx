@@ -1,10 +1,20 @@
+
+import { ComparisonSection } from '@/sections/ComparisonSection'
+import { TestimonialsSection } from '@/sections/TestimonialsSection'
+import { FinalCTASection } from '@/sections/FinalCTASection'
+
 export default function ComparePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Hello World!</h1>
-        <p className="text-xl text-gray-600">Welcome to the Compare page</p>
-      </div>
+    <div 
+      className="w-full" 
+      style={{ 
+        backgroundColor: 'var(--background-color)', 
+        color: 'var(--primary-color)',
+      }}
+    >
+      <ComparisonSection />
+      <TestimonialsSection />
+      <FinalCTASection />
     </div>
   )
 }
