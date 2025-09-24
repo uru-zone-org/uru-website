@@ -1,7 +1,7 @@
-// src/components/Nav.tsx
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { Button } from './Button'
 
@@ -12,15 +12,27 @@ export function Nav() {
     <>
       {/* Desktop Nav */}
       <nav className="hidden md:flex items-center gap-6">
-        <a href="#wear" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'var(--greyscale-3)' }}>
+        <Link 
+          href="/wear" 
+          className="text-sm hover:opacity-80 transition-opacity" 
+          style={{ color: 'var(--greyscale-3)' }}
+        >
           wear
-        </a>
-        <a href="#app" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'var(--greyscale-3)' }}>
+        </Link>
+        <Link 
+          href="/app" 
+          className="text-sm hover:opacity-80 transition-opacity" 
+          style={{ color: 'var(--greyscale-3)' }}
+        >
           app
-        </a>
-        <a href="#compare" className="text-sm hover:opacity-80 transition-opacity" style={{ color: 'var(--greyscale-3)' }}>
+        </Link>
+        <Link 
+          href="/compare" 
+          className="text-sm hover:opacity-80 transition-opacity" 
+          style={{ color: 'var(--greyscale-3)' }}
+        >
           compare
-        </a>
+        </Link>
         <Button variant="secondary" href="#demo">request demo</Button>
       </nav>
 
@@ -37,37 +49,37 @@ export function Nav() {
       {isOpen && (
         <div className="fixed top-16 left-0 right-0 border-b md:hidden z-40 shadow-lg" style={{ borderColor: 'var(--greyscale-5)', backgroundColor: 'var(--background-color)' }}>
           <nav className="flex flex-col p-6 gap-4">
-            <a 
-              href="#wear" 
+            <Link 
+              href="/wear" 
               className="text-sm hover:opacity-80 transition-opacity py-2" 
               style={{ color: 'var(--greyscale-3)' }}
               onClick={() => setIsOpen(false)}
             >
-              .wear
-            </a>
-            <a 
-              href="#app" 
+              wear
+            </Link>
+            <Link 
+              href="/app" 
               className="text-sm hover:opacity-80 transition-opacity py-2" 
               style={{ color: 'var(--greyscale-3)' }}
               onClick={() => setIsOpen(false)}
             >
-              .app
-            </a>
-            <a 
-              href="#compare" 
+              app
+            </Link>
+            <Link 
+              href="/compare" 
               className="text-sm hover:opacity-80 transition-opacity py-2" 
               style={{ color: 'var(--greyscale-3)' }}
               onClick={() => setIsOpen(false)}
             >
               compare
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="#demo" 
               className="inline-flex items-center justify-center gap-2 px-6 py-3 border rounded-full text-sm"
               onClick={() => setIsOpen(false)}
             >
               request demo
-            </a>
+            </Link>
           </nav>
         </div>
       )}

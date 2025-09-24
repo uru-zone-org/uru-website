@@ -1,3 +1,5 @@
+import { Card } from "./Card"
+
 export default function TestimonialGrid() {
   const testimonials = [
     {
@@ -17,17 +19,14 @@ export default function TestimonialGrid() {
   return (
     <div className="grid md:grid-cols-3 gap-8">
       {testimonials.map((testimonial, index) => (
-        <blockquote 
+        <Card 
           key={index}
-          className="bg-zinc-900 border-l-4 border-zinc-700 rounded-r-xl p-6"
+          title={`"${testimonial.quote}"`}
         >
-          <p className="text-zinc-300 mb-4">
-            "{testimonial.quote}"
-          </p>
-          <cite className="text-sm text-zinc-500 not-italic">
+          <cite className="text-sm text-zinc-500 not-italic block mt-4">
             — {testimonial.author}
           </cite>
-        </blockquote>
+        </Card>
       ))}
     </div>
   )

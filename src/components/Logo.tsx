@@ -5,7 +5,6 @@ import { InteractiveLogo } from './InteractiveLogo'
 export function Logo() {
   return (
     <div className="flex items-center gap-3">
-      <InteractiveLogo />
       <div style={{ filter: 'brightness(0) invert(1)' }}>
         <Image 
           src="/svg/URU_logo.svg" 

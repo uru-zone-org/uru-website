@@ -1,9 +1,4 @@
 // src/app/page.tsx
-import { Header } from '@/components/Header'
-import { Logo } from '@/components/Logo'
-import { Nav } from '@/components/Nav'
-import { Footer } from '@/components/Footer'
-
 import { HeroSection } from '@/sections/HeroSection'
 import { WearProductSection } from '@/sections/WearProductSection'
 import { HowItWorksSection } from '@/sections/HowItWorksSection'
@@ -18,33 +13,22 @@ import { FinalCTASection } from '@/sections/FinalCTASection'
 export default function HomePage() {
   return (
     <div 
-      className="min-h-screen w-full" 
+      className="w-full" 
       style={{ 
         backgroundColor: 'var(--background-color)', 
         color: 'var(--primary-color)',
-        width: '100%',
-        minWidth: '100%'
       }}
     >
-      <Header>
-        <Logo />
-        <Nav />
-      </Header>
-
-      <main className="w-full" style={{ width: '100%' }}>
-        <HeroSection />
-        <WearProductSection />
-        <HowItWorksSection />
-        <EffortLossSection />
-        <AppProductSection />
-        <AppFeaturesSection />
-        <UruScoreSection />
-        <ComparisonSection />
-        <TestimonialsSection />
-        <FinalCTASection />
-      </main>
-
-      <Footer />
+      <HeroSection />
+      {/* <HowItWorksSection />
+      <WearProductSection />
+      <EffortLossSection />
+      <AppProductSection />
+      <AppFeaturesSection />
+      <UruScoreSection />
+      <ComparisonSection />
+      <TestimonialsSection />
+      <FinalCTASection /> */}
     </div>
   )
 }

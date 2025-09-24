@@ -1,17 +1,14 @@
 // components/Header.tsx
-interface HeaderProps {
-  children?: React.ReactNode;
-}
+import { Logo } from './Logo'
+import { Nav } from './Nav'
 
-export function Header({ children }: HeaderProps) {
-  const childrenArray = Array.isArray(children) ? children : [children]
-  
+export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: 'var(--background-color)', borderColor: 'var(--greyscale-5)' }}>
-      <div className="mx-auto px-4 sm:px-6" style={{ maxWidth: '100%', width: '100%' }}>
+    <header className="sticky top-0 z-50" style={{ backgroundColor: 'var(--background-color)' }}>
+      <div className="mx-auto px-6 sm:px-6" style={{ maxWidth: '100%', width: '100%' }}>
         <div className="flex items-center justify-between h-16">
-          {childrenArray[0]}
-          {childrenArray[1]}
+          <Logo />
+          <Nav />
         </div>
       </div>
     </header>

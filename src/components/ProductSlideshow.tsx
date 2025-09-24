@@ -4,8 +4,13 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { ChevronRight } from 'lucide-react'
 
+interface MediaItem {
+  src: string
+  type: 'image' | 'video' | 'youtube'
+}
+
 interface ProductSlideshowProps {
-  images: string[]
+  media: MediaItem[] | string[] // Support both new format and legacy format
   title: string
   description: string
   ctaText: string
@@ -13,24 +18,31 @@ interface ProductSlideshowProps {
 }
 
 export default function ProductSlideshow({
-  images,
+  media,
   title,
   description,
   ctaText,
   ctaHref
 }: ProductSlideshowProps) {
+  // Convert legacy string array to MediaItem array
+  const mediaItems: MediaItem[] = media.map(item => 
+    typeof item === 'string' 
+      ? { src: item, type: 'image' } 
+      : item
+  )
+
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [imageError, setImageError] = useState<boolean[]>(new Array(images.length).fill(false))
+  const [imageError, setImageError] = useState<boolean[]>(new Array(mediaItems.length).fill(false))
 
   useEffect(() => {
-    if (images.length <= 1) return
+    if (mediaItems.length <= 1) return
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 4000)
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % mediaItems.length)
+    }, 6000) // Longer interval to account for videos
 
     return () => clearInterval(interval)
-  }, [images.length])
+  }, [mediaItems.length])
 
   const handleImageError = (index: number) => {
     setImageError(prev => {
@@ -40,62 +52,152 @@ export default function ProductSlideshow({
     })
   }
 
+  const renderMedia = (item: MediaItem, index: number) => {
+    if (imageError[index]) {
+      return (
+        <div className="w-full h-full" style={{ background: 'linear-gradient(to bottom right, var(--greyscale-4), var(--greyscale-5))' }} />
+      )
+    }
+
+    switch (item.type) {
+      case 'youtube':
+        // Extract YouTube video ID
+        const videoId = item.src.includes('youtube.com') || item.src.includes('youtu.be') 
+          ? item.src.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)?.[1]
+          : item.src
+        
+        return (
+          <iframe
+            className="absolute inset-0 w-full h-full object-cover"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1`}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
+        )
+
+      case 'video':
+        return (
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            onError={() => handleImageError(index)}
+          >
+            <source src={item.src} type="video/mp4" />
+          </video>
+        )
+
+      case 'image':
+      default:
+        return (
+          <Image
+            src={item.src}
+            alt={`${title} ${index + 1}`}
+            fill
+            className="object-cover"
+            priority={index === 0}
+            onError={() => handleImageError(index)}
+            sizes="100vw"
+          />
+        )
+    }
+  }
+
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      {/* Images as full background - no borders */}
+      {/* Media as full background */}
       <div className="absolute inset-0">
-        {images.map((src, index) => (
+        {mediaItems.map((item, index) => (
           <div
-            key={src}
+            key={`${item.src}-${index}`}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
               index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            {!imageError[index] ? (
-              <Image
-                src={src}
-                alt={`${title} ${index + 1}`}
-                fill
-                className="object-cover"
-                priority={index === 0}
-                onError={() => handleImageError(index)}
-                sizes="100vw"
-              />
-            ) : (
-              <div className="w-full h-full" style={{ background: 'linear-gradient(to bottom right, var(--greyscale-4), var(--greyscale-5))' }} />
-            )}
+            {renderMedia(item, index)}
           </div>
         ))}
       </div>
 
-      {/* Text overlay on top of image */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
-          <div className="max-w-2xl">
-            <h2 style={{ color: 'var(--primary-color)' }}>
-              {title}
-            </h2>
-            <p className="text-xl md:text-2xl mb-8" style={{ color: 'var(--greyscale-2)' }}>
-              {description}
-            </p>
-            <a 
-              href={ctaHref}
-              className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full transition-colors"
-            >
-              {ctaText}
-              <ChevronRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Optional: Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+     {/* Enhanced gradient border overlays */}
+      {/* Top gradient */}
+      <div 
+        className="absolute top-0 left-0 w-full h-64 pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.01) 90%, rgba(0,0,0,0) 100%)'
+        }}
+      />
       
-      {/* Slide Indicators */}
-      {images.length > 1 && (
+      {/* Bottom gradient */}
+      <div 
+        className="absolute bottom-0 left-0 w-full h-64 pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.01) 90%, rgba(0,0,0,0) 100%)'
+        }}
+      />
+      
+      {/* Left gradient */}
+      <div 
+        className="absolute top-0 left-0 w-32 h-full pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)'
+        }}
+      />
+      
+      {/* Right gradient */}
+      <div 
+        className="absolute top-0 right-0 w-32 h-full pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)'
+        }}
+      />
+
+      {/* Corner gradients for smoother blending */}
+      {/* Top-left corner */}
+      <div 
+        className="absolute top-0 left-0 w-32 h-32 pointer-events-none z-10"
+        style={{
+          background: 'radial-gradient(ellipse at top left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)'
+        }}
+      />
+      
+      {/* Top-right corner */}
+      <div 
+        className="absolute top-0 right-0 w-32 h-32 pointer-events-none z-10"
+        style={{
+          background: 'radial-gradient(ellipse at top right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)'
+        }}
+      />
+      
+      {/* Bottom-left corner */}
+      <div 
+        className="absolute bottom-0 left-0 w-32 h-32 pointer-events-none z-10"
+        style={{
+          background: 'radial-gradient(ellipse at bottom left, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)'
+        }}
+      />
+      
+      {/* Bottom-right corner */}
+      <div 
+        className="absolute bottom-0 right-0 w-32 h-32 pointer-events-none z-10"
+        style={{
+          background: 'radial-gradient(ellipse at bottom right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%)'
+        }}
+      />
+
+      {/* Optional: Central vignette effect */}
+      <div
+        className="absolute inset-0 pointer-events-none z-5"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0.3) 100%)'
+        }}
+      />
+      
+      {mediaItems.length > 1 && (
         <div className="absolute bottom-8 right-8 flex gap-2 z-20">
-          {images.map((_, index) => (
+          {mediaItems.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}

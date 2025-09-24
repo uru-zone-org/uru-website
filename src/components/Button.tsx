@@ -8,8 +8,8 @@ interface ButtonProps {
 
 export function Button({ variant = 'primary', href, children }: ButtonProps) {
   const className = variant === 'primary' 
-    ? "btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full"
-    : "btn-secondary inline-flex items-center gap-2 px-6 py-3 border rounded-full"
+    ? "btn-primary inline-flex items-center gap-2 px-4 py-2 rounded-full"
+    : "btn-secondary inline-flex items-center gap-2 px-4 py-2 border rounded-full"
   
   return (
     <a href={href} className={className}>

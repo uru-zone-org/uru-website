@@ -6,7 +6,7 @@ export function WearProductSection() {
   return (
     <Section>
       <ProductSlideshow
-        images={['/images/URU_Wear.png', '/images/URU_Wear_Wrist.png']}
+        media={['/images/URU_Wear.png', '/images/URU_Wear_Wrist.png']}
         title="uru.wear"
         description="the first wearable made for strength."
         ctaText="get uru.wear"
