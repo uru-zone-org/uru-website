@@ -5,7 +5,11 @@ import { Card } from '@/components/Card'
 
 export function HowItWorksSection() {
   return (
-    <Section>
+    <Section 
+  backgroundType="radial" 
+  backgroundColor="var(--greyscale-5)"
+  fadeIntensity="medium"
+>
       <SectionHeader 
         title="how it works" 
         subtitle="plug in. lift. adapt in real time."

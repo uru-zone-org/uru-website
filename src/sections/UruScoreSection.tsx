@@ -5,7 +5,11 @@ import { Card } from '@/components/Card'
 
 export function UruScoreSection() {
   return (
-    <Section>
+    <Section 
+  backgroundType="radial" 
+  backgroundColor="var(--greyscale-5)"
+  fadeIntensity="medium"
+>
       <SectionHeader 
         title="uru.score" 
         subtitle="one number to see your day."

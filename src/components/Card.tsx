@@ -12,7 +12,7 @@ export function Card({ title, description, children, featured = false }: CardPro
       <div 
         className="rounded-2xl p-6 transition-transform duration-300 hover:scale-[1.02]"
         style={{ 
-        background:  'linear-gradient(135deg, black 0%, var(--greyscale-6) 50%, black 100%)',
+        background:  'linear-gradient(135deg, black 0%, var(--greyscale-5) 50%, black 100%)',
         border: '1px solid var(--greyscale-6)'
         }}
       >

@@ -5,7 +5,11 @@ import { Card } from '@/components/Card'
 
 export function EffortLossSection() {
   return (
-    <Section>
+    <Section 
+  backgroundType="radial" 
+  backgroundColor="var(--greyscale-5)"
+  fadeIntensity="medium"
+>
       <SectionHeader 
         title="effort loss: knowing when to stop" 
         subtitle="tempo slows as you fatigue. we track it in real time."

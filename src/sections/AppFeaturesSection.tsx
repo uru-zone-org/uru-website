@@ -5,7 +5,11 @@ import { SectionHeader } from '@/components/SectionHeader'
 
 export function AppFeaturesSection() {
   return (
-    <Section>
+<Section 
+  backgroundType="radial" 
+  backgroundColor="var(--greyscale-5)"
+  fadeIntensity="medium"
+>
               <SectionHeader 
                 title="App Features" 
                 subtitle="lala"
