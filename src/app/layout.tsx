@@ -34,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased flex flex-col min-h-screen">
+      <body className="antialiased flex flex-col min-h-screen px-6 sm:px-8 lg:px-12 py-4">
         <Header />
         <main className="flex-1">
           {children}

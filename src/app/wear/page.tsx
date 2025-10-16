@@ -20,7 +20,7 @@ export default function WearPage() {
       }}
     >
       <WearProductSection />
-      <HowItWorksSection />
+      {/* <HowItWorksSection /> */}
     </div>
   )
 }

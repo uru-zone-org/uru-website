@@ -13,8 +13,8 @@ export default function ComparePage() {
       }}
     >
       <ComparisonSection />
-      <TestimonialsSection />
-      <FinalCTASection />
+      {/* <TestimonialsSection />
+      <FinalCTASection /> */}
     </div>
   )
 }

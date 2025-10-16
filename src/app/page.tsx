@@ -20,15 +20,6 @@ export default function HomePage() {
       }}
     >
       <HeroSection />
-      {/* <HowItWorksSection />
-      <WearProductSection />
-      <EffortLossSection />
-      <AppProductSection />
-      <AppFeaturesSection />
-      <UruScoreSection />
-      <ComparisonSection />
-      <TestimonialsSection />
-      <FinalCTASection /> */}
     </div>
   )
 }
