@@ -1,53 +1,33 @@
 // src/sections/AppProductSection.tsx
-import { ChevronRight } from 'lucide-react'
-import { Button } from '@/components/Button'
-import ProductSlideshow from '@/components/ProductSlideshow'
+import { BackgroundMedia } from '@/components/BackgroundMedia'
 import { Section } from '@/components/Section'
-import { SectionHeader } from '@/components/SectionHeader'
+import { SectionCard } from '@/cards/SectionCard'
 
 export function AppProductSection() {
   return (
     <div className="relative">
-      {/* ProductSlideshow as full background */}
-      <ProductSlideshow
-        media={['/images/App 1.png', '/images/App 2.png', '/images/App 3.png', '/images/App 4.png']}
-        title=""
-        description=""
-        ctaText=""
-        ctaHref=""
+      <BackgroundMedia
+        media={[
+          '/images/App 1.png',
+          '/images/App 2.png',
+          '/images/App 3.png',
+          '/images/App 4.png',
+        ]}
       />
       
       <div className="relative z-20">
         <Section>
-          <div className="mb-16">
-            <SectionHeader 
-              title="Product Demo" 
-              subtitle="Experience the app in action"
-            />
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <p className="max-w-lg" style={{ color: 'var(--greyscale-3)' }}>
-                plan, lift, recover, ai coaching and progress in one place.
-              </p>
-              <p className="max-w-lg" style={{ color: 'var(--greyscale-3)' }}>
-                track every workout, optimize every set, achieve every goal.
-              </p>
-
-              <div className="h-32 md:h-48"></div>
-              
-              <div className="flex flex-wrap gap-6 mb-8">
-                <Button variant="primary" href="#demo">
-                  see uru.app
-                  <ChevronRight className="w-4 h-4" />
-                </Button>
-                <Button variant="secondary" href="#features">
-                  learn more
-                </Button>
-              </div>
-            </div>
-          </div>
+          <SectionCard
+            title="Product Demo"
+            subtitle="Experience the app in action"
+            text={[
+              'plan, lift, recover, ai coaching and progress in one place.',
+              'track every workout, optimize every set, achieve every goal.'
+            ]}
+            primaryAction={{ label: 'see uru.app', href: '#demo' }}
+            secondaryAction={{ label: 'learn more', href: '#features' }}
+            className="max-w-xl"
+          />
         </Section>
       </div>
     </div>
