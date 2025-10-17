@@ -21,14 +21,14 @@ export function Nav() {
       wear
     </Link>
     <Link 
-      href="/app" 
+      href="/app-page" 
       className="text-sm hover:opacity-80 transition-opacity" 
       style={{ color: 'var(--greyscale-3)' }}
     >
       app
     </Link>
     <Link 
-      href="/compare" 
+      href="/compare-page" 
       className="text-sm hover:opacity-80 transition-opacity" 
       style={{ color: 'var(--greyscale-3)' }}
     >
