@@ -1,17 +1,20 @@
 // src/sections/ComparisonSection.tsx
 import { Section } from '@/components/Section'
-import { SectionCard } from '@/cards/SectionCard'
 import ComparisonTable from '@/components/ComparisonTable'
 
 export function ComparisonSection() {
   return (
     <Section id="compare">
-      <SectionCard
-        title="uru.zone vs the rest"
-        subtitle="strength-first. real-time. adaptive."
-      >
-        <ComparisonTable />
-      </SectionCard>
+      <div className="panel max-w-5xl mx-auto">
+        <div className="space-y-2">
+          <h2>uru.zone vs the rest</h2>
+          <h3 className="text-white/70">strength-first. real-time. adaptive.</h3>
+        </div>
+
+        <div className="mt-8">
+          <ComparisonTable />
+        </div>
+      </div>
     </Section>
   )
 }

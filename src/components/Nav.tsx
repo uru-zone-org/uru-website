@@ -14,7 +14,7 @@ export function Nav() {
 <nav className="hidden md:flex items-center gap-6">
   <div className="flex items-center gap-6">
     <Link 
-      href="/wear" 
+      href="/wear-page" 
       className="text-sm hover:opacity-80 transition-opacity" 
       style={{ color: 'var(--greyscale-3)' }}
     >

@@ -29,7 +29,7 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 sm:gap-6 pt-6 border-t border-white/10 mt-6">
+            <div className="flex flex-wrap gap-4 sm:gap-6 pt-6 mt-6">
               <Button variant="primary" href="#buy">
                 get uru.wear
                 <ChevronRight className="w-4 h-4" />

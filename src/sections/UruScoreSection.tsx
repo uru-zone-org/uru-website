@@ -1,42 +1,34 @@
 // src/sections/UruScoreSection.tsx
 import { Section } from '@/components/Section'
-import { SectionHeader } from '@/components/SectionHeader'
 import { Card } from '@/components/Card'
 
 export function UruScoreSection() {
   return (
-    <Section 
-  backgroundType="radial" 
-  backgroundColor="var(--greyscale-5)"
-  fadeIntensity="medium"
->
-      <SectionHeader 
-        title="uru.score" 
-        subtitle="one number to see your day."
-      />
+    <Section id="uru-score">
+      <div className="max-w-5xl mx-auto text-center mb-16">
+        <h2>uru.score</h2>
+        <h3 className="text-white/70">one number to see your day.</h3>
+      </div>
+
       <div className="grid md:grid-cols-3 gap-8">
         <Card title="what it shows">
-          <div className="space-y-3">
-            <div className="flex gap-3">
-              <span>how much you lifted</span>
-            </div>
-            <div className="flex gap-3">
-              <span>how well you moved</span>
-            </div>
-            <div className="flex gap-3">
-              <span>how it compares to your past</span>
-            </div>
+          <div className="space-y-3 text-white/80">
+            <div>how much you lifted</div>
+            <div>how well you moved</div>
+            <div>how it compares to your past</div>
           </div>
         </Card>
+
         <Card title="quick glance">
-          <div>
+          <div className="text-white/80">
             mini chart / gauge
           </div>
         </Card>
-        <Card 
+
+        <Card
           title="auto logging"
           description="every rep, set, and session saved. no taps needed."
-          featured={true}
+          featured
         />
       </div>
     </Section>
