@@ -8,6 +8,8 @@ interface SectionProps {
   className?: string
   fullHeight?: boolean
   accentBorder?: boolean
+  container?: boolean
+  containerClassName?: string
 }
 
 export function Section({
@@ -15,7 +17,9 @@ export function Section({
   children,
   className = '',
   fullHeight = false,
-  accentBorder = false
+  accentBorder = false,
+  container = true,
+  containerClassName = ''
 }: SectionProps) {
   const baseClass = fullHeight
     ? 'min-h-screen py-20 md:py-32'
@@ -30,9 +34,17 @@ export function Section({
         <div className="absolute inset-0 border-y-2 border-yellow-500/10 pointer-events-none z-10" />
       )}
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-8 relative z-20">
-        {children}
-      </div>
+      {container ? (
+<div className={`h-full w-full px-4 sm:px-6 relative z-20 ${containerClassName}`}>
+  {children}
+</div>
+      ) : (
+        // No container: let callers control layout/positioning completely
+<div className="relative z-20 h-full w-full">
+  {children}
+</div>
+
+      )}
     </section>
   )
 }

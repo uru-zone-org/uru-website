@@ -11,30 +11,34 @@ export function Nav() {
   return (
     <>
       {/* Desktop Nav */}
-      <nav className="hidden md:flex items-center gap-6">
-        <Link 
-          href="/wear" 
-          className="text-sm hover:opacity-80 transition-opacity" 
-          style={{ color: 'var(--greyscale-3)' }}
-        >
-          wear
-        </Link>
-        <Link 
-          href="/app" 
-          className="text-sm hover:opacity-80 transition-opacity" 
-          style={{ color: 'var(--greyscale-3)' }}
-        >
-          app
-        </Link>
-        <Link 
-          href="/compare" 
-          className="text-sm hover:opacity-80 transition-opacity" 
-          style={{ color: 'var(--greyscale-3)' }}
-        >
-          compare
-        </Link>
-        <Button variant="secondary" href="#demo">request demo</Button>
-      </nav>
+<nav className="hidden md:flex items-center gap-6">
+  <div className="flex items-center gap-6">
+    <Link 
+      href="/wear" 
+      className="text-sm hover:opacity-80 transition-opacity" 
+      style={{ color: 'var(--greyscale-3)' }}
+    >
+      wear
+    </Link>
+    <Link 
+      href="/app" 
+      className="text-sm hover:opacity-80 transition-opacity" 
+      style={{ color: 'var(--greyscale-3)' }}
+    >
+      app
+    </Link>
+    <Link 
+      href="/compare" 
+      className="text-sm hover:opacity-80 transition-opacity" 
+      style={{ color: 'var(--greyscale-3)' }}
+    >
+      compare
+    </Link>
+  </div>
+  <div className="pl-8">
+    <Button variant="secondary" href="#demo">request demo</Button>
+  </div>
+</nav>
 
       {/* Mobile Menu Button */}
       <button 
@@ -47,7 +51,7 @@ export function Nav() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="fixed top-16 left-0 right-0 border-b md:hidden z-40 shadow-lg" style={{ borderColor: 'var(--greyscale-5)', backgroundColor: 'var(--background-color)' }}>
+        <div className="fixed top-16 left-0 right-0 border-b md:hidden z-40 shadow-lg" style={{ borderColor: 'var(--greyscale-5)', backgroundColor: 'var(--background)' }}>
           <nav className="flex flex-col p-6 gap-4">
             <Link 
               href="/wear" 

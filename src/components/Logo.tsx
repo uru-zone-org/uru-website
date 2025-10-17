@@ -1,6 +1,5 @@
 // components/Logo.tsx
 import Image from 'next/image'
-import { InteractiveLogo } from './InteractiveLogo'
 
 export function Logo() {
   return (
