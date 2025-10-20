@@ -1,4 +1,3 @@
-// src/components/Nav.tsx (or wherever your Nav lives)
 'use client'
 
 import { useState } from 'react'
@@ -43,67 +42,74 @@ export function Nav() {
             Compare
           </Link>
         </div>
-        <div className="pl-8">
-          <Button variant="secondary" href="/#demo">Join Waitlist</Button>
-        </div>
+        <Button variant="secondary" href="#demo">
+          watch demo
+        </Button>
       </nav>
 
-      {/* Mobile Menu Button */}
+      {/* Mobile Menu Button (styled like your buttons) */}
       <button
-        className="md:hidden p-2 ml-auto"
+        className="md:hidden inline-flex items-center justify-center px-3 py-2 border rounded-full"
+        style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
+        aria-expanded={isOpen}
       >
-        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
       </button>
 
-      {/* Mobile Nav */}
+      {/* Mobile Nav (dropdown anchored to the pill) */}
       {isOpen && (
         <div
-          className="fixed top-16 left-0 right-0 border-b md:hidden z-40 shadow-lg"
-          style={{ borderColor: 'var(--greyscale-5)', backgroundColor: 'var(--background)' }}
+          className="absolute left-0 right-0 top-full mt-2 md:hidden z-40"
         >
-          <nav className="flex flex-col p-6 gap-4">
-            <Link
-              href="/#product"
-              className="text-sm hover:opacity-80 transition-opacity py-2"
-              style={{ color: 'var(--greyscale-3)' }}
-              onClick={() => setIsOpen(false)}
-            >
-              Product
-            </Link>
-            <Link
-              href="/#science"
-              className="text-sm hover:opacity-80 transition-opacity py-2"
-              style={{ color: 'var(--greyscale-3)' }}
-              onClick={() => setIsOpen(false)}
-            >
-              Science
-            </Link>
-            <Link
-              href="/#mission"
-              className="text-sm hover:opacity-80 transition-opacity py-2"
-              style={{ color: 'var(--greyscale-3)' }}
-              onClick={() => setIsOpen(false)}
-            >
-              Mission
-            </Link>
-            <Link
-              href="/#compare"
-              className="text-sm hover:opacity-80 transition-opacity py-2"
-              style={{ color: 'var(--greyscale-3)' }}
-              onClick={() => setIsOpen(false)}
-            >
-              Compare
-            </Link>
-            <Link
-              href="/#demo"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border rounded-full text-sm"
-              onClick={() => setIsOpen(false)}
-            >
-              Join Waitlist
-            </Link>
-          </nav>
+          <div
+            className="border rounded-2xl shadow-lg"
+            style={{ borderColor: 'var(--border-color)', backgroundColor: 'var(--background)' }}
+          >
+            <nav className="flex flex-col p-4 gap-2">
+              <Link
+                href="/#product"
+                className="text-sm hover:opacity-80 transition-opacity py-2"
+                style={{ color: 'var(--greyscale-3)' }}
+                onClick={() => setIsOpen(false)}
+              >
+                Product
+              </Link>
+              <Link
+                href="/#science"
+                className="text-sm hover:opacity-80 transition-opacity py-2"
+                style={{ color: 'var(--greyscale-3)' }}
+                onClick={() => setIsOpen(false)}
+              >
+                Science
+              </Link>
+              <Link
+                href="/#mission"
+                className="text-sm hover:opacity-80 transition-opacity py-2"
+                style={{ color: 'var(--greyscale-3)' }}
+                onClick={() => setIsOpen(false)}
+              >
+                Mission
+              </Link>
+              <Link
+                href="/#compare"
+                className="text-sm hover:opacity-80 transition-opacity py-2"
+                style={{ color: 'var(--greyscale-3)' }}
+                onClick={() => setIsOpen(false)}
+              >
+                Compare
+              </Link>
+              <a
+                href="/#demo"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border rounded-full text-sm mt-2"
+                style={{ borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}
+                onClick={() => setIsOpen(false)}
+              >
+                Join Waitlist
+              </a>
+            </nav>
+          </div>
         </div>
       )}
     </>

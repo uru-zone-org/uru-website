@@ -1,19 +1,12 @@
+'use client'
 
-import { ComparisonSection } from '@/sections/ComparisonSection'
-import { TestimonialsSection } from '@/sections/TestimonialsSection'
-import { FinalCTASection } from '@/sections/FinalCTASection'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-export default function ComparePage() {
-  return (
-    <div 
-      className="w-full" 
-      style={{ 
-        backgroundColor: 'var(--background-color)', 
-        color: 'var(--primary-color)',
-      }}
-    >
-      <ComparisonSection />
-       <TestimonialsSection />
-    </div>
-  )
+export default function CompareRedirectPage() {
+  const router = useRouter()
+  useEffect(() => {
+    router.replace('/#compare')
+  }, [router])
+  return null
 }

@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import type { Metadata, Viewport } from 'next'
 import '../styles/globals.css'
 import { Header } from '../components/Header'
@@ -35,10 +36,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased flex flex-col min-h-screen px-6 sm:px-8 lg:px-12 py-4">
-        <Header />
-        <main className="flex-1">
+        {/* Add top margin around the header */}
+        <div className="mt-4 sm:mt-6 lg:mt-8">
+          <Header />
+        </div>
+
+        <main className="h-20 md:h-24">
           {children}
         </main>
+
         <Footer />
       </body>
     </html>

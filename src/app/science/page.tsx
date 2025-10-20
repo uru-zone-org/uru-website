@@ -1,20 +1,12 @@
+'use client'
 
-import { ScienceIntro } from '@/sections/ScienceInto'
-import { ScienceSummary } from '@/sections/ScienceSummary'
-import { UruScoreSection } from '@/sections/UruScoreSection'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-export default function WearPage() {
-  return (
-    <div 
-      className="w-full" 
-      style={{ 
-        backgroundColor: 'var(--background-color)', 
-        color: 'var(--primary-color)',
-      }}
-    >
-      <ScienceIntro />
-      <UruScoreSection />
-      <ScienceSummary />
-    </div>
-  )
+export default function ScienceRedirectPage() {
+  const router = useRouter()
+  useEffect(() => {
+    router.replace('/#science')
+  }, [router])
+  return null
 }

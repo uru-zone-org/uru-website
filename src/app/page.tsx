@@ -11,6 +11,8 @@ import { TestimonialsSection } from '@/sections/TestimonialsSection'
 import { FinalCTASection } from '@/sections/FinalCTASection'
 import { ScienceIntro } from '@/sections/ScienceInto'
 import { ScienceSummary } from '@/sections/ScienceSummary'
+import { VideoSection } from '@/sections/VideoSection'
+
 
 export default function HomePage() {
   return (
@@ -22,6 +24,8 @@ export default function HomePage() {
       }}
     >
       <HeroSection />
+      <VideoSection />
+
 
       {/* Product */}
       <section id="product" className="scroll-mt-24">
