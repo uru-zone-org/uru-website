@@ -35,15 +35,15 @@ export default function HomePage() {
         <ScienceSection />
       </section>
 
-      {/* Mission */}
-      <section id="mission" className="scroll-mt-24">
-        <EffortLossSection />
-      </section>
-
-      {/* Compare */}
+      {/* Compare*/}
       <section id="compare" className="scroll-mt-24">
         <ComparisonSection />
-      </section>
+      </section> 
+
+      {/* Mission */}
+      {/* <section id="mission" className="scroll-mt-24">
+        <EffortLossSection />
+      </section> */}
 {/* 
       {/* Demo / CTA */}
       {/* <section id="demo" className="scroll-mt-24">
