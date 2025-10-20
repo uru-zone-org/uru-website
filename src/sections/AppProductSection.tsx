@@ -38,17 +38,6 @@ export function AppProductSection() {
                 track every workout, optimize every set, achieve every goal.
               </p>
             </div>
-
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-4 sm:gap-6 pt-6 mt-6">
-              <Button variant="primary" href="#demo">
-                see uru.app
-                <ChevronRight className="w-4 h-4" />
-              </Button>
-              <Button variant="secondary" href="#features">
-                learn more
-              </Button>
-            </div>
           </div>
         </Section>
       </div>

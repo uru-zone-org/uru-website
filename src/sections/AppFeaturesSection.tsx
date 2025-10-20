@@ -6,23 +6,23 @@ export function AppFeaturesSection() {
   return (
     <Section id="features">
       <div className="max-w-5xl mx-auto text-center mb-16">
-        <h2>App Features</h2>
-        <h3 className="text-white/70">lala</h3>
+        <h2>Features</h2>
+        <h3 className="text-white/70">what you get, right out of the box</h3>
       </div>
 
       <div className="grid md:grid-cols-3 gap-8">
         <Card
-          title="live coaching"
-          description="real-time cues, green / yellow / red guidance, adaptive sets."
+          title="real-time coaching"
+          description="Green / yellow / red cues and set adjustments—push when ready, stop when it matters."
           featured
         />
         <Card
           title="tracking & insights"
-          description="reps, tempo, load, and uru.score — trends that actually help."
+          description="Reps, tempo, load, velocity, and uru.score—clean visuals and trends that actually help."
         />
         <Card
           title="recovery & readiness"
-          description="see fatigue, plan the next session, avoid burnout."
+          description="Fatigue signals and smart suggestions so tomorrow’s plan fits how you feel today."
         />
       </div>
     </Section>

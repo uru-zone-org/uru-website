@@ -32,7 +32,7 @@ export function WearProductSection() {
               </p>
             </div>
 
-            {/* Buttons */}
+            {/* Buttons
             <div className="flex flex-wrap gap-4 sm:gap-6 pt-6 mt-6">
               <Button variant="primary" href="#buy">
                 get uru.wear
@@ -41,7 +41,7 @@ export function WearProductSection() {
               <Button variant="secondary" href="#demo">
                 learn more
               </Button>
-            </div>
+            </div> */}
           </div>
         </Section>
       </div>

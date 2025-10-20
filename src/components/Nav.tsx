@@ -14,29 +14,36 @@ export function Nav() {
 <nav className="hidden md:flex items-center gap-6">
   <div className="flex items-center gap-6">
     <Link 
-      href="/wear-page" 
+      href="/product" 
       className="text-sm hover:opacity-80 transition-opacity" 
       style={{ color: 'var(--greyscale-3)' }}
     >
-      wear
+      Product
     </Link>
     <Link 
-      href="/app-page" 
+      href="/science" 
       className="text-sm hover:opacity-80 transition-opacity" 
       style={{ color: 'var(--greyscale-3)' }}
     >
-      app
+      Science
+    </Link>
+        <Link 
+      href="/mission" 
+      className="text-sm hover:opacity-80 transition-opacity" 
+      style={{ color: 'var(--greyscale-3)' }}
+    >
+      Mission
     </Link>
     <Link 
-      href="/compare-page" 
+      href="/compare" 
       className="text-sm hover:opacity-80 transition-opacity" 
       style={{ color: 'var(--greyscale-3)' }}
     >
-      compare
+      Compare
     </Link>
   </div>
   <div className="pl-8">
-    <Button variant="secondary" href="#demo">request demo</Button>
+    <Button variant="secondary" href="#demo">Join Waitlist</Button>
   </div>
 </nav>
 
@@ -54,35 +61,44 @@ export function Nav() {
         <div className="fixed top-16 left-0 right-0 border-b md:hidden z-40 shadow-lg" style={{ borderColor: 'var(--greyscale-5)', backgroundColor: 'var(--background)' }}>
           <nav className="flex flex-col p-6 gap-4">
             <Link 
-              href="/wear" 
+              href="/product" 
               className="text-sm hover:opacity-80 transition-opacity py-2" 
               style={{ color: 'var(--greyscale-3)' }}
               onClick={() => setIsOpen(false)}
             >
-              wear
+            Product
             </Link>
             <Link 
-              href="/app" 
+              href="/science" 
               className="text-sm hover:opacity-80 transition-opacity py-2" 
               style={{ color: 'var(--greyscale-3)' }}
               onClick={() => setIsOpen(false)}
             >
-              app
+              Science
             </Link>
+                        <Link 
+              href="/mission" 
+              className="text-sm hover:opacity-80 transition-opacity py-2" 
+              style={{ color: 'var(--greyscale-3)' }}
+              onClick={() => setIsOpen(false)}
+            >
+              Mission
+            </Link>
+            
             <Link 
               href="/compare" 
               className="text-sm hover:opacity-80 transition-opacity py-2" 
               style={{ color: 'var(--greyscale-3)' }}
               onClick={() => setIsOpen(false)}
             >
-              compare
+              Compare
             </Link>
             <Link 
               href="#demo" 
               className="inline-flex items-center justify-center gap-2 px-6 py-3 border rounded-full text-sm"
               onClick={() => setIsOpen(false)}
             >
-              request demo
+              Join Waitlist
             </Link>
           </nav>
         </div>

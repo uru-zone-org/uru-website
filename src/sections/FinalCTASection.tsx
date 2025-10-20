@@ -1,52 +1,24 @@
 // src/sections/FinalCTASection.tsx
 import { ChevronRight } from 'lucide-react'
 import { Section } from '@/components/Section'
-import { Card } from '@/components/Card'
 import { Button } from '@/components/Button'
 
 export function FinalCTASection() {
   return (
-    <Section id="cta">
-      <div className="max-w-5xl mx-auto text-center mb-16">
-        <h2>join the strength revolution</h2>
-        <h3 className="text-white/70">rep by rep. set by set.</h3>
-      </div>
+    <Section id="join">
+      <div className="max-w-5xl mx-auto text-center space-y-6">
+        <h2>ready to train smarter?</h2>
+        <h3 className="text-white/70">every rep measured. every set optimized.</h3>
 
-      <div className="grid md:grid-cols-3 gap-8 mb-12">
-        <Card
-          title="the market gap"
-          description="strength has been under-served by tech. uru.zone changes that."
-        />
-        <Card
-          title="the first wearable for strength"
-          description="uru.wear tracks form, tempo, and load — built for lifters, not runners."
-        />
-        <Card
-          title="the first ai strength coach"
-          description="real-time feedback adapts your training on the fly."
-        />
-        <Card
-          title="the first strength ecosystem"
-          description="wear + app + coaching = every rep measured, every set optimised."
-        />
-        <Card
-          title="velocity based training, by default"
-          description="train by velocity, not ego — right zone, fewer wasted reps, safer gains."
-        />
-        <Card
-          title="inclusive by design"
-          description="from youth athletes to pros to rehab — uru adapts, scales, and supports everyone."
-        />
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-4">
-        <Button variant="primary" href="#">
-          get uru.wear
-          <ChevronRight className="w-4 h-4" />
-        </Button>
-        <Button variant="secondary" href="#">
-          request a demo
-        </Button>
+        <div className="flex flex-wrap justify-center gap-4 pt-4">
+          {/* <Button variant="primary" href="#buy">
+            get uru.wear
+            <ChevronRight className="w-4 h-4" />
+          </Button> */}
+          <Button variant="secondary" href="#demo">
+            Join Waitlist
+          </Button>
+        </div>
       </div>
     </Section>
   )

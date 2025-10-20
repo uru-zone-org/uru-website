@@ -14,7 +14,6 @@ export default function ComparePage() {
     >
       <ComparisonSection />
        <TestimonialsSection />
-      <FinalCTASection /> 
     </div>
   )
 }

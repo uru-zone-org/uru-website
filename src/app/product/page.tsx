@@ -20,10 +20,9 @@ export default function AppPage() {
       }}
     >
     <AppProductSection />
-      <HowItWorksSection /> 
-       <EffortLossSection />
-      <AppFeaturesSection />
-      <UruScoreSection /> 
+    <AppFeaturesSection />
+    <WearProductSection />
+    <FinalCTASection />
     </div>
   )
 }
