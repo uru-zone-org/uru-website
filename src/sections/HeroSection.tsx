@@ -17,14 +17,9 @@ export function HeroSection() {
                 Strength, Reinvented
               </h1>
               <p className="mt-3 text-lg text-white/80">
-                A wearable for lifters — AI coaching built for progress, not burnout.
+                A wearable for lifters.AI coaching built for progress.
               </p>
             </div>
-
-            <p className="text-base text-white/70">
-              Every rep measured. Every set optimized.
-            </p>
-
             <div className="flex flex-wrap gap-4 sm:gap-6 pt-4">
               {/* <Button variant="primary" href="/#product">
                 Get URU.Wear
