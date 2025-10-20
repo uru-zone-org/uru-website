@@ -199,6 +199,12 @@
     backdrop-filter: blur(var(--surface-blur));
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    aspect-ratio: 1 / 1;       /* Keep 1:1 shape */
+    display: flex;             /* Allow flexible content layout */
+    flex-direction: column;    /* Stack children vertically */
+    justify-content: flex-start;
+    overflow: hidden; 
   }
 
   .card:hover {
