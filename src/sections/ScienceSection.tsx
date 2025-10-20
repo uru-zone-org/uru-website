@@ -1,5 +1,6 @@
 // src/sections/ScienceSlideSection.tsx
 import { Section } from '@/components/Section'
+import { Card } from '@/components/Card'
 
 export function ScienceSection() {
   return (
@@ -17,30 +18,25 @@ export function ScienceSection() {
 
         {/* 3 Core Areas */}
         <div className="grid md:grid-cols-3 gap-6 text-left">
-          {/* Motion Intelligence */}
-          <div className="panel">
-            <p className="font-transducer-medium uppercase text-white/80 mb-2">Motion Intelligence</p>
+        <Card title="Motion Intelligence">
             <p className="text-white/80">
-              Tracks every rep and set, time under tension, and movement quality — rep by rep, frame by frame.
+            Tracks every rep and set, time under tension, and movement quality — rep by rep, frame by frame.
             </p>
-          </div>
+        </Card>
 
-          {/* Hardware Core */}
-          <div className="panel">
-            <p className="font-transducer-medium uppercase text-white/80 mb-2">Hardware Core</p>
+        <Card title="Hardware Core">
             <p className="text-white/80">
-              Custom PCB with high-frequency IMU (200 Hz) captures 3D motion for over 200 exercises with real-time precision.
+            Custom PCB with high-frequency IMU (200 Hz) captures 3D motion for over 200 exercises with real-time precision.
             </p>
-          </div>
+        </Card>
 
-          {/* Adaptive Coaching */}
-          <div className="panel">
-            <p className="font-transducer-medium uppercase text-white/80 mb-2">Adaptive Coaching</p>
+        <Card title="Adaptive Coaching">
             <p className="text-white/80">
-              AI analyzes effort, fatigue, and tempo — adjusting cues, load, and pacing instantly.
+            AI analyzes effort, fatigue, and tempo — adjusting cues, load, and pacing instantly.
             </p>
-          </div>
+        </Card>
         </div>
+
 
         {/* uru.score mini */}
         <div className="text-left max-w-3xl mx-auto space-y-4">

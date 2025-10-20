@@ -54,13 +54,8 @@ export default function ComparisonTable() {
   }
 
   return (
-    <div 
-      className="rounded-2xl p-6 transition-all duration-500 hover:scale-[1.01]"
-      style={{ 
-        background: 'linear-gradient(135deg, black 0%, var(--greyscale-6) 50%, black 100%)',
-        backdropFilter: 'blur(8px)'
-      }}
-    >
+<div className="surface-table p-6 transition-all duration-500 hover:scale-[1.01]">
+
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>

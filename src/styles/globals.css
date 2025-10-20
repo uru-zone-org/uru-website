@@ -185,10 +185,40 @@
   /* Updated components using semantic variables */
   .panel {
     @apply rounded border;
-    background-color: rgba(42, 42, 60, 0.5);
+    background-color: var(--dumbell-60);
     color: var(--text-primary);
     border-color: var(--border-color);
     padding: 16px;
+  }
+
+  /* Card styles */
+  .card {
+    border-radius: var(--surface-radius);
+    background: var(--surface-bg);
+    border: 1px solid var(--surface-border);
+    backdrop-filter: blur(var(--surface-blur));
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(var(--surface-hover-scale));
+  }
+
+  /* Featured cards (optional accent version) */
+  .card-featured {
+    border: 1px solid var(--accent);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: var(--text-inverted);
+  }
+
+  /* Global control variables */
+  :root {
+    --surface-bg: linear-gradient(135deg, var(--background-tertiary) 0%, var(--background) 100%);
+    --surface-border: var(--border-color-light);
+    --surface-radius: 1rem; /* 16px */
+    --surface-blur: 8px;
+    --surface-hover-scale: 1.02;
   }
   
   .btn-primary {
