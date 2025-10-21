@@ -27,7 +27,7 @@ export default function HomePage() {
 
 
       {/* Video */}
-      <section id="product" className="scroll-mt-24">
+      <section id="video" className="scroll-mt-24">
         <VideoSection />
       </section>
 
@@ -41,8 +41,8 @@ export default function HomePage() {
         <ComparisonSection />
       </section> 
 
-      {/* Mission */}
-      <section id="mission" className="scroll-mt-24">
+      {/* Gap */}
+      <section id="gap" className="scroll-mt-24">
         <GapSection />
       </section> 
 {/* 

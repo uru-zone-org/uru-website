@@ -35,6 +35,21 @@ export function Nav() {
           >
             Compare
           </Link>
+            <Link
+              href="/#gap"
+              className="text-sm hover:opacity-80 transition-opacity"
+              style={{ color: 'var(--greyscale-3)' }}
+            >
+              The Gap
+            </Link>
+            <Link
+            href="/team"
+            className="text-sm hover:opacity-80 transition-opacity"
+            style={{ color: 'var(--greyscale-3)' }}
+          >
+            The Team
+          </Link>
+
         </div>
         <Button variant="secondary" href="#demo">
           watch demo
@@ -86,6 +101,24 @@ export function Nav() {
               >
                 Compare
               </Link>
+          <Link
+            href="/#gap"
+            className="text-sm hover:opacity-80 transition-opacity py-2"
+            style={{ color: 'var(--greyscale-3)' }}
+            onClick={() => setIsOpen(false)}
+          >
+            The Gap
+          </Link>
+
+          <Link
+            href="/team"
+            className="text-sm hover:opacity-80 transition-opacity py-2"
+            style={{ color: 'var(--greyscale-3)' }}
+            onClick={() => setIsOpen(false)}
+          >
+            The Team
+          </Link>
+
               <a
                 href="/#demo"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 border rounded-full text-sm mt-2"
