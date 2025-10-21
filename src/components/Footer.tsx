@@ -6,7 +6,7 @@ export function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-4 text-sm" style={{ color: 'var(--greyscale-3)' }}>
             <div className="flex flex-wrap items-center gap-3" style={{ color: 'var(--greyscale-3)' }}>
             <div>© {new Date().getFullYear()} uru.zone</div>
-            <div>reykjavík</div>
+            <div>built in reykjavík</div>
             </div>
           <div className="flex gap-6">
             <a href="#" className="hover:opacity-80">privacy</a>

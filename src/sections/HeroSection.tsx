@@ -19,11 +19,11 @@ export function HeroSection() {
           <div className="content-wrap max-w-3xl space-y-6">
             <div>
               <h1 className="text-4xl sm:text-5xl font-semibold text-white leading-tight uppercase">
-                Strength, Reinvented
+                Strength Training, Reinvented
               </h1>
-              <p className="mt-3 text-lg text-white/80">
-                A wearable for lifters.AI coaching built for progress.
-              </p>
+              <h3 className="mt-3">
+                URU.wear is not just tracking fitness — it is measuring performance. 
+              </h3>
             </div>
             <div className="flex flex-wrap gap-4 sm:gap-6 pt-4">
               {/* <Button variant="primary" href="/#product">

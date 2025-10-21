@@ -5,6 +5,7 @@ import { ComparisonSection } from '@/sections/ComparisonSection'
 import { VideoSection } from '@/sections/VideoSection'
 import { ProductSection } from '@/sections/ProductSection'
 import { ScienceSection } from '@/sections/ScienceSection'
+import { GapSection } from '@/sections/GapSection'
 
 
 
@@ -41,9 +42,9 @@ export default function HomePage() {
       </section> 
 
       {/* Mission */}
-      {/* <section id="mission" className="scroll-mt-24">
-        <EffortLossSection />
-      </section> */}
+      <section id="mission" className="scroll-mt-24">
+        <GapSection />
+      </section> 
 {/* 
       {/* Demo / CTA */}
       {/* <section id="demo" className="scroll-mt-24">

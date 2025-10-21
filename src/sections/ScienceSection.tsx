@@ -8,9 +8,9 @@ export function ScienceSection() {
       <div className="max-w-5xl mx-auto px-6 text-center space-y-12">
         {/* Title */}
         <div className="space-y-2 text-center max-w-3xl mx-auto">
-          <h2>Built on Movement Science</h2>
+          <h2>Precision Performance Tracking</h2>
           <h3 className="text-white/70">
-            Accurate motion sensing and data-driven feedback designed for strength training
+            Data-driven feedback designed for strength training
           </h3>
         </div>
 
