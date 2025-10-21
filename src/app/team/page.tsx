@@ -84,9 +84,9 @@ export default function TeamPage() {
                 <div className="absolute inset-0 bg-[var(--default)] transition-opacity duration-500 opacity-0 group-hover:opacity-100"></div>
               </div>
 
-              <h2 className="mt-4 text-lg font-medium text-center">
+              <h3 className="mt-4 text-lg font-medium text-center">
                 {member.name}
-              </h2>
+              </h3>
               <p className="text-sm text-center opacity-70">{member.role}</p>
             </div>
           ))}
