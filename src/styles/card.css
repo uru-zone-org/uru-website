@@ -1,0 +1,85 @@
+
+
+.card {
+  border-radius: var(--surface-radius);
+  background: var(--surface-bg);
+  border: 1px solid var(--surface-border);
+  backdrop-filter: blur(var(--surface-blur));
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  gap: 0.75rem;
+}
+
+/* Hover */
+.card:hover {
+  transform: scale(var(--surface-hover-scale));
+  border: 1px solid var(--accent-hover);
+}
+
+/* Featured */
+.card-featured {
+  border: 1px solid var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: var(--text-inverted);
+}
+
+/* Typography & regions */
+.card h1,
+.card h2,
+.card h3,
+.card p {
+  margin: 0;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: clamp(1rem, 1rem + 1vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.card-title + .card-subtitle {
+  margin-top: 0.2rem;
+}
+
+.card-subtitle {
+  font-size: clamp(0.8rem, 0.65rem + 0.5vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-subtle, rgba(255,255,255,0.9));
+  opacity: 0.9;
+}
+
+.card-body {
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.0625rem);
+  line-height: 1.6;
+  color: var(--text, rgba(255,255,255,0.9));
+}
+
+.card-body > * + * {
+  margin-top: 0.5rem;
+}
+
+.card-featured .card-title,
+.card-featured .card-subtitle,
+.card-featured .card-body {
+  color: var(--text-inverted, #fff);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
+}

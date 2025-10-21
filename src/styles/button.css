@@ -1,0 +1,26 @@
+  .btn-primary {
+    font-family: 'Transducer', sans-serif;
+    font-weight: 500; /* Medium weight for buttons */
+    text-transform: uppercase;
+    background-color: var(--accent);
+    color: var(--text-inverted);
+    transition: background-color 0.2s;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--accent-hover);
+  }
+  
+  .btn-secondary {
+    font-family: 'Transducer', sans-serif;
+    font-weight: 500; /* Medium weight for buttons */
+    text-transform: uppercase;
+    border-color: var(--border-color);
+    color: var(--text-primary);
+    transition: all 0.2s;
+  }
+  
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }

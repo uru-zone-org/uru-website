@@ -6,9 +6,9 @@ export function ComparisonSection() {
   return (
     <Section id="compare">
       <div className="max-w-5xl mx-auto">
-        <div className="space-y-2">
-          <h2>uru.zone vs the rest</h2>
-          <h3 className="text-white/70">strength-first. real-time. adaptive.</h3>
+                        {/* Title */}
+        <div className="space-y-2 text-center max-w-3xl mx-auto">
+          <h2> uru.zone vs the rest</h2>
         </div>
 
         <div className="mt-8">

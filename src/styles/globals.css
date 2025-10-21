@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
+@import './card.css';
+@import './button.css';
 
 /* Define each Transducer weight separately */
 @font-face {
@@ -190,33 +192,6 @@
     padding: 16px;
   }
 
-  /* Card styles */
-  .card {
-    border-radius: var(--surface-radius);
-    background: var(--surface-bg);
-    border: 1px solid var(--surface-border);
-    backdrop-filter: blur(var(--surface-blur));
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 300px;
-    display: flex;             /* Allow flexible content layout */
-    flex-direction: column;    /* Stack children vertically */
-    justify-content: flex-start;
-    overflow: hidden; 
-  }
-
-  .card:hover {
-    transform: scale(var(--surface-hover-scale));
-    border: 1px solid var(--accent-hover);
-  }
-
-  /* Featured cards (optional accent version) */
-  .card-featured {
-    border: 1px solid var(--accent);
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-    color: var(--text-inverted);
-  }
-
   /* Global control variables */
   :root {
     --surface-bg: linear-gradient(135deg, var(--background-tertiary) 0%, var(--background) 100%);
@@ -225,33 +200,7 @@
     --surface-blur: 8px;
     --surface-hover-scale: 1.02;
   }
-  
-  .btn-primary {
-    font-family: 'Transducer', sans-serif;
-    font-weight: 500; /* Medium weight for buttons */
-    text-transform: uppercase;
-    background-color: var(--accent);
-    color: var(--text-inverted);
-    transition: background-color 0.2s;
-  }
-  
-  .btn-primary:hover {
-    background-color: var(--accent-hover);
-  }
-  
-  .btn-secondary {
-    font-family: 'Transducer', sans-serif;
-    font-weight: 500; /* Medium weight for buttons */
-    text-transform: uppercase;
-    border-color: var(--border-color);
-    color: var(--text-primary);
-    transition: all 0.2s;
-  }
-  
-  .btn-secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+
   
   .input-field {
     @apply rounded border text-[20px];
