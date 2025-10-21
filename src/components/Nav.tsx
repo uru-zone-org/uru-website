@@ -26,14 +26,8 @@ export function Nav() {
             style={{ color: 'var(--greyscale-3)' }}
           >
             Science
-          </Link>
-          <Link
-            href="/#mission"
-            className="text-sm hover:opacity-80 transition-opacity"
-            style={{ color: 'var(--greyscale-3)' }}
-          >
-            Mission
-          </Link>
+            </Link>
+
           <Link
             href="/#compare"
             className="text-sm hover:opacity-80 transition-opacity"
@@ -83,14 +77,6 @@ export function Nav() {
                 onClick={() => setIsOpen(false)}
               >
                 Science
-              </Link>
-              <Link
-                href="/#mission"
-                className="text-sm hover:opacity-80 transition-opacity py-2"
-                style={{ color: 'var(--greyscale-3)' }}
-                onClick={() => setIsOpen(false)}
-              >
-                Mission
               </Link>
               <Link
                 href="/#compare"

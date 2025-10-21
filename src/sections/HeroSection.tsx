@@ -7,7 +7,12 @@ import { ChevronRight } from 'lucide-react'
 export function HeroSection() {
   return (
     <div className="relative full-bleed">
-      <BackgroundMedia media={['/images/URU_Wear.png']} />
+        <BackgroundMedia
+          media={[
+            'https://res.cloudinary.com/dlj4vq4rk/image/upload/v1761045522/URU_Wear_Wrist_vtzlyl.png',
+            'https://res.cloudinary.com/dlj4vq4rk/image/upload/v1761045523/URU_Wear_inbk0k.png'
+          ]}
+        />
 
       <div className="relative z-20">
         <Section fullHeight className="flex items-end justify-start">
