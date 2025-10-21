@@ -55,7 +55,6 @@ export default function ComparisonTable() {
 
   return (
 <div className="surface-table p-6 transition-all duration-500 hover:scale-[1.01]">
-
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
