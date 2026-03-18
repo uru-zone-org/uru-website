@@ -42,8 +42,7 @@ export default function HomePage() {
         <div
           className="uru-bg"
           style={{
-            backgroundImage:
-              "url('https://res.cloudinary.com/dlj4vq4rk/image/upload/v1761045523/URU_Wear_inbk0k.png')",
+            backgroundImage: "url('/images/Dumbbell.jpg')",
           }}
         />
         <div className="uru-overlay" />
@@ -79,8 +78,7 @@ export default function HomePage() {
         <div
           className="uru-bg"
           style={{
-            backgroundImage:
-              "url('https://res.cloudinary.com/dlj4vq4rk/image/upload/v1761045522/URU_Wear_Wrist_vtzlyl.png')",
+            backgroundImage: "url('/images/idunn_close.jpg')",
           }}
         />
         <div className="uru-overlay" />
@@ -107,7 +105,7 @@ export default function HomePage() {
       <section className="uru-section" id="metric">
         <div
           className="uru-bg"
-          style={{ backgroundImage: "url('/images/URU_Wear.png')" }}
+          style={{ backgroundImage: "url('/images/idunn_wide.jpg')" }}
         />
         <div className="uru-overlay" />
         <div className="uru-grid" />
@@ -134,7 +132,7 @@ export default function HomePage() {
       <section className="uru-section" id="product">
         <div
           className="uru-bg"
-          style={{ backgroundImage: "url('/images/URU_Wear_Wrist.png')" }}
+          style={{ backgroundImage: "url('/images/URU_wear.jpg')" }}
         />
         <div className="uru-overlay" />
         <div className="uru-grid" />
@@ -160,8 +158,7 @@ export default function HomePage() {
         <div
           className="uru-bg"
           style={{
-            backgroundImage:
-              "url('https://res.cloudinary.com/dlj4vq4rk/image/upload/v1761045523/URU_Wear_inbk0k.png')",
+            backgroundImage: "url('/images/URU_space.jpg')",
           }}
         />
         <div className="uru-overlay" />
@@ -219,8 +216,7 @@ export default function HomePage() {
         <div
           className="uru-bg"
           style={{
-            backgroundImage:
-              "url('https://res.cloudinary.com/dlj4vq4rk/image/upload/v1761045522/URU_Wear_Wrist_vtzlyl.png')",
+            backgroundImage: "url('/images/Dumbbell.jpg')",
           }}
         />
         <div className="uru-overlay" />
@@ -247,7 +243,7 @@ export default function HomePage() {
       <section className="uru-section" id="closing">
         <div
           className="uru-bg"
-          style={{ backgroundImage: "url('/images/URU_Wear.png')" }}
+          style={{ backgroundImage: "url('/images/URU_strap.jpg')" }}
         />
         <div className="uru-overlay" />
         <div className="uru-grid" />
