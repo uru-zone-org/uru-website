@@ -1,46 +1,48 @@
+import "../styles/globals.css";
+
 // src/app/layout.tsx
-import type { Metadata, Viewport } from 'next'
-import '../styles/globals.css'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  themeColor: '#080a0c',
-}
+  themeColor: "#05070a",
+};
 
 export const metadata: Metadata = {
-  title: 'uru.zone — strength, reinvented',
-  description: 'URU.zone — AI coaching + strength wearable. real-time feedback. velocity-based training. every rep measured. every set optimised.',
-  keywords: ['strength training', 'wearable', 'AI coaching', 'velocity based training', 'fitness tracker'],
-  authors: [{ name: 'URU.zone' }],
+  title: "URU — Strength intelligence",
+  description:
+    "Real-time biomechanical intelligence for strength training. The first measurement of movement quality, rep by rep.",
+  keywords: [
+    "strength training",
+    "wearable",
+    "biomechanics",
+    "movement quality",
+    "VQΔ",
+    "fitness",
+  ],
+  authors: [{ name: "URU" }],
   openGraph: {
-    title: 'uru.zone — strength, reinvented',
-    description: 'AI coaching + strength wearable. real-time feedback. velocity-based training.',
-    type: 'website',
-    locale: 'en_US',
+    title: "URU — Strength intelligence",
+    description: "Real-time biomechanical intelligence for strength training.",
+    type: "website",
+    locale: "en_US",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'uru.zone — strength, reinvented',
-    description: 'AI coaching + strength wearable. real-time feedback. velocity-based training.',
-  }
-}
+    card: "summary_large_image",
+    title: "URU — Strength intelligence",
+    description: "Real-time biomechanical intelligence for strength training.",
+  },
+};
 
-// src/app/layout.tsx
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="antialiased flex flex-col min-h-screen px-6 sm:px-8 lg:px-12 py-4">
-        <Header />
-        <div className="h-20 md:h-24" />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
-      </body>
+    <html lang="en">
+      <body className="antialiased">{children}</body>
     </html>
-  )
+  );
 }
-

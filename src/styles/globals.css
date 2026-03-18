@@ -1,26 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
-@import './card.css';
-@import './button.css';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import "./card.css";
+@import "./button.css";
 
-/* Define each Transducer weight separately */
+/* Transducer font faces (kept for card labels etc.) */
 @font-face {
-  font-family: 'Transducer';
-  src: url('/fonts/Transducer-Hairline.otf');
-  font-weight: 100; /* Hairline - very thin */
+  font-family: "Transducer";
+  src: url("/fonts/Transducer-Hairline.otf");
+  font-weight: 100;
   font-style: normal;
 }
-
 @font-face {
-  font-family: 'Transducer';
-  src: url('/fonts/Transducer-Regular.otf');
-  font-weight: 400; /* Regular - normal weight */
+  font-family: "Transducer";
+  src: url("/fonts/Transducer-Regular.otf");
+  font-weight: 400;
   font-style: normal;
 }
-
 @font-face {
-  font-family: 'Transducer';
-  src: url('/fonts/Transducer-Medium.otf');
-  font-weight: 500; /* Medium - bold */
+  font-family: "Transducer";
+  src: url("/fonts/Transducer-Medium.otf");
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -28,241 +26,435 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  /* Color Variables */
-  :root {
-    /* Brand */
-    --dumbell: #080A0C;
-    --electrical: #FFF700;
-    --steel: #EAE8FF;
-    --dumbell-70: #080A0C;
-    --dumbell-60: #191924;
-    --dumbell-50: #2A2A3C;
-    --dumbell-40: #3B3B54;
-    --dumbell-30: #B7B7CD;
-    --dumbell-20: #CECEE4;
-    --dumbell-10: #EAE8FF;
+/* ─── URU Design System ─── */
+:root {
+  --uru-bg: #05070a;
+  --uru-fg: #ffffff;
+  --uru-muted: rgba(255, 255, 255, 0.74);
+  --uru-line: rgba(255, 255, 255, 0.1);
+  --uru-accent: #e7f05a;
 
-    /* Status Colors */
-    --gray: #b7b7CD;
-    --default: #40E0D0;
-    --high: #7CF702;
-    --mild: #FFF700; 
-    --low: #F4442E;
+  /* Legacy mappings */
+  --dumbell: #080a0c;
+  --electrical: #fff700;
+  --steel: #eae8ff;
+  --dumbell-70: #080a0c;
+  --dumbell-60: #191924;
+  --dumbell-50: #2a2a3c;
+  --dumbell-40: #3b3b54;
+  --dumbell-30: #b7b7cd;
+  --dumbell-20: #cecee4;
+  --dumbell-10: #eae8ff;
 
-    /* Semantic variables */
-    --background: var(--dumbell);
-    --background-secondary: var(--dumbell-60);
-    --background-tertiary: var(--dumbell-50);
-    --background-card: var(--dumbell-40);
-    --background-hover: var(--dumbell-30);
-    
-    --text-primary: var(--steel);
-    --text-secondary: var(--dumbell-20);
-    --text-inverted: var(--dumbell);
-    
-    --border-color: var(--dumbell-40);
-    --border-color-light: var(--dumbell-30);
-    
-    --accent: var(--electrical);
-    --accent-hover: var(--mild);
-    
-    --status-success: var(--high);
-    --status-warning: var(--mild);
-    --status-error: var(--low);
-    --status-info: var(--default);
-  }
-  
+  --background: var(--uru-bg);
+  --background-secondary: var(--dumbell-60);
+  --background-tertiary: var(--dumbell-50);
+  --text-primary: var(--uru-fg);
+  --text-secondary: var(--dumbell-20);
+  --text-inverted: var(--uru-bg);
+  --border-color: var(--dumbell-40);
+  --border-color-light: var(--dumbell-30);
+  --accent: var(--uru-accent);
 
-  /* Base document styles */
-  html {
-    scroll-behavior: smooth;
-    background-color: var(--background);
-    width: 100%;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  html, body {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-  }
-  
-  /* Base typography */
-  body {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--text-primary);
-    background-color: var(--background);
-    width: 100%;
-  }
-
-  .head-surface {
-  border: 1px solid var(--border-color);
-  border-radius: 9999px; /* rounded-full */
-  background-color: var(--dumbell-70);
-  backdrop-filter: blur(8px);
-  padding-top: 0.5rem; /* adds a bit of space above the logo/nav */
+  --surface-bg: linear-gradient(
+    135deg,
+    var(--background-tertiary) 0%,
+    var(--background) 100%
+  );
+  --surface-border: var(--border-color-light);
+  --surface-radius: 1rem;
+  --surface-blur: 8px;
+  --surface-hover-scale: 1.02;
 }
 
-.head-link {
-  text-transform: uppercase;
-  font-family: 'Transducer', sans-serif;
-  font-weight: 500;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+* {
+  box-sizing: border-box;
 }
 
-.head-link:hover {
-    opacity: 0.8;
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--uru-bg);
+  color: var(--uru-fg);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  scroll-behavior: smooth;
 }
 
-
-  /* Typography hierarchy with correct font weights */
-  h1 {
-    font-family: 'Transducer', sans-serif;
-    text-transform: uppercase;
-    font-size: clamp(1.1rem, 6.5vw, 3.2rem);
-    font-weight: 500; /* Medium weight for bold headings */
-    line-height: 1.1;
-  }
-
-  h2 {
-    font-family: 'Transducer', sans-serif;
-    text-transform: uppercase;
-    font-size: clamp(1rem, 4vw, 2rem);
-    font-weight: 500; /* Medium weight for bold headings */
-    line-height: 1.2;
-  }
-
-  h3 {
-    font-family: 'Archivo', sans-serif;
-    font-size: clamp(0.75rem, 2.25vw, 1.125rem);
-    font-weight: 500; /* Medium weight */
-    line-height: 1.3;
-  }
-
-  /* Lighter weight for smaller headings */
-  h4, h5, h6 {
-    font-family: 'Transducer', sans-serif;
-    text-transform: uppercase;
-    font-size: clamp(0.75rem, 1.875vw, 1.125rem);
-    font-weight: 400; /* Regular weight for smaller headings */
-    line-height: 1.3;
-  }
-
-  /* Archivo for body text */
-  a {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 500;
-  }
-
-  p {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 400;
-  }
-
-  /* Utility classes for different Transducer weights */
-  .font-transducer-hairline {
-    font-family: 'Transducer', sans-serif;
-    font-weight: 100;
-  }
-
-  .font-transducer-regular {
-    font-family: 'Transducer', sans-serif;
-    font-weight: 400;
-  }
-
-  .font-transducer-medium {
-    font-family: 'Transducer', sans-serif;
-    font-weight: 500;
-  }
+body {
+  overflow: hidden;
 }
 
-@layer components {
-  /* Updated components using semantic variables */
-  .panel {
-    @apply rounded border;
-    background-color: var(--dumbell-60);
-    color: var(--text-primary);
-    border-color: var(--border-color);
-    padding: 16px;
-  }
-
-  /* Global control variables */
-  :root {
-    --surface-bg: linear-gradient(135deg, var(--background-tertiary) 0%, var(--background) 100%);
-    --surface-border: var(--border-color-light);
-    --surface-radius: 1rem; /* 16px */
-    --surface-blur: 8px;
-    --surface-hover-scale: 1.02;
-  }
-
-  
-  .input-field {
-    @apply rounded border text-[20px];
-    background-color: var(--background-secondary);
-    border-color: var(--border-color);
-    color: var(--text-primary);
-    padding: 16px 20px;
-  }
-  
-  .input-field::placeholder {
-    color: var(--dumbell-30);
-  }
-
-  /* Eyebrow text using hairline weight */
-  .eyebrow {
-    font-family: 'Transducer', sans-serif;
-    font-weight: 100; /* Hairline for delicate text */
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.875rem;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-@layer utilities {
-  .full-bleed {
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    width: 100vw;
-  }
-
-  .content-wrap {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 80rem; /* ~1280px; match your design */
-    padding-left: 1.5rem;  /* px-6 */
-    padding-right: 1.5rem; /* px-6 */
-  }
+/* ─── Shell & Scroll Snap ─── */
+.uru-shell {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  background: var(--uru-bg);
 }
 
+/* ─── Header ─── */
+.uru-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+}
 
-/* Browser UI customization */
-::-webkit-scrollbar {
+.uru-logo {
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.uru-nav {
+  display: none;
+  gap: 28px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.uru-nav a:hover {
+  color: white;
+}
+
+/* ─── Progress Dots ─── */
+.uru-progress {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.uru-progress a {
   width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 180ms ease;
 }
 
-::-webkit-scrollbar-track {
-  background-color: var(--background-secondary);
+.uru-progress a.active,
+.uru-progress a:hover {
+  background: var(--uru-accent);
+  transform: scale(1.4);
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--dumbell-40);
-  border-radius: 9999px;
+/* ─── Sections ─── */
+.uru-section {
+  position: relative;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+  background: var(--uru-bg);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--dumbell-30);
+.uru-section-dark {
+  background: radial-gradient(
+    circle at top,
+    rgba(28, 36, 54, 0.92),
+    rgba(5, 7, 10, 1) 50%
+  );
 }
 
-/* Accessibility */
+/* ─── Background Layers ─── */
+.uru-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.03);
+  animation: uruFloat 16s ease-in-out infinite alternate;
+}
+
+.uru-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.03),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(3, 5, 8, 0.18),
+      rgba(3, 5, 8, 0.48) 38%,
+      rgba(3, 5, 8, 0.84)
+    );
+}
+
+.uru-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    black 18%,
+    black 82%,
+    transparent
+  );
+}
+
+.uru-fog {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  height: 36vh;
+  background:
+    radial-gradient(
+      circle at 30% 55%,
+      rgba(200, 210, 255, 0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(225, 230, 255, 0.16),
+      transparent 38%
+    );
+  filter: blur(42px);
+  animation: uruFog 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.uru-accent-line {
+  position: absolute;
+  left: 38%;
+  top: 22%;
+  width: 4px;
+  height: 38vh;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(231, 240, 90, 0),
+    rgba(231, 240, 90, 1) 15%,
+    rgba(231, 240, 90, 1) 85%,
+    rgba(231, 240, 90, 0)
+  );
+  box-shadow:
+    0 0 18px rgba(231, 240, 90, 0.68),
+    0 0 52px rgba(231, 240, 90, 0.24);
+  animation: uruPulse 3.6s ease-in-out infinite;
+}
+
+/* ─── Content ─── */
+.uru-content {
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 112px 24px 34px;
+}
+
+.uru-content.right {
+  justify-content: flex-end;
+}
+
+.uru-panel {
+  max-width: 760px;
+}
+
+.uru-panel-wide {
+  max-width: 1100px;
+}
+
+/* ─── Typography ─── */
+.uru-chip {
+  display: inline-block;
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  color: rgba(231, 240, 90, 0.96);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 11px;
+}
+
+.uru-title {
+  margin: 18px 0 0;
+  max-width: 12ch;
+  font-size: clamp(2.9rem, 7vw, 6.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+
+.uru-copy {
+  margin: 24px 0 0;
+  max-width: 620px;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--uru-muted);
+}
+
+/* ─── Buttons ─── */
+.uru-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.uru-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  transition: 180ms ease;
+}
+
+.uru-btn-primary {
+  background: var(--uru-accent);
+  color: #05070a;
+}
+
+.uru-btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.uru-btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  backdrop-filter: blur(12px);
+}
+
+.uru-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Cards ─── */
+.uru-cards {
+  margin-top: 42px;
+  display: grid;
+  gap: 18px;
+}
+
+.uru-card {
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+}
+
+.uru-card-label {
+  color: var(--uru-accent);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.uru-card-text {
+  margin-top: 14px;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  line-height: 1.1;
+  color: white;
+}
+
+/* ─── Responsive ─── */
+@media (min-width: 900px) {
+  .uru-header {
+    padding: 22px 32px;
+  }
+
+  .uru-nav,
+  .uru-progress {
+    display: flex;
+  }
+
+  .uru-content {
+    padding: 128px 64px 42px;
+  }
+
+  .uru-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 899px) {
+  .uru-accent-line {
+    left: 20%;
+    top: 20%;
+    height: 28vh;
+  }
+
+  .uru-title {
+    max-width: 10ch;
+  }
+}
+
+/* ─── Animations ─── */
+@keyframes uruFloat {
+  0% {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(0, -1.5%, 0);
+  }
+}
+
+@keyframes uruFog {
+  0% {
+    transform: translate3d(-1.5%, 0, 0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(1.5%, -2%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes uruPulse {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.04);
+  }
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* ─── Accessibility ─── */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
