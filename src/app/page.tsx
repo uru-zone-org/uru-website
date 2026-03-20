@@ -3,13 +3,13 @@ import { ProgressIndicator } from "@/components/ProgressIndicator";
 
 const sections = [
   { id: "hero", label: "Hero" },
-  { id: "problem", label: "Problem" },
-  { id: "metric", label: "VQΔ" },
-  { id: "product", label: "Product" },
-  { id: "detail", label: "Detail" },
-  { id: "system", label: "System" },
   { id: "category", label: "Category" },
-  { id: "closing", label: "Access" },
+  { id: "problem", label: "Problem" },
+  { id: "system", label: "System" },
+  { id: "metric", label: "Metric" },
+  { id: "detail", label: "Detail" },
+  { id: "product", label: "Product" },
+  { id: "closing", label: "Closing" },
 ];
 
 export default function HomePage() {
@@ -41,9 +41,7 @@ export default function HomePage() {
       <section className="uru-section" id="hero">
         <div
           className="uru-bg"
-          style={{
-            backgroundImage: "url('/images/Dumbbell.jpg')",
-          }}
+          style={{ backgroundImage: "url('/images/1.jpg')" }}
         />
         <div className="uru-overlay" />
         <div className="uru-grid" />
@@ -56,16 +54,15 @@ export default function HomePage() {
               Cardio became data.
               <br />
               Strength didn&apos;t.
+              <br />
+              <span className="uru-title-accent">Until now.</span>
             </h1>
-            <p className="uru-copy">
-              Until now. Real-time biomechanical intelligence for strength
-              training.
-            </p>
+            <p className="uru-copy">Real-time intelligence for strength.</p>
             <div className="uru-actions">
               <a className="uru-btn uru-btn-primary" href="#metric">
                 Discover URU
               </a>
-              <a className="uru-btn uru-btn-secondary" href="#product">
+              <a className="uru-btn uru-btn-secondary" href="#system">
                 See the system
               </a>
             </div>
@@ -73,151 +70,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 2. Problem ── */}
-      <section className="uru-section" id="problem">
-        <div
-          className="uru-bg"
-          style={{
-            backgroundImage: "url('/images/idunn_close.jpg')",
-          }}
-        />
-        <div className="uru-overlay" />
-        <div className="uru-grid" />
-        <div className="uru-fog" />
-
-        <div className="uru-content right">
-          <div className="uru-panel">
-            <div className="uru-chip">The blind spot</div>
-            <h2 className="uru-title">
-              Weight and reps
-              <br />
-              are not the whole story.
-            </h2>
-            <p className="uru-copy">
-              Strength training still tracks output. But performance depends on
-              something deeper: how you move.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. Metric (VQΔ) ── */}
-      <section className="uru-section" id="metric">
-        <div
-          className="uru-bg"
-          style={{ backgroundImage: "url('/images/idunn_wide.jpg')" }}
-        />
-        <div className="uru-overlay" />
-        <div className="uru-grid" />
-        <div className="uru-fog" />
-        <div className="uru-accent-line" />
-
-        <div className="uru-content">
-          <div className="uru-panel">
-            <div className="uru-chip">The missing metric</div>
-            <h2 className="uru-title">
-              VQΔ
-              <br />
-              Movement quality, measured.
-            </h2>
-            <p className="uru-copy">
-              The first real-time measurement of movement quality in strength
-              training.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. Product ── */}
-      <section className="uru-section" id="product">
-        <div
-          className="uru-bg"
-          style={{ backgroundImage: "url('/images/URU_wear.jpg')" }}
-        />
-        <div className="uru-overlay" />
-        <div className="uru-grid" />
-        <div className="uru-fog" />
-
-        <div className="uru-content right">
-          <div className="uru-panel">
-            <div className="uru-chip">The product</div>
-            <h2 className="uru-title">
-              A small wearable.
-              <br />A new intelligence layer.
-            </h2>
-            <p className="uru-copy">
-              URU Tag captures high-frequency movement data in real time. URU
-              App turns every repetition into a signal.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. Detail ── */}
-      <section className="uru-section" id="detail">
-        <div
-          className="uru-bg"
-          style={{
-            backgroundImage: "url('/images/URU_space.jpg')",
-          }}
-        />
-        <div className="uru-overlay" />
-        <div className="uru-grid" />
-        <div className="uru-fog" />
-
-        <div className="uru-content">
-          <div className="uru-panel">
-            <div className="uru-chip">Built for strength</div>
-            <h2 className="uru-title">
-              High-frequency capture.
-              <br />
-              On-device processing.
-            </h2>
-            <p className="uru-copy">
-              Exercise-specific biomechanics. Portable. Real-time. No cameras.
-              No fixed machines.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. System (dark, no background image) ── */}
-      <section className="uru-section uru-section-dark" id="system">
-        <div className="uru-grid" />
-
-        <div className="uru-content">
-          <div className="uru-panel uru-panel-wide">
-            <div className="uru-chip">The system</div>
-            <h2 className="uru-title">
-              Strength needs
-              <br />a language.
-            </h2>
-
-            <div className="uru-cards">
-              <div className="uru-card">
-                <div className="uru-card-label">VQΔ</div>
-                <div className="uru-card-text">How you move</div>
-              </div>
-              <div className="uru-card">
-                <div className="uru-card-label">URU Score</div>
-                <div className="uru-card-text">How strong you are</div>
-              </div>
-              <div className="uru-card">
-                <div className="uru-card-label">URUΔ</div>
-                <div className="uru-card-text">How you improve</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 7. Category ── */}
+      {/* ── 2. Category ── */}
       <section className="uru-section" id="category">
         <div
           className="uru-bg"
-          style={{
-            backgroundImage: "url('/images/Dumbbell.jpg')",
-          }}
+          style={{ backgroundImage: "url('/images/2.jpg')" }}
         />
         <div className="uru-overlay" />
         <div className="uru-grid" />
@@ -239,11 +96,152 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── 3. Problem ── */}
+      <section className="uru-section" id="problem">
+        <div
+          className="uru-bg"
+          style={{ backgroundImage: "url('/images/3.jpg')" }}
+        />
+        <div className="uru-overlay" />
+        <div className="uru-grid" />
+        <div className="uru-fog" />
+
+        <div className="uru-content">
+          <div className="uru-panel">
+            <div className="uru-chip">The blind spot</div>
+            <h2 className="uru-title">
+              Weight and reps
+              <br />
+              are not the whole story.
+            </h2>
+            <p className="uru-copy">
+              Strength still measures output. Performance depends on how you
+              move.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. System ── */}
+      <section className="uru-section uru-section-dark" id="system">
+        <div
+          className="uru-bg"
+          style={{ backgroundImage: "url('/images/4.jpg')" }}
+        />
+        <div className="uru-grid" />
+        <div className="uru-fog" />
+        <div className="uru-crosshair">
+          <div className="uru-crosshair-h" />
+          <div className="uru-crosshair-v" />
+        </div>
+
+        <div className="uru-content">
+          <div className="uru-panel uru-panel-wide">
+            <div className="uru-chip">The system</div>
+            <h2 className="uru-title">
+              Strength needs
+              <br />a language.
+            </h2>
+
+            <div className="uru-cards">
+              <div className="uru-card">
+                <div className="uru-card-label">VQΔ</div>
+                <div className="uru-card-text">Movement</div>
+              </div>
+              <div className="uru-card">
+                <div className="uru-card-label">URU Score</div>
+                <div className="uru-card-text">Strength</div>
+              </div>
+              <div className="uru-card">
+                <div className="uru-card-label">URUΔ</div>
+                <div className="uru-card-text">Progress</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. Metric (VQΔ) ── */}
+      <section className="uru-section" id="metric">
+        <div
+          className="uru-bg"
+          style={{ backgroundImage: "url('/images/5.jpg')" }}
+        />
+        <div className="uru-overlay" />
+        <div className="uru-grid" />
+        <div className="uru-fog" />
+        <div className="uru-accent-line" />
+
+        <div className="uru-content">
+          <div className="uru-panel">
+            <div className="uru-chip">The missing metric</div>
+            <h2 className="uru-title">
+              VQΔ
+              <br />
+              Movement quality, measured.
+            </h2>
+            <p className="uru-copy">The missing metric in strength.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. Detail ── */}
+      <section className="uru-section" id="detail">
+        <div
+          className="uru-bg"
+          style={{ backgroundImage: "url('/images/6.jpg')" }}
+        />
+        <div className="uru-overlay" />
+        <div className="uru-grid" />
+        <div className="uru-fog" />
+
+        <div className="uru-content">
+          <div className="uru-panel">
+            <div className="uru-chip">Built for strength</div>
+            <h2 className="uru-title">
+              Real-time capture.
+              <br />
+              On-device intelligence.
+            </h2>
+            <p className="uru-copy">
+              Exercise-specific biomechanics. Portable. Real-time. No cameras.
+              No fixed systems.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. Product ── */}
+      <section className="uru-section" id="product">
+        <div
+          className="uru-bg"
+          style={{ backgroundImage: "url('/images/7.jpg')" }}
+        />
+        <div className="uru-overlay" />
+        <div className="uru-grid" />
+        <div className="uru-fog" />
+
+        <div className="uru-content right">
+          <div className="uru-panel">
+            <div className="uru-chip">The product</div>
+            <h2 className="uru-title">
+              A new intelligence layer.
+              <br />
+              Built into something small.
+            </h2>
+            <p className="uru-copy">
+              URU Tag captures high-frequency movement in real time. URU App
+              turns every repetition into a signal.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── 8. Closing / CTA ── */}
       <section className="uru-section" id="closing">
         <div
           className="uru-bg"
-          style={{ backgroundImage: "url('/images/URU_strap.jpg')" }}
+          style={{ backgroundImage: "url('/images/8.jpg')" }}
         />
         <div className="uru-overlay" />
         <div className="uru-grid" />
@@ -253,7 +251,7 @@ export default function HomePage() {
           <div className="uru-panel">
             <div className="uru-chip">The standard</div>
             <h2 className="uru-title">
-              Strength is becoming foundational.
+              Strength is foundational.
               <br />
               Measurement is inevitable.
             </h2>

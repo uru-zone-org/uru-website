@@ -28,11 +28,17 @@
 
 /* ─── URU Design System ─── */
 :root {
-  --uru-bg: #05070a;
-  --uru-fg: #ffffff;
-  --uru-muted: rgba(255, 255, 255, 0.74);
-  --uru-line: rgba(255, 255, 255, 0.1);
-  --uru-accent: #e7f05a;
+  --bg: #080A0C;
+  --bg-soft: #191924;
+  --fg: #EAE8FF;
+  --muted: rgba(183, 183, 205, 0.80);
+  --muted-soft: rgba(206, 206, 228, 0.66);
+  --line: rgba(234, 232, 255, 0.10);
+  --line-strong: rgba(234, 232, 255, 0.20);
+  --accent: #FFF700;
+  --accent-glow: rgba(255, 247, 0, 0.32);
+  --secondary-cyan: #1BE7FF;
+  --secondary-red: #F4442E;
 
   /* Legacy mappings */
   --dumbell: #080a0c;
@@ -46,15 +52,14 @@
   --dumbell-20: #cecee4;
   --dumbell-10: #eae8ff;
 
-  --background: var(--uru-bg);
+  --background: var(--bg);
   --background-secondary: var(--dumbell-60);
   --background-tertiary: var(--dumbell-50);
-  --text-primary: var(--uru-fg);
+  --text-primary: var(--fg);
   --text-secondary: var(--dumbell-20);
-  --text-inverted: var(--uru-bg);
+  --text-inverted: var(--bg);
   --border-color: var(--dumbell-40);
   --border-color-light: var(--dumbell-30);
-  --accent: var(--uru-accent);
 
   --surface-bg: linear-gradient(
     135deg,
@@ -75,16 +80,9 @@ html,
 body {
   margin: 0;
   height: 100%;
-  background: var(--uru-bg);
-  color: var(--uru-fg);
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -102,7 +100,7 @@ a {
   height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
-  background: var(--uru-bg);
+  background: var(--bg);
 }
 
 /* ─── Header ─── */
@@ -114,6 +112,11 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
+  pointer-events: none;
+}
+
+.uru-header > * {
+  pointer-events: auto;
 }
 
 .uru-logo {
@@ -129,8 +132,31 @@ a {
   color: rgba(255, 255, 255, 0.62);
 }
 
+.uru-nav a {
+  position: relative;
+  transition: color 180ms ease;
+  color: var(--muted-soft);
+}
+
 .uru-nav a:hover {
-  color: white;
+  color: var(--fg);
+}
+
+.uru-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 100%;
+  height: 1px;
+  background: rgba(231, 240, 90, 0.8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.uru-nav a:hover::after {
+  transform: scaleX(1);
 }
 
 /* ─── Progress Dots ─── */
@@ -149,14 +175,15 @@ a {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--line);
   transition: all 180ms ease;
 }
 
 .uru-progress a.active,
 .uru-progress a:hover {
-  background: var(--uru-accent);
+  background: var(--accent);
   transform: scale(1.4);
+  box-shadow: 0 0 16px var(--accent-glow);
 }
 
 /* ─── Sections ─── */
@@ -166,15 +193,14 @@ a {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   overflow: hidden;
-  background: var(--uru-bg);
+  background: var(--bg);
+  isolation: isolate;
 }
 
 .uru-section-dark {
-  background: radial-gradient(
-    circle at top,
-    rgba(28, 36, 54, 0.92),
-    rgba(5, 7, 10, 1) 50%
-  );
+  background:
+    radial-gradient(circle at 50% 20%, rgba(22, 28, 43, 0.85), rgba(5, 7, 10, 1) 55%),
+    linear-gradient(180deg, #06080d 0%, #05070a 100%);
 }
 
 /* ─── Background Layers ─── */
@@ -183,42 +209,29 @@ a {
   inset: 0;
   background-size: cover;
   background-position: center center;
-  transform: scale(1.03);
+  transform: scale(1.02);
   animation: uruFloat 16s ease-in-out infinite alternate;
+  filter: none;
 }
 
-.uru-overlay {
+.uru-overlay,
+.uru-section-dark .uru-overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(
-      circle at 50% 45%,
-      rgba(255, 255, 255, 0.03),
-      transparent 35%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(3, 5, 8, 0.18),
-      rgba(3, 5, 8, 0.48) 38%,
-      rgba(3, 5, 8, 0.84)
-    );
+  background: rgba(4, 8, 16, 0.25);
+  pointer-events: none;
 }
 
 .uru-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.1;
+  opacity: 0.08;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: linear-gradient(
-    180deg,
-    transparent,
-    black 18%,
-    black 82%,
-    transparent
-  );
+  mask-image: linear-gradient(180deg, transparent, black 18%, black 82%, transparent);
+  pointer-events: none;
 }
 
 .uru-fog {
@@ -226,41 +239,69 @@ a {
   left: -10%;
   right: -10%;
   bottom: -10%;
-  height: 36vh;
+  height: 38vh;
   background:
-    radial-gradient(
-      circle at 30% 55%,
-      rgba(200, 210, 255, 0.2),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 70% 60%,
-      rgba(225, 230, 255, 0.16),
-      transparent 38%
-    );
-  filter: blur(42px);
+    radial-gradient(circle at 28% 55%, rgba(200, 210, 255, 0.18), transparent 40%),
+    radial-gradient(circle at 72% 58%, rgba(225, 230, 255, 0.14), transparent 38%),
+    radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.06), transparent 32%);
+  filter: blur(44px);
   animation: uruFog 18s ease-in-out infinite alternate;
   pointer-events: none;
+  z-index: 1;
 }
 
 .uru-accent-line {
+  display: none;
+}
+
+/* ─── Crosshair Glow (System section) ─── */
+.uru-crosshair {
   position: absolute;
-  left: 38%;
-  top: 22%;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.uru-crosshair-h {
+  position: absolute;
+  top: 38%;
+  left: 30%;
+  right: 0;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(160, 140, 255, 0.8) 20%,
+    rgba(160, 140, 255, 1) 50%,
+    rgba(160, 140, 255, 0.8) 80%,
+    transparent
+  );
+  box-shadow:
+    0 0 20px rgba(160, 140, 255, 0.7),
+    0 0 60px rgba(160, 140, 255, 0.3);
+  animation: uruPulse 3.6s ease-in-out infinite;
+}
+
+.uru-crosshair-v {
+  position: absolute;
+  left: 68%;
+  top: 0;
+  bottom: 0;
   width: 4px;
-  height: 38vh;
   border-radius: 999px;
   background: linear-gradient(
     180deg,
-    rgba(231, 240, 90, 0),
-    rgba(231, 240, 90, 1) 15%,
-    rgba(231, 240, 90, 1) 85%,
-    rgba(231, 240, 90, 0)
+    transparent,
+    rgba(231, 240, 90, 0.8) 20%,
+    rgba(231, 240, 90, 1) 50%,
+    rgba(231, 240, 90, 0.8) 80%,
+    transparent
   );
   box-shadow:
-    0 0 18px rgba(231, 240, 90, 0.68),
-    0 0 52px rgba(231, 240, 90, 0.24);
-  animation: uruPulse 3.6s ease-in-out infinite;
+    0 0 20px rgba(231, 240, 90, 0.7),
+    0 0 60px rgba(231, 240, 90, 0.3);
+  animation: uruPulse 3.6s ease-in-out infinite 1.8s;
 }
 
 /* ─── Content ─── */
@@ -282,6 +323,7 @@ a {
 }
 
 .uru-panel-wide {
+  width: min(1100px, 100%);
   max-width: 1100px;
 }
 
@@ -289,11 +331,12 @@ a {
 .uru-chip {
   display: inline-block;
   padding: 11px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(234, 232, 255, 0.16);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(234, 232, 255, 0.07);
   backdrop-filter: blur(14px);
-  color: rgba(231, 240, 90, 0.96);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.24em;
   font-size: 11px;
@@ -306,6 +349,12 @@ a {
   line-height: 0.95;
   letter-spacing: -0.055em;
   font-weight: 500;
+  text-wrap: balance;
+}
+
+.uru-title-accent {
+  color: var(--accent);
+  text-shadow: 0 0 24px rgba(255, 247, 0, 0.18);
 }
 
 .uru-copy {
@@ -313,7 +362,7 @@ a {
   max-width: 620px;
   font-size: clamp(1rem, 1.8vw, 1.25rem);
   line-height: 1.55;
-  color: var(--uru-muted);
+  color: var(--muted);
 }
 
 /* ─── Buttons ─── */
@@ -336,23 +385,30 @@ a {
 }
 
 .uru-btn-primary {
-  background: var(--uru-accent);
-  color: #05070a;
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow:
+    0 8px 24px rgba(255, 247, 0, 0.2),
+    inset 0 0 0 1px rgba(234, 232, 255, 0.2);
 }
 
 .uru-btn-primary:hover {
   transform: translateY(-1px);
+  box-shadow:
+    0 10px 28px rgba(255, 247, 0, 0.28),
+    inset 0 0 0 1px rgba(234, 232, 255, 0.3);
 }
 
 .uru-btn-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-  color: white;
+  border: 1px solid rgba(234, 232, 255, 0.24);
+  background: rgba(234, 232, 255, 0.08);
+  color: var(--fg);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .uru-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(234, 232, 255, 0.16);
 }
 
 /* ─── Cards ─── */
@@ -363,15 +419,33 @@ a {
 }
 
 .uru-card {
+  position: relative;
   padding: 28px;
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.03));
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
+}
+
+.uru-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(231, 240, 90, 0),
+    rgba(231, 240, 90, 0.55),
+    rgba(231, 240, 90, 0)
+  );
+  opacity: 0.8;
 }
 
 .uru-card-label {
-  color: var(--uru-accent);
+  color: var(--secondary-cyan);
   font-size: 12px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -380,8 +454,39 @@ a {
 .uru-card-text {
   margin-top: 14px;
   font-size: clamp(1.7rem, 3vw, 2.4rem);
-  line-height: 1.1;
+  line-height: 1.05;
   color: white;
+  letter-spacing: -0.04em;
+}
+
+/* ─── Section-specific tuning ─── */
+#hero .uru-panel {
+  max-width: 820px;
+}
+
+#hero .uru-copy {
+  max-width: 520px;
+}
+
+#metric .uru-title,
+#closing .uru-title {
+  max-width: 11ch;
+}
+
+#system .uru-title {
+  max-width: 9ch;
+}
+
+#category .uru-panel,
+#product .uru-panel {
+  max-width: 700px;
+}
+
+#problem .uru-overlay,
+#category .uru-overlay {
+  background:
+    radial-gradient(circle at 68% 42%, rgba(255, 255, 255, 0.03), transparent 28%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.12), rgba(3, 5, 8, 0.42) 34%, rgba(3, 5, 8, 0.88));
 }
 
 /* ─── Responsive ─── */
@@ -406,13 +511,44 @@ a {
 
 @media (max-width: 899px) {
   .uru-accent-line {
-    left: 20%;
-    top: 20%;
+    left: 22%;
+    top: 18%;
     height: 28vh;
   }
 
   .uru-title {
     max-width: 10ch;
+  }
+
+  .uru-panel-wide {
+    max-width: 100%;
+  }
+
+  .uru-card {
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .uru-content {
+    padding: 104px 20px 28px;
+  }
+
+  .uru-title {
+    font-size: clamp(2.5rem, 14vw, 4.8rem);
+  }
+
+  .uru-copy {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .uru-btn {
+    width: 100%;
+  }
+
+  .uru-actions {
+    gap: 12px;
   }
 }
 
