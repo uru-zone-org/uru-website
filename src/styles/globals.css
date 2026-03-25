@@ -28,17 +28,17 @@
 
 /* ─── URU Design System ─── */
 :root {
-  --bg: #080A0C;
+  --bg: #080a0c;
   --bg-soft: #191924;
-  --fg: #EAE8FF;
-  --muted: rgba(183, 183, 205, 0.80);
+  --fg: #eae8ff;
+  --muted: rgba(183, 183, 205, 0.8);
   --muted-soft: rgba(206, 206, 228, 0.66);
-  --line: rgba(234, 232, 255, 0.10);
-  --line-strong: rgba(234, 232, 255, 0.20);
-  --accent: #FFF700;
+  --line: rgba(234, 232, 255, 0.1);
+  --line-strong: rgba(234, 232, 255, 0.2);
+  --accent: #fff700;
   --accent-glow: rgba(255, 247, 0, 0.32);
-  --secondary-cyan: #1BE7FF;
-  --secondary-red: #F4442E;
+  --secondary-cyan: #1be7ff;
+  --secondary-red: #f4442e;
 
   /* Legacy mappings */
   --dumbell: #080a0c;
@@ -82,7 +82,14 @@ body {
   height: 100%;
   background: var(--bg);
   color: var(--fg);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -199,7 +206,11 @@ a {
 
 .uru-section-dark {
   background:
-    radial-gradient(circle at 50% 20%, rgba(22, 28, 43, 0.85), rgba(5, 7, 10, 1) 55%),
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(22, 28, 43, 0.85),
+      rgba(5, 7, 10, 1) 55%
+    ),
     linear-gradient(180deg, #06080d 0%, #05070a 100%);
 }
 
@@ -230,7 +241,13 @@ a {
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: linear-gradient(180deg, transparent, black 18%, black 82%, transparent);
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    black 18%,
+    black 82%,
+    transparent
+  );
   pointer-events: none;
 }
 
@@ -241,9 +258,21 @@ a {
   bottom: -10%;
   height: 38vh;
   background:
-    radial-gradient(circle at 28% 55%, rgba(200, 210, 255, 0.18), transparent 40%),
-    radial-gradient(circle at 72% 58%, rgba(225, 230, 255, 0.14), transparent 38%),
-    radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.06), transparent 32%);
+    radial-gradient(
+      circle at 28% 55%,
+      rgba(200, 210, 255, 0.18),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 72% 58%,
+      rgba(225, 230, 255, 0.14),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(255, 255, 255, 0.06),
+      transparent 32%
+    );
   filter: blur(44px);
   animation: uruFog 18s ease-in-out infinite alternate;
   pointer-events: none;
@@ -423,8 +452,11 @@ a {
   padding: 28px;
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.03)
+  );
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   overflow: hidden;
@@ -485,8 +517,17 @@ a {
 #problem .uru-overlay,
 #category .uru-overlay {
   background:
-    radial-gradient(circle at 68% 42%, rgba(255, 255, 255, 0.03), transparent 28%),
-    linear-gradient(180deg, rgba(3, 5, 8, 0.12), rgba(3, 5, 8, 0.42) 34%, rgba(3, 5, 8, 0.88));
+    radial-gradient(
+      circle at 68% 42%,
+      rgba(255, 255, 255, 0.03),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(3, 5, 8, 0.12),
+      rgba(3, 5, 8, 0.42) 34%,
+      rgba(3, 5, 8, 0.88)
+    );
 }
 
 /* ─── Responsive ─── */
