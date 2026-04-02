@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { AuthProvider } from "./_auth-provider";
 
 export const metadata: Metadata = {
-  title: "Session Review — URUzone Beta",
-  description: "Private session review form for URUzone beta testers.",
+  title: "Beta Interface — URUzone",
+  description: "URUzone beta scoring system — trainer logging, user session review, and scoreboard.",
   robots: { index: false, follow: false },
 };
 
-export default function FeedbackLayout({
+export default function ScoreboardLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -21,7 +22,7 @@ export default function FeedbackLayout({
         zIndex: 50,
       }}
     >
-      {children}
+      <AuthProvider>{children}</AuthProvider>
     </div>
   );
 }

@@ -1,34 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 
 /**
- * POST /api/feedback — receive a session review submission.
+ * POST /api/feedback — receive a trainer or user session submission.
  *
- * Storage strategy (in priority order):
- * 1. Google Sheets via Apps Script webhook (set GOOGLE_APPS_SCRIPT_URL env var)
- * 2. Fallback: log to stdout (visible in Vercel logs) — always happens
- *
- * To set up Google Sheets:
- * 1. Create a Google Sheet with headers matching the payload keys
- * 2. Go to Extensions > Apps Script
- * 3. Paste this script:
- *
- *    function doPost(e) {
- *      var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
- *      var data = JSON.parse(e.postData.contents);
- *      var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
- *      var row = headers.map(function(h) { return data[h] || ""; });
- *      sheet.appendRow(row);
- *      return ContentService.createTextOutput(JSON.stringify({ result: "ok" }))
- *        .setMimeType(ContentService.MimeType.JSON);
- *    }
- *
- * 4. Deploy as web app (execute as you, access: anyone)
- * 5. Copy the URL and set it as GOOGLE_APPS_SCRIPT_URL in your env vars
+ * The client sends directly to Google Sheets via the Apps Script URL.
+ * This API route serves as a server-side backup and logging endpoint.
+ * Falls back to the new scoring system Apps Script URL if no env var is set.
  */
+
+const DEFAULT_GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbznM9fTzwGMaF4kmDeAhfzq8A0puhkk756ZQKNVIJ2LqXVd4wodIKEWz9tHSHesJqGHAA/exec";
 export async function POST(request: NextRequest) {
   // Verify auth cookie
   const authCookie = request.cookies.get("fb_auth");
-  if (authCookie?.value !== "1") {
+  const validRoles = ["scoreboard", "trainer", "user", "1"];
+  if (!authCookie?.value || !validRoles.includes(authCookie.value)) {
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
 
@@ -39,10 +25,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  // Basic validation
-  if (!payload["Trainer ID"] || !payload["User ID"] || !payload["Date"]) {
+  // Basic validation — supports both old format and new scoring system format
+  const hasOldFormat = payload["Trainer ID"] && payload["User ID"] && payload["Date"];
+  const hasNewFormat = payload.trainer_id && payload.user_id && payload.date;
+  if (!hasOldFormat && !hasNewFormat) {
     return NextResponse.json(
-      { error: "Missing required fields (Trainer ID, User ID, Date)" },
+      { error: "Missing required fields (trainer_id, user_id, date)" },
       { status: 400 }
     );
   }
@@ -50,8 +38,8 @@ export async function POST(request: NextRequest) {
   // Always log (visible in Vercel function logs / terminal)
   console.log("[feedback]", JSON.stringify(payload));
 
-  // Try Google Sheets webhook
-  const sheetsUrl = process.env.GOOGLE_APPS_SCRIPT_URL;
+  // Forward to Google Sheets (new scoring system sheet)
+  const sheetsUrl = process.env.GOOGLE_APPS_SCRIPT_URL || DEFAULT_GOOGLE_SCRIPT_URL;
   if (sheetsUrl) {
     try {
       // Google Apps Script processes data on the initial POST then returns a 302.
