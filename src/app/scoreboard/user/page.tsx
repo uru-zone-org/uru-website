@@ -25,6 +25,7 @@ export default function UserPage() {
   const [mostUsefulFeedback, setMostUsefulFeedback] = useState("");
   const [sessionNotes, setSessionNotes] = useState("");
   const [privateReview, setPrivateReview] = useState(false);
+  const [wouldRecommend, setWouldRecommend] = useState<string | null>(null);
 
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
   const [message, setMessage] = useState("");
@@ -75,6 +76,7 @@ export default function UserPage() {
       most_useful_feedback: mostUsefulFeedback.trim(),
       session_notes: sessionNotes.trim(),
       private_review: privateReview ? 1 : 0,
+      would_recommend: wouldRecommend,
       immediate_perceived_score: perceptionAvg() ? Number(perceptionAvg()) : null,
       session_value_score: valueAvg() ? Number(valueAvg()) : null,
     };
@@ -115,6 +117,7 @@ export default function UserPage() {
       if (d.most_useful_feedback) setMostUsefulFeedback(d.most_useful_feedback);
       if (d.session_notes) setSessionNotes(d.session_notes);
       if (d.private_review === 1) setPrivateReview(true);
+      if (d.would_recommend !== null && d.would_recommend !== undefined) setWouldRecommend(String(d.would_recommend));
 
       const su: ScaleValues = {};
       if (d.q1_reflection_accuracy) su["q1ReflectionAccuracy"] = d.q1_reflection_accuracy;
@@ -138,7 +141,7 @@ export default function UserPage() {
     setPrimaryDeviceId(""); setSetsInSession("");
     setScales({}); setBiggestFriction("");
     setMostUsefulFeedback(""); setSessionNotes("");
-    setPrivateReview(false); setInvalidFields(new Set());
+    setPrivateReview(false); setWouldRecommend(null); setInvalidFields(new Set());
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -255,6 +258,19 @@ export default function UserPage() {
                 <strong>{valueAvg() ?? "—"}</strong>
                 <small>Average of value, reuse intent, and confidence</small>
               </article>
+            </div>
+          </section>
+
+          {/* Would recommend */}
+          <section className="section">
+            <div className="section-heading">
+              <h2>Would you recommend this to a friend?</h2>
+            </div>
+            <div className="option-card">
+              <div className="inline-options" style={{ marginTop: 0 }}>
+                <label><input type="radio" name="wouldRecommend" checked={wouldRecommend === "1"} onChange={() => setWouldRecommend("1")} /> Yes</label>
+                <label><input type="radio" name="wouldRecommend" checked={wouldRecommend === "0"} onChange={() => setWouldRecommend("0")} /> No</label>
+              </div>
             </div>
           </section>
 

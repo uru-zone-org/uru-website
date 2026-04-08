@@ -34,6 +34,7 @@ export default function TrainerPage() {
 
   const [coachingValue, setCoachingValue] = useState<number | null>(null);
   const [validatedNextSet, setValidatedNextSet] = useState<string | null>(null);
+  const [wouldRecommend, setWouldRecommend] = useState<string | null>(null);
 
   const [quickScript, setQuickScript] = useState("");
   const [trainerNotes, setTrainerNotes] = useState("");
@@ -87,6 +88,7 @@ export default function TrainerPage() {
       decision_change: [...decisionChanges].join(", "),
       coaching_value: coachingValue,
       validated_next_set: validatedNextSet,
+      would_recommend: wouldRecommend,
       capture_success: captureSuccess,
       observed_change_score: observedChangeScore ? Number(observedChangeScore) : null,
       quick_script: quickScript.trim(),
@@ -140,6 +142,7 @@ export default function TrainerPage() {
       }
       if (d.coaching_value !== null && d.coaching_value !== undefined) setCoachingValue(Number(d.coaching_value));
       if (d.validated_next_set !== null && d.validated_next_set !== undefined) setValidatedNextSet(String(d.validated_next_set));
+      if (d.would_recommend !== null && d.would_recommend !== undefined) setWouldRecommend(String(d.would_recommend));
       if (d.quick_script) setQuickScript(d.quick_script);
       if (d.trainer_notes) setTrainerNotes(d.trainer_notes);
       setMessage("Draft loaded.");
@@ -156,7 +159,7 @@ export default function TrainerPage() {
     setIssueCategory(""); setConfirmedObservation(false);
     setRevealedSomethingNew(false); setBehaviorChange(false);
     setDecisionChanges(new Set()); setCoachingValue(null);
-    setValidatedNextSet(null); setQuickScript(""); setTrainerNotes("");
+    setValidatedNextSet(null); setWouldRecommend(null); setQuickScript(""); setTrainerNotes("");
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -328,9 +331,22 @@ export default function TrainerPage() {
               <p>Was the effect validated on the next set?</p>
             </div>
             <div className="option-card">
-              <div className="inline-options">
+              <div className="inline-options" style={{ marginTop: 0 }}>
                 <label><input type="radio" name="validatedNextSet" checked={validatedNextSet === "1"} onChange={() => setValidatedNextSet("1")} /> Yes</label>
                 <label><input type="radio" name="validatedNextSet" checked={validatedNextSet === "0"} onChange={() => setValidatedNextSet("0")} /> No</label>
+              </div>
+            </div>
+          </section>
+
+          {/* Would recommend */}
+          <section className="section">
+            <div className="section-heading">
+              <h2>Would you recommend this to a friend?</h2>
+            </div>
+            <div className="option-card">
+              <div className="inline-options" style={{ marginTop: 0 }}>
+                <label><input type="radio" name="wouldRecommend" checked={wouldRecommend === "1"} onChange={() => setWouldRecommend("1")} /> Yes</label>
+                <label><input type="radio" name="wouldRecommend" checked={wouldRecommend === "0"} onChange={() => setWouldRecommend("0")} /> No</label>
               </div>
             </div>
           </section>

@@ -472,6 +472,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
+}
+
+.option-card .inline-options {
   margin-top: 16px;
 }
 
