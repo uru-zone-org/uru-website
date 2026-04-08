@@ -286,6 +286,11 @@
   font-weight: 700;
 }
 
+.req {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
 .field input,
 .field textarea,
 .field select {
@@ -305,6 +310,14 @@
   color: var(--text-dark);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-dark);
+}
+
+.theme-dark .field input[type="date"] {
+  cursor: pointer;
+}
+
+.theme-dark .field input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2);
 }
 
 .theme-light .field input,

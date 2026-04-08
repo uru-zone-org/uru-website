@@ -82,8 +82,6 @@ export default function UserPage() {
 
   function validate(): boolean {
     const inv = new Set<string>();
-    if (!trainerId.trim()) inv.add("trainerId");
-    if (!userId.trim()) inv.add("userId");
     if (!reviewDate) inv.add("reviewDate");
     if (!primaryDeviceId.trim()) inv.add("primaryDeviceId");
     if (!setsInSession || Number(setsInSession) < 1) inv.add("setsInSession");
@@ -193,11 +191,11 @@ export default function UserPage() {
               <p>Basic information for this completed session.</p>
             </div>
             <div className="form-grid form-grid-2">
-              <div className="field"><label>Trainer ID</label><input type="text" placeholder="e.g. TR-01" value={trainerId} onChange={(e) => { setTrainerId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("trainerId"); return n; }); }} className={invalidFields.has("trainerId") ? "invalid" : ""} /></div>
-              <div className="field"><label>User ID</label><input type="text" placeholder="e.g. US-12" value={userId} onChange={(e) => { setUserId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("userId"); return n; }); }} className={invalidFields.has("userId") ? "invalid" : ""} /></div>
-              <div className="field"><label>Date</label><input type="date" value={reviewDate} onChange={(e) => setReviewDate(e.target.value)} className={invalidFields.has("reviewDate") ? "invalid" : ""} /></div>
-              <div className="field"><label>Primary device</label><input type="text" placeholder="e.g. DEV-03" value={primaryDeviceId} onChange={(e) => { setPrimaryDeviceId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("primaryDeviceId"); return n; }); }} className={invalidFields.has("primaryDeviceId") ? "invalid" : ""} /></div>
-              <div className="field"><label>Sets in session</label><input type="number" min="1" step="1" placeholder="e.g. 6" value={setsInSession} onChange={(e) => { setSetsInSession(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("setsInSession"); return n; }); }} className={invalidFields.has("setsInSession") ? "invalid" : ""} /></div>
+              <div className="field" style={{ display: "none" }}><label>Trainer ID</label><input type="text" placeholder="e.g. TR-01" value={trainerId} onChange={(e) => { setTrainerId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("trainerId"); return n; }); }} className={invalidFields.has("trainerId") ? "invalid" : ""} /></div>
+              <div className="field" style={{ display: "none" }}><label>User ID</label><input type="text" placeholder="e.g. US-12" value={userId} onChange={(e) => { setUserId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("userId"); return n; }); }} className={invalidFields.has("userId") ? "invalid" : ""} /></div>
+              <div className="field"><label>Date<span className="req">*</span></label><input type="date" value={reviewDate} onChange={(e) => setReviewDate(e.target.value)} className={invalidFields.has("reviewDate") ? "invalid" : ""} /></div>
+              <div className="field"><label>Primary device<span className="req">*</span></label><input type="text" placeholder="e.g. DEV-03" value={primaryDeviceId} onChange={(e) => { setPrimaryDeviceId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("primaryDeviceId"); return n; }); }} className={invalidFields.has("primaryDeviceId") ? "invalid" : ""} /></div>
+              <div className="field"><label>Sets in session<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 6" value={setsInSession} onChange={(e) => { setSetsInSession(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("setsInSession"); return n; }); }} className={invalidFields.has("setsInSession") ? "invalid" : ""} /></div>
             </div>
           </section>
 
@@ -209,7 +207,7 @@ export default function UserPage() {
             </div>
             <div className="question-list">
               {USER_PERCEPTION_QUESTIONS.map((q) => (
-                <ScaleQuestion key={q.id} {...q} value={scales[q.id] ?? null} invalid={invalidFields.has(q.id)} onChange={handleScaleChange} />
+                <ScaleQuestion key={q.id} {...q} value={scales[q.id] ?? null} invalid={invalidFields.has(q.id)} onChange={handleScaleChange} required />
               ))}
             </div>
           </section>
@@ -222,7 +220,7 @@ export default function UserPage() {
             </div>
             <div className="question-list">
               {USER_VALUE_QUESTIONS.map((q) => (
-                <ScaleQuestion key={q.id} {...q} value={scales[q.id] ?? null} invalid={invalidFields.has(q.id)} onChange={handleScaleChange} />
+                <ScaleQuestion key={q.id} {...q} value={scales[q.id] ?? null} invalid={invalidFields.has(q.id)} onChange={handleScaleChange} required />
               ))}
             </div>
           </section>

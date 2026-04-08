@@ -164,17 +164,18 @@ export function PasswordGate({ onAuthenticated }: { onAuthenticated: (role: stri
    ═══════════════════════════════════════════════════════════ */
 
 export function ScaleQuestion({
-  id, label, text, low, mid, high, value, invalid, onChange,
+  id, label, text, low, mid, high, value, invalid, onChange, required,
 }: {
   id: string; label: string; text: string;
   low: string; mid: string; high: string;
   value: number | null; invalid: boolean;
   onChange: (id: string, val: number) => void;
+  required?: boolean;
 }) {
   return (
     <article className="question-card">
       <div className="question-head">
-        <h3>{label}</h3>
+        <h3>{label}{required && <span className="req">*</span>}</h3>
         <span className="selected-value">{value ? `${value}/5` : "1–5"}</span>
       </div>
       <p className="question-text">{text}</p>

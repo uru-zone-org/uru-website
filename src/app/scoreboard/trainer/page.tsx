@@ -96,8 +96,6 @@ export default function TrainerPage() {
 
   function validate() {
     const missing: string[] = [];
-    if (!trainerId.trim()) missing.push("Trainer ID");
-    if (!userId.trim()) missing.push("User ID");
     if (!sessionNumber) missing.push("Session number");
     if (!sessionDate) missing.push("Date");
     if (!deviceId.trim()) missing.push("Device ID");
@@ -214,14 +212,14 @@ export default function TrainerPage() {
               <p>Basic information for the analyzed set.</p>
             </div>
             <div className="form-grid form-grid-2">
-              <div className="field"><label>Trainer ID</label><input type="text" placeholder="e.g. TR-01" value={trainerId} onChange={(e) => setTrainerId(e.target.value)} /></div>
-              <div className="field"><label>User ID</label><input type="text" placeholder="e.g. US-12" value={userId} onChange={(e) => setUserId(e.target.value)} /></div>
-              <div className="field"><label>Session number</label><input type="number" min="1" step="1" placeholder="e.g. 3" value={sessionNumber} onChange={(e) => setSessionNumber(e.target.value)} /></div>
-              <div className="field"><label>Date</label><input type="date" value={sessionDate} onChange={(e) => setSessionDate(e.target.value)} /></div>
-              <div className="field"><label>Device ID</label><input type="text" placeholder="e.g. DEV-03" value={deviceId} onChange={(e) => setDeviceId(e.target.value)} /></div>
-              <div className="field"><label>Exercise</label><input type="text" placeholder="e.g. Squat" value={exercise} onChange={(e) => setExercise(e.target.value)} /></div>
-              <div className="field"><label>Load (kg)</label><input type="number" min="0" step="1" placeholder="e.g. 80" value={loadKg} onChange={(e) => setLoadKg(e.target.value)} /></div>
-              <div className="field"><label>Reps</label><input type="number" min="1" step="1" placeholder="e.g. 6" value={reps} onChange={(e) => setReps(e.target.value)} /></div>
+              <div className="field" style={{ display: "none" }}><label>Trainer ID</label><input type="text" placeholder="e.g. TR-01" value={trainerId} onChange={(e) => setTrainerId(e.target.value)} /></div>
+              <div className="field" style={{ display: "none" }}><label>User ID</label><input type="text" placeholder="e.g. US-12" value={userId} onChange={(e) => setUserId(e.target.value)} /></div>
+              <div className="field"><label>Session number<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 3" value={sessionNumber} onChange={(e) => setSessionNumber(e.target.value)} /></div>
+              <div className="field"><label>Date<span className="req">*</span></label><input type="date" value={sessionDate} onChange={(e) => setSessionDate(e.target.value)} /></div>
+              <div className="field"><label>Device ID<span className="req">*</span></label><input type="text" placeholder="e.g. DEV-03" value={deviceId} onChange={(e) => setDeviceId(e.target.value)} /></div>
+              <div className="field"><label>Exercise<span className="req">*</span></label><input type="text" placeholder="e.g. Squat" value={exercise} onChange={(e) => setExercise(e.target.value)} /></div>
+              <div className="field"><label>Load (kg)<span className="req">*</span></label><input type="number" min="0" step="1" placeholder="e.g. 80" value={loadKg} onChange={(e) => setLoadKg(e.target.value)} /></div>
+              <div className="field"><label>Reps<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 6" value={reps} onChange={(e) => setReps(e.target.value)} /></div>
             </div>
           </section>
 
@@ -233,7 +231,7 @@ export default function TrainerPage() {
             </div>
             <div className="card-grid card-grid-3">
               <article className="option-card">
-                <h3>Setup successful</h3>
+                <h3>Setup successful<span className="req">*</span></h3>
                 <p>Did setup work well enough to run the set?</p>
                 <div className="inline-options">
                   <label><input type="radio" name="setupSuccessful" checked={setupSuccessful === "1"} onChange={() => setSetupSuccessful("1")} /> Yes</label>
@@ -241,7 +239,7 @@ export default function TrainerPage() {
                 </div>
               </article>
               <article className="option-card">
-                <h3>Data captured</h3>
+                <h3>Data captured<span className="req">*</span></h3>
                 <p>Was usable set data captured?</p>
                 <div className="inline-options">
                   <label><input type="radio" name="dataCaptured" checked={dataCaptured === "1"} onChange={() => setDataCaptured("1")} /> Yes</label>
@@ -249,7 +247,7 @@ export default function TrainerPage() {
                 </div>
               </article>
               <article className="option-card">
-                <h3>Technical issue</h3>
+                <h3>Technical issue<span className="req">*</span></h3>
                 <p>Did a hardware, software, or workflow issue affect the set?</p>
                 <div className="inline-options">
                   <label><input type="radio" name="technicalIssue" checked={technicalIssue === "1"} onChange={() => setTechnicalIssue("1")} /> Yes</label>
@@ -319,13 +317,14 @@ export default function TrainerPage() {
               value={coachingValue}
               invalid={false}
               onChange={(_, val) => setCoachingValue(val)}
+              required
             />
           </section>
 
           {/* Next-set validation */}
           <section className="section">
             <div className="section-heading">
-              <h2>Next-set validation</h2>
+              <h2>Next-set validation<span className="req">*</span></h2>
               <p>Was the effect validated on the next set?</p>
             </div>
             <div className="option-card">
