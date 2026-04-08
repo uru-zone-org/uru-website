@@ -258,11 +258,11 @@ export default function HomePage() {
             <p className="uru-copy">
               URU is building the global standard for strength intelligence.
             </p>
-            <div className="uru-actions">
+            {/* <div className="uru-actions">
               <a className="uru-btn uru-btn-primary" href="#">
                 Join early access
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
