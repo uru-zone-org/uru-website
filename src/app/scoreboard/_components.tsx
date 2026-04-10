@@ -44,7 +44,7 @@ export interface TrainerRow {
   capture_success: number; technical_issue: number; coaching_value: number;
   revealed_something_new: number; behavior_change: number;
   confirmed_observation: number; validated_next_set: number;
-  observed_change_score: number;
+  observed_change_score: number; would_recommend: number;
   [key: string]: string | number;
 }
 
@@ -53,7 +53,7 @@ export interface UserRow {
   q1_reflection_accuracy: number; q2_trust: number; q3_training_impact: number;
   q4_integration: number; q5_awareness: number;
   immediate_perceived_score: number; session_value_score: number;
-  private_review: number;
+  private_review: number; would_recommend: number;
   [key: string]: string | number;
 }
 

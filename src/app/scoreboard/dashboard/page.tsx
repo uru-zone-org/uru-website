@@ -99,7 +99,8 @@ export default function DashboardPage() {
           Sets logged: {rows.length}<br />
           Capture success: {pctField(rows, "capture_success")}<br />
           Coaching value: {avgField(rows, "coaching_value")}<br />
-          Behavior change: {pctField(rows, "behavior_change")}
+          Behavior change: {pctField(rows, "behavior_change")}<br />
+          Would recommend: {pctField(rows, "would_recommend")}
         </div>
       ));
     }
@@ -113,7 +114,8 @@ export default function DashboardPage() {
           Reviews logged: {rows.length}<br />
           Q1–Q5 avg: {avgField(rows, "immediate_perceived_score")}<br />
           Session value: {avgField(rows, "session_value_score")}<br />
-          Private review rate: {pctField(rows, "private_review")}
+          Private review rate: {pctField(rows, "private_review")}<br />
+          Would recommend: {pctField(rows, "would_recommend")}
         </div>
       ));
     }
@@ -246,6 +248,8 @@ export default function DashboardPage() {
             <article className="summary-card"><span className="summary-label">Observed change score</span><strong>{avgField(filteredTrainer, "observed_change_score")}</strong><small>Average of confirmed, revealed, and changed decision</small></article>
             <article className="summary-card"><span className="summary-label">Private entry rate</span><strong>{pctField(filteredUser, "private_review")}</strong><small>Reviews completed privately</small></article>
             <article className="summary-card"><span className="summary-label">Next-set validation rate</span><strong>{pctField(filteredTrainer, "validated_next_set")}</strong><small>Effect validated on the next set</small></article>
+            <article className="summary-card"><span className="summary-label">Trainer would recommend</span><strong>{pctField(filteredTrainer, "would_recommend")}</strong><small>Trainers who would recommend URU</small></article>
+            <article className="summary-card"><span className="summary-label">User would recommend</span><strong>{pctField(filteredUser, "would_recommend")}</strong><small>Users who would recommend URU</small></article>
           </div>
         </section>
 
