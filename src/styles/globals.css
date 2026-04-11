@@ -373,9 +373,8 @@ a {
 
 .uru-title {
   margin: 18px 0 0;
-  max-width: 12ch;
   font-family: "Transducer", sans-serif;
-  font-size: clamp(2.9rem, 7vw, 6.6rem);
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
   line-height: 0.95;
   letter-spacing: -0.055em;
   font-weight: 500;
@@ -512,7 +511,7 @@ a {
 
 #category .uru-panel,
 #product .uru-panel {
-  max-width: 700px;
+  max-width: 860px;
 }
 
 #problem .uru-overlay,
@@ -558,10 +557,6 @@ a {
     height: 28vh;
   }
 
-  .uru-title {
-    max-width: 10ch;
-  }
-
   .uru-panel-wide {
     max-width: 100%;
   }
@@ -577,7 +572,8 @@ a {
   }
 
   .uru-title {
-    font-size: clamp(2.5rem, 14vw, 4.8rem);
+    font-size: clamp(2rem, 9vw, 3.2rem);
+    max-width: 100%;
   }
 
   .uru-copy {
