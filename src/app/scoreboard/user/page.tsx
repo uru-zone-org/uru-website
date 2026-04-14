@@ -17,7 +17,6 @@ export default function UserPage() {
   const [trainerId, setTrainerId] = useState("");
   const [userId, setUserId] = useState("");
   const [reviewDate, setReviewDate] = useState("");
-  const [primaryDeviceId, setPrimaryDeviceId] = useState("");
   const [setsInSession, setSetsInSession] = useState("");
 
   const [scales, setScales] = useState<ScaleValues>({});
@@ -62,7 +61,6 @@ export default function UserPage() {
       trainer_id: trainerId.trim(),
       user_id: userId.trim(),
       date: reviewDate,
-      primary_device_id: primaryDeviceId.trim(),
       sets_in_session: setsInSession,
       q1_reflection_accuracy: scales["q1ReflectionAccuracy"] ?? null,
       q2_trust: scales["q2Trust"] ?? null,
@@ -71,7 +69,6 @@ export default function UserPage() {
       q5_awareness: scales["q5Awareness"] ?? null,
       overall_session_value: scales["overallSessionValue"] ?? null,
       would_use_again: scales["wouldUseAgain"] ?? null,
-      confidence_to_apply_again: scales["confidenceToApplyAgain"] ?? null,
       biggest_friction: biggestFriction.trim(),
       most_useful_feedback: mostUsefulFeedback.trim(),
       session_notes: sessionNotes.trim(),
@@ -85,7 +82,6 @@ export default function UserPage() {
   function validate(): boolean {
     const inv = new Set<string>();
     if (!reviewDate) inv.add("reviewDate");
-    if (!primaryDeviceId.trim()) inv.add("primaryDeviceId");
     if (!setsInSession || Number(setsInSession) < 1) inv.add("setsInSession");
     for (const id of allScaleIds) {
       if (!scales[id]) inv.add(id);
@@ -111,7 +107,6 @@ export default function UserPage() {
       if (d.trainer_id) setTrainerId(d.trainer_id);
       if (d.user_id) setUserId(d.user_id);
       if (d.date) setReviewDate(d.date);
-      if (d.primary_device_id) setPrimaryDeviceId(d.primary_device_id);
       if (d.sets_in_session) setSetsInSession(d.sets_in_session);
       if (d.biggest_friction) setBiggestFriction(d.biggest_friction);
       if (d.most_useful_feedback) setMostUsefulFeedback(d.most_useful_feedback);
@@ -127,7 +122,6 @@ export default function UserPage() {
       if (d.q5_awareness) su["q5Awareness"] = d.q5_awareness;
       if (d.overall_session_value) su["overallSessionValue"] = d.overall_session_value;
       if (d.would_use_again) su["wouldUseAgain"] = d.would_use_again;
-      if (d.confidence_to_apply_again) su["confidenceToApplyAgain"] = d.confidence_to_apply_again;
       setScales(su);
       setMessage("Draft loaded.");
     } catch {
@@ -138,7 +132,7 @@ export default function UserPage() {
   function resetForm() {
     setTrainerId(""); setUserId("");
     setReviewDate(new Date().toISOString().split("T")[0]);
-    setPrimaryDeviceId(""); setSetsInSession("");
+    setSetsInSession("");
     setScales({}); setBiggestFriction("");
     setMostUsefulFeedback(""); setSessionNotes("");
     setPrivateReview(false); setWouldRecommend(null); setInvalidFields(new Set());
@@ -197,7 +191,6 @@ export default function UserPage() {
               <div className="field" style={{ display: "none" }}><label>Trainer ID</label><input type="text" placeholder="e.g. TR-01" value={trainerId} onChange={(e) => { setTrainerId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("trainerId"); return n; }); }} className={invalidFields.has("trainerId") ? "invalid" : ""} /></div>
               <div className="field" style={{ display: "none" }}><label>User ID</label><input type="text" placeholder="e.g. US-12" value={userId} onChange={(e) => { setUserId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("userId"); return n; }); }} className={invalidFields.has("userId") ? "invalid" : ""} /></div>
               <div className="field"><label>Date<span className="req">*</span></label><input type="date" value={reviewDate} onChange={(e) => setReviewDate(e.target.value)} className={invalidFields.has("reviewDate") ? "invalid" : ""} /></div>
-              <div className="field"><label>Primary device<span className="req">*</span></label><input type="text" placeholder="e.g. DEV-03" value={primaryDeviceId} onChange={(e) => { setPrimaryDeviceId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("primaryDeviceId"); return n; }); }} className={invalidFields.has("primaryDeviceId") ? "invalid" : ""} /></div>
               <div className="field"><label>Sets in session<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 6" value={setsInSession} onChange={(e) => { setSetsInSession(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("setsInSession"); return n; }); }} className={invalidFields.has("setsInSession") ? "invalid" : ""} /></div>
             </div>
           </section>

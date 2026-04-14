@@ -21,7 +21,6 @@ export const USER_PERCEPTION_QUESTIONS = [
 export const USER_VALUE_QUESTIONS = [
   { id: "overallSessionValue", label: "Overall session value", text: "How valuable was this session overall?", low: "Low", mid: "Moderate", high: "High" },
   { id: "wouldUseAgain", label: "Would use again", text: "Would you train with this again?", low: "Definitely not", mid: "Maybe", high: "Definitely yes" },
-  { id: "confidenceToApplyAgain", label: "Confidence to apply again", text: "How confident are you that you could apply this again?", low: "Not confident", mid: "Somewhat", high: "Very confident" },
 ];
 
 export const DECISION_CHANGE_OPTIONS = [

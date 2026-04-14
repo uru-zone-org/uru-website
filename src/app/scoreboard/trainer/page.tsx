@@ -17,10 +17,7 @@ export default function TrainerPage() {
   const [userId, setUserId] = useState("");
   const [sessionNumber, setSessionNumber] = useState("");
   const [sessionDate, setSessionDate] = useState("");
-  const [deviceId, setDeviceId] = useState("");
-  const [exercise, setExercise] = useState("");
-  const [loadKg, setLoadKg] = useState("");
-  const [reps, setReps] = useState("");
+  const [sets, setSets] = useState("");
 
   const [setupSuccessful, setSetupSuccessful] = useState<string | null>(null);
   const [dataCaptured, setDataCaptured] = useState<string | null>(null);
@@ -74,10 +71,7 @@ export default function TrainerPage() {
       user_id: userId.trim(),
       session_number: sessionNumber,
       date: sessionDate,
-      device_id: deviceId.trim(),
-      exercise: exercise.trim(),
-      load_kg: loadKg,
-      reps,
+      sets: sets,
       setup_successful: setupSuccessful,
       data_captured: dataCaptured,
       technical_issue: technicalIssue,
@@ -100,10 +94,7 @@ export default function TrainerPage() {
     const missing: string[] = [];
     if (!sessionNumber) missing.push("Session number");
     if (!sessionDate) missing.push("Date");
-    if (!deviceId.trim()) missing.push("Device ID");
-    if (!exercise.trim()) missing.push("Exercise");
-    if (loadKg === "") missing.push("Load");
-    if (!reps) missing.push("Reps");
+    if (!sets || Number(sets) < 1) missing.push("Sets");
     if (setupSuccessful === null) missing.push("Setup successful");
     if (dataCaptured === null) missing.push("Data captured");
     if (technicalIssue === null) missing.push("Technical issue");
@@ -126,10 +117,7 @@ export default function TrainerPage() {
       if (d.user_id) setUserId(d.user_id);
       if (d.session_number) setSessionNumber(d.session_number);
       if (d.date) setSessionDate(d.date);
-      if (d.device_id) setDeviceId(d.device_id);
-      if (d.exercise) setExercise(d.exercise);
-      if (d.load_kg) setLoadKg(d.load_kg);
-      if (d.reps) setReps(d.reps);
+      if (d.sets) setSets(d.sets);
       if (d.setup_successful !== null && d.setup_successful !== undefined) setSetupSuccessful(String(d.setup_successful));
       if (d.data_captured !== null && d.data_captured !== undefined) setDataCaptured(String(d.data_captured));
       if (d.technical_issue !== null && d.technical_issue !== undefined) setTechnicalIssue(String(d.technical_issue));
@@ -154,7 +142,7 @@ export default function TrainerPage() {
   function resetForm() {
     setTrainerId(""); setUserId(""); setSessionNumber("");
     setSessionDate(new Date().toISOString().split("T")[0]);
-    setDeviceId(""); setExercise(""); setLoadKg(""); setReps("");
+    setSets("");
     setSetupSuccessful(null); setDataCaptured(null); setTechnicalIssue(null);
     setIssueCategory(""); setConfirmedObservation(false);
     setRevealedSomethingNew(false); setBehaviorChange(false);
@@ -211,18 +199,15 @@ export default function TrainerPage() {
           {/* Set context */}
           <section className="section">
             <div className="section-heading">
-              <h2>Set context</h2>
-              <p>Basic information for the analyzed set.</p>
+              <h2>Session Context</h2>
+              <p>Basic information for the analyzed session.</p>
             </div>
             <div className="form-grid form-grid-2">
               <div className="field" style={{ display: "none" }}><label>Trainer ID</label><input type="text" placeholder="e.g. TR-01" value={trainerId} onChange={(e) => setTrainerId(e.target.value)} /></div>
               <div className="field" style={{ display: "none" }}><label>User ID</label><input type="text" placeholder="e.g. US-12" value={userId} onChange={(e) => setUserId(e.target.value)} /></div>
               <div className="field"><label>Session number<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 3" value={sessionNumber} onChange={(e) => setSessionNumber(e.target.value)} /></div>
               <div className="field"><label>Date<span className="req">*</span></label><input type="date" value={sessionDate} onChange={(e) => setSessionDate(e.target.value)} /></div>
-              <div className="field"><label>Device ID<span className="req">*</span></label><input type="text" placeholder="e.g. DEV-03" value={deviceId} onChange={(e) => setDeviceId(e.target.value)} /></div>
-              <div className="field"><label>Exercise<span className="req">*</span></label><input type="text" placeholder="e.g. Squat" value={exercise} onChange={(e) => setExercise(e.target.value)} /></div>
-              <div className="field"><label>Load (kg)<span className="req">*</span></label><input type="number" min="0" step="1" placeholder="e.g. 80" value={loadKg} onChange={(e) => setLoadKg(e.target.value)} /></div>
-              <div className="field"><label>Reps<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 6" value={reps} onChange={(e) => setReps(e.target.value)} /></div>
+              <div className="field"><label>Sets<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 6" value={sets} onChange={(e) => setSets(e.target.value)} /></div>
             </div>
           </section>
 

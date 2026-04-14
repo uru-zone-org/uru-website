@@ -4,31 +4,21 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   GOOGLE_SCRIPT_URL,
-  uniqueCount,
-  includesIC,
   avgField,
   pctField,
-  groupBy,
   type TrainerRow,
   type UserRow,
 } from "../_components";
 import { useAuth } from "../_auth-provider";
 import "../../../styles/feedback.css";
 
-type SummaryTab = "trainer" | "user" | "device" | "exercise";
-
 export default function DashboardPage() {
   const role = useAuth();
   const [trainerRows, setTrainerRows] = useState<TrainerRow[]>([]);
   const [userRows, setUserRows] = useState<UserRow[]>([]);
-  const [activeTab, setActiveTab] = useState<SummaryTab>("trainer");
   const [message, setMessage] = useState("Loading scoreboard...");
 
   const [dateRange, setDateRange] = useState("");
-  const [trainerFilter, setTrainerFilter] = useState("");
-  const [userFilter, setUserFilter] = useState("");
-  const [deviceFilter, setDeviceFilter] = useState("");
-  const [exerciseFilter, setExerciseFilter] = useState("");
 
   useEffect(() => {
     refreshScoreboard();
@@ -75,83 +65,12 @@ export default function DashboardPage() {
     }
   }
 
-  const filteredTrainer = trainerRows.filter((r) =>
-    (!trainerFilter || includesIC(r.trainer_id, trainerFilter)) &&
-    (!userFilter || includesIC(r.user_id, userFilter)) &&
-    (!deviceFilter || includesIC(r.device_id, deviceFilter)) &&
-    (!exerciseFilter || includesIC(r.exercise, exerciseFilter))
-  );
-
-  const filteredUser = userRows.filter((r) =>
-    (!trainerFilter || includesIC(r.trainer_id, trainerFilter)) &&
-    (!userFilter || includesIC(r.user_id, userFilter)) &&
-    (!deviceFilter || includesIC(r.primary_device_id, deviceFilter))
-  );
-
-  function renderSummaryContent() {
-    if (activeTab === "trainer") {
-      const grouped = groupBy(filteredTrainer, "trainer_id");
-      const entries = Object.entries(grouped).sort((a, b) => a[0].localeCompare(b[0]));
-      if (!entries.length) return <p>No data available for this view.</p>;
-      return entries.map(([key, rows]) => (
-        <div key={key} className="summary-block">
-          <strong>{key || "Unknown trainer"}</strong><br />
-          Sets logged: {rows.length}<br />
-          Capture success: {pctField(rows, "capture_success")}<br />
-          Coaching value: {avgField(rows, "coaching_value")}<br />
-          Behavior change: {pctField(rows, "behavior_change")}<br />
-          Would recommend: {pctField(rows, "would_recommend")}
-        </div>
-      ));
-    }
-    if (activeTab === "user") {
-      const grouped = groupBy(filteredUser, "user_id");
-      const entries = Object.entries(grouped).sort((a, b) => a[0].localeCompare(b[0]));
-      if (!entries.length) return <p>No data available for this view.</p>;
-      return entries.map(([key, rows]) => (
-        <div key={key} className="summary-block">
-          <strong>{key || "Unknown user"}</strong><br />
-          Reviews logged: {rows.length}<br />
-          Q1–Q5 avg: {avgField(rows, "immediate_perceived_score")}<br />
-          Session value: {avgField(rows, "session_value_score")}<br />
-          Private review rate: {pctField(rows, "private_review")}<br />
-          Would recommend: {pctField(rows, "would_recommend")}
-        </div>
-      ));
-    }
-    if (activeTab === "device") {
-      const grouped = groupBy(filteredTrainer, "device_id");
-      const entries = Object.entries(grouped).sort((a, b) => a[0].localeCompare(b[0]));
-      if (!entries.length) return <p>No data available for this view.</p>;
-      return entries.map(([key, rows]) => (
-        <div key={key} className="summary-block">
-          <strong>{key || "Unknown device"}</strong><br />
-          Sets logged: {rows.length}<br />
-          Capture success: {pctField(rows, "capture_success")}<br />
-          Technical issues: {pctField(rows, "technical_issue")}<br />
-          Coaching value: {avgField(rows, "coaching_value")}
-        </div>
-      ));
-    }
-    // exercise
-    const grouped = groupBy(filteredTrainer, "exercise");
-    const entries = Object.entries(grouped).sort((a, b) => a[0].localeCompare(b[0]));
-    if (!entries.length) return <p>No data available for this view.</p>;
-    return entries.map(([key, rows]) => (
-      <div key={key} className="summary-block">
-        <strong>{key || "Unknown exercise"}</strong><br />
-        Sets logged: {rows.length}<br />
-        Capture success: {pctField(rows, "capture_success")}<br />
-        Coaching value: {avgField(rows, "coaching_value")}<br />
-        Revealed something new: {pctField(rows, "revealed_something_new")}
-      </div>
-    ));
-  }
+  const filteredTrainer = trainerRows;
+  const filteredUser = userRows;
 
   function exportScoreboard() {
     const payload = {
-      filters: { dateRange, trainer: trainerFilter, user: userFilter, device: deviceFilter, exercise: exerciseFilter },
-      activeSummaryTab: activeTab,
+      filters: { dateRange },
       trainerRows: filteredTrainer,
       userRows: filteredUser,
       exportedAt: new Date().toISOString(),
@@ -184,10 +103,6 @@ export default function DashboardPage() {
           </div>
           <div className="form-grid form-grid-2">
             <div className="field"><label>Date range</label><input type="text" placeholder="e.g. Jan 1 — Jan 31" value={dateRange} onChange={(e) => setDateRange(e.target.value)} /></div>
-            <div className="field"><label>Trainer</label><input type="text" placeholder="All trainers" value={trainerFilter} onChange={(e) => setTrainerFilter(e.target.value)} /></div>
-            <div className="field"><label>User / tester</label><input type="text" placeholder="All users" value={userFilter} onChange={(e) => setUserFilter(e.target.value)} /></div>
-            <div className="field"><label>Device</label><input type="text" placeholder="All devices" value={deviceFilter} onChange={(e) => setDeviceFilter(e.target.value)} /></div>
-            <div className="field"><label>Exercise</label><input type="text" placeholder="All exercises" value={exerciseFilter} onChange={(e) => setExerciseFilter(e.target.value)} /></div>
           </div>
         </section>
 
@@ -197,11 +112,9 @@ export default function DashboardPage() {
             <h2>Headline metrics</h2>
             <p>Top-level indicators for beta activity, quality, and value.</p>
           </div>
-          <div className="summary-grid summary-grid-4">
-            <article className="summary-card"><span className="summary-label">Trainers active</span><strong>{uniqueCount(filteredTrainer, "trainer_id")}</strong><small>Unique trainers logging sets</small></article>
-            <article className="summary-card"><span className="summary-label">Users tested</span><strong>{uniqueCount(filteredUser, "user_id")}</strong><small>Unique users in completed sessions</small></article>
-            <article className="summary-card"><span className="summary-label">Devices used</span><strong>{uniqueCount(filteredTrainer, "device_id")}</strong><small>Unique devices recorded</small></article>
-            <article className="summary-card"><span className="summary-label">Total analyzed sets</span><strong>{filteredTrainer.length}</strong><small>All logged trainer set rows</small></article>
+          <div className="summary-grid summary-grid-2">
+            <article className="summary-card"><span className="summary-label">Trainer sets logged</span><strong>{filteredTrainer.length}</strong><small>All logged trainer set rows</small></article>
+            <article className="summary-card"><span className="summary-label">User sessions logged</span><strong>{filteredUser.length}</strong><small>All logged user session reviews</small></article>
           </div>
         </section>
 
@@ -253,26 +166,6 @@ export default function DashboardPage() {
           </div>
         </section>
 
-        {/* Dimension summaries */}
-        <section className="section">
-          <div className="section-heading">
-            <h2>Dimension summaries</h2>
-            <p>Compare performance by trainer, user, device, and exercise.</p>
-          </div>
-          <div className="tab-row">
-            {(["trainer", "user", "device", "exercise"] as SummaryTab[]).map((tab) => (
-              <button key={tab} type="button" className={`tab-btn${activeTab === tab ? " active" : ""}`} onClick={() => setActiveTab(tab)}>
-                {tab.charAt(0).toUpperCase() + tab.slice(1)} summary
-              </button>
-            ))}
-          </div>
-          <div className="table-card top-gap">
-            <div className="table-placeholder">
-              <h3>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} summary</h3>
-              {renderSummaryContent()}
-            </div>
-          </div>
-        </section>
 
         {/* Insights & exceptions */}
         <section className="section">
@@ -291,7 +184,7 @@ export default function DashboardPage() {
         <section className="section action-row">
           <button type="button" className="primary-btn" onClick={refreshScoreboard}>Refresh scoreboard</button>
           <button type="button" className="secondary-btn" onClick={exportScoreboard}>Export</button>
-          <button type="button" className="ghost-btn" onClick={() => { setDateRange(""); setTrainerFilter(""); setUserFilter(""); setDeviceFilter(""); setExerciseFilter(""); setMessage("Filters reset."); }}>Reset filters</button>
+          <button type="button" className="ghost-btn" onClick={() => { setDateRange(""); setMessage("Filters reset."); }}>Reset filters</button>
         </section>
 
         {message && <div className="page-message">{message}</div>}
