@@ -7,7 +7,7 @@ import { useState } from "react";
    ═══════════════════════════════════════════════════════════ */
 
 export const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbznM9fTzwGMaF4kmDeAhfzq8A0puhkk756ZQKNVIJ2LqXVd4wodIKEWz9tHSHesJqGHAA/exec";
+  "https://script.google.com/macros/s/AKfycbzfjhHbsACOsBx2Xes1ArDeFYeS9o97G6U2VKXP9EIfoMw3RjHseRZNkQJmFiza-iqd/exec";
 
 /* ─── User scale questions ─── */
 export const USER_PERCEPTION_QUESTIONS = [
