@@ -33,6 +33,10 @@ export default function TrainerPage() {
   const [validatedNextSet, setValidatedNextSet] = useState<string | null>(null);
   const [wouldRecommend, setWouldRecommend] = useState<string | null>(null);
 
+  const [gender, setGender] = useState("");
+  const [bodyweight, setBodyweight] = useState("");
+  const [age, setAge] = useState("");
+
   const [quickScript, setQuickScript] = useState("");
   const [trainerNotes, setTrainerNotes] = useState("");
 
@@ -85,6 +89,9 @@ export default function TrainerPage() {
       would_recommend: wouldRecommend,
       capture_success: captureSuccess,
       observed_change_score: observedChangeScore ? Number(observedChangeScore) : null,
+      gender: gender.trim(),
+      bodyweight: bodyweight !== "" ? Number(bodyweight) : null,
+      age: age !== "" ? Number(age) : null,
       quick_script: quickScript.trim(),
       trainer_notes: trainerNotes.trim(),
     };
@@ -131,6 +138,9 @@ export default function TrainerPage() {
       if (d.coaching_value !== null && d.coaching_value !== undefined) setCoachingValue(Number(d.coaching_value));
       if (d.validated_next_set !== null && d.validated_next_set !== undefined) setValidatedNextSet(String(d.validated_next_set));
       if (d.would_recommend !== null && d.would_recommend !== undefined) setWouldRecommend(String(d.would_recommend));
+      if (d.gender) setGender(d.gender);
+      if (d.bodyweight !== null && d.bodyweight !== undefined) setBodyweight(String(d.bodyweight));
+      if (d.age !== null && d.age !== undefined) setAge(String(d.age));
       if (d.quick_script) setQuickScript(d.quick_script);
       if (d.trainer_notes) setTrainerNotes(d.trainer_notes);
       setMessage("Draft loaded.");
@@ -147,7 +157,7 @@ export default function TrainerPage() {
     setIssueCategory(""); setConfirmedObservation(false);
     setRevealedSomethingNew(false); setBehaviorChange(false);
     setDecisionChanges(new Set()); setCoachingValue(null);
-    setValidatedNextSet(null); setWouldRecommend(null); setQuickScript(""); setTrainerNotes("");
+    setValidatedNextSet(null); setWouldRecommend(null); setGender(""); setBodyweight(""); setAge(""); setQuickScript(""); setTrainerNotes("");
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -205,6 +215,19 @@ export default function TrainerPage() {
             <div className="form-grid form-grid-2">
               <div className="field" style={{ display: "none" }}><label>Trainer ID</label><input type="text" placeholder="e.g. TR-01" value={trainerId} onChange={(e) => setTrainerId(e.target.value)} /></div>
               <div className="field" style={{ display: "none" }}><label>User ID</label><input type="text" placeholder="e.g. US-12" value={userId} onChange={(e) => setUserId(e.target.value)} /></div>
+              <div className="field">
+                <label>Gender</label>
+                <div className="chip-group">
+                  {["Male", "Female", "Other"].map((opt) => (
+                    <label key={opt} className="chip-option">
+                      <input type="radio" name="gender" checked={gender === opt.toLowerCase()} onChange={() => setGender(opt.toLowerCase())} />
+                      <span>{opt}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div className="field"><label>Bodyweight (kg)</label><input type="number" min="0" step="0.5" placeholder="e.g. 80" value={bodyweight} onChange={(e) => setBodyweight(e.target.value)} /></div>
+              <div className="field"><label>Age</label><input type="number" min="1" step="1" placeholder="e.g. 28" value={age} onChange={(e) => setAge(e.target.value)} /></div>
               <div className="field"><label>Session number<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 3" value={sessionNumber} onChange={(e) => setSessionNumber(e.target.value)} /></div>
               <div className="field"><label>Date<span className="req">*</span></label><input type="date" value={sessionDate} onChange={(e) => setSessionDate(e.target.value)} /></div>
               <div className="field"><label>Sets<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 6" value={sets} onChange={(e) => setSets(e.target.value)} /></div>

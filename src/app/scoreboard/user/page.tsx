@@ -26,6 +26,10 @@ export default function UserPage() {
   const [privateReview, setPrivateReview] = useState(false);
   const [wouldRecommend, setWouldRecommend] = useState<string | null>(null);
 
+  const [gender, setGender] = useState("");
+  const [bodyweight, setBodyweight] = useState("");
+  const [age, setAge] = useState("");
+
   const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -69,6 +73,9 @@ export default function UserPage() {
       q5_awareness: scales["q5Awareness"] ?? null,
       overall_session_value: scales["overallSessionValue"] ?? null,
       would_use_again: scales["wouldUseAgain"] ?? null,
+      gender: gender.trim(),
+      bodyweight: bodyweight !== "" ? Number(bodyweight) : null,
+      age: age !== "" ? Number(age) : null,
       biggest_friction: biggestFriction.trim(),
       most_useful_feedback: mostUsefulFeedback.trim(),
       session_notes: sessionNotes.trim(),
@@ -108,6 +115,9 @@ export default function UserPage() {
       if (d.user_id) setUserId(d.user_id);
       if (d.date) setReviewDate(d.date);
       if (d.sets_in_session) setSetsInSession(d.sets_in_session);
+      if (d.gender) setGender(d.gender);
+      if (d.bodyweight !== null && d.bodyweight !== undefined) setBodyweight(String(d.bodyweight));
+      if (d.age !== null && d.age !== undefined) setAge(String(d.age));
       if (d.biggest_friction) setBiggestFriction(d.biggest_friction);
       if (d.most_useful_feedback) setMostUsefulFeedback(d.most_useful_feedback);
       if (d.session_notes) setSessionNotes(d.session_notes);
@@ -135,6 +145,7 @@ export default function UserPage() {
     setSetsInSession("");
     setScales({}); setBiggestFriction("");
     setMostUsefulFeedback(""); setSessionNotes("");
+    setGender(""); setBodyweight(""); setAge("");
     setPrivateReview(false); setWouldRecommend(null); setInvalidFields(new Set());
   }
 
@@ -190,6 +201,19 @@ export default function UserPage() {
             <div className="form-grid form-grid-2">
               <div className="field" style={{ display: "none" }}><label>Trainer ID</label><input type="text" placeholder="e.g. TR-01" value={trainerId} onChange={(e) => { setTrainerId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("trainerId"); return n; }); }} className={invalidFields.has("trainerId") ? "invalid" : ""} /></div>
               <div className="field" style={{ display: "none" }}><label>User ID</label><input type="text" placeholder="e.g. US-12" value={userId} onChange={(e) => { setUserId(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("userId"); return n; }); }} className={invalidFields.has("userId") ? "invalid" : ""} /></div>
+              <div className="field">
+                <label>Gender</label>
+                <div className="chip-group">
+                  {["Male", "Female", "Other"].map((opt) => (
+                    <label key={opt} className="chip-option">
+                      <input type="radio" name="gender" checked={gender === opt.toLowerCase()} onChange={() => setGender(opt.toLowerCase())} />
+                      <span>{opt}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div className="field"><label>Bodyweight (kg)</label><input type="number" min="0" step="0.5" placeholder="e.g. 80" value={bodyweight} onChange={(e) => setBodyweight(e.target.value)} /></div>
+              <div className="field"><label>Age</label><input type="number" min="1" step="1" placeholder="e.g. 28" value={age} onChange={(e) => setAge(e.target.value)} /></div>
               <div className="field"><label>Date<span className="req">*</span></label><input type="date" value={reviewDate} onChange={(e) => setReviewDate(e.target.value)} className={invalidFields.has("reviewDate") ? "invalid" : ""} /></div>
               <div className="field"><label>Sets in session<span className="req">*</span></label><input type="number" min="1" step="1" placeholder="e.g. 6" value={setsInSession} onChange={(e) => { setSetsInSession(e.target.value); setInvalidFields((p) => { const n = new Set(p); n.delete("setsInSession"); return n; }); }} className={invalidFields.has("setsInSession") ? "invalid" : ""} /></div>
             </div>
